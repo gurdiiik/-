@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест по биологии</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .question {
+            margin-bottom: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .options {
+            margin-left: 20px;
+        }
+        .explanation {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e6f7ff;
+            border-radius: 5px;
+            display: none;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        .correct {
+            background-color: #d4edda;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Тест по биологии: Признаки живого и уровни организации</h1>
+    
+    <h2>Часть 1: Признаки живого</h2>
+    
+    <div class="question">
+        <p><strong>1. Какой признак живого демонстрирует миграция стрижей в ответ на сокращение светового дня?</strong></p>
+        <div class="options">
+            <label><input type="radio" name="q1" value="a"> Раздражимость</label><br>
+            <label><input type="radio" name="q1" value="b"> Обмен веществ</label><br>
+            <label><input type="radio" name="q1" value="c"> Размножение</label><br>
+            <label><input type="radio" name="q1" value="d"> Рост</label>
+        </div>
+        <button onclick="showExplanation('expl1')">Показать объяснение</button>
+        <div id="expl1" class="explanation">
+            <p><strong>Правильный ответ:</strong> Раздражимость</p>
+            <p><strong>Объяснение:</strong> Миграция в ответ на изменение светового дня - это пример реакции организма на изменения окружающей среды, что является проявлением раздражимости - одного из основных свойств живых организмов.</p>
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>2. Какой признак живого демонстрирует образование эндогенной воды при окислении жиров из горбов верблюда?</strong></p>
+        <div class="options">
+            <label><input type="radio" name="q2" value="a"> Обмен веществ</label><br>
+            <label><input type="radio" name="q2" value="b"> Размножение</label><br>
+            <label><input type="radio" name="q2" value="c"> Развитие</label><br>
+            <label><input type="radio" name="q2" value="d"> Наследственность</label>
+        </div>
+        <button onclick="showExplanation('expl2')">Показать объяснение</button>
+        <div id="expl2" class="explanation">
+            <p><strong>Правильный ответ:</strong> Обмен веществ</p>
+            <p><strong>Объяснение:</strong> Образование воды при окислении жиров - это биохимический процесс, который является частью обмена веществ (метаболизма) - одного из основных признаков живого.</p>
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>3. Какой признак живого демонстрирует образование чешуи крыльев бабочки во время метаморфоза?</strong></p>
+        <div class="options">
+            <label><input type="radio" name="q3" value="a"> Размножение</label><br>
+            <label><input type="radio" name="q3" value="b"> Развитие</label><br>
+            <label><input type="radio" name="q3" value="c"> Наследственность</label><br>
+            <label><input type="radio" name="q3" value="d"> Раздражимость</label>
+        </div>
+        <button onclick="showExplanation('expl3')">Показать объяснение</button>
+        <div id="expl3" class="explanation">
+            <p><strong>Правильный ответ:</strong> Развитие</p>
+            <p><strong>Объяснение:</strong> Метаморфоз бабочки с образованием чешуи крыльев - это процесс индивидуального развития организма (онтогенеза), который является одним из признаков живого.</p>
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>4. Какой признак живого демонстрирует поддержание постоянного значения рН в организме за счет работы буферных систем?</strong></p>
+        <div class="options">
+            <label><input type="radio" name="q4" value="a"> Гомеостаз</label><br>
+            <label><input type="radio" name="q4" value="b"> Размножение</label><br>
+            <label><input type="radio" name="q4" value="c"> Рост</label><br>
+            <label><input type="radio" name="q4" value="d"> Раздражимость</label>
+        </div>
+        <button onclick="showExplanation('expl4')">Показать объяснение</button>
+        <div id="expl4" class="explanation">
+            <p><strong>Правильный ответ:</strong> Гомеостаз</p>
+            <p><strong>Объяснение:</strong> Поддержание постоянства внутренней среды (в данном случае - рН) называется гомеостазом и является важным свойством живых организмов.</p>
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>5. Какой признак живого демонстрирует образование углекислого газа и воды в результате полного окисления глюкозы?</strong></p>
+        <div class="options">
+            <label><input type="radio" name="q5" value="a"> Обмен веществ</label><br>
+            <label><input type="radio" name="q5" value="b"> Размножение</label><br>
+            <label><input type="radio" name="q5" value="c"> Развитие</label><br>
+            <label><input type="radio" name="q5" value="d"> Наследственность</label>
+        </div>
+        <button onclick="showExplanation('expl5')">Показать объяснение</button>
+        <div id="expl5" class="explanation">
+            <p><strong>Правильный ответ:</strong> Обмен веществ</p>
+            <p><strong>Объяснение:</strong> Окисление глюкозы с образованием CO2 и H2O - это процесс клеточного дыхания, который является частью энергетического обмена веществ в организме.</p>
+        </div>
+    </div>
+    
+    <h2>Часть 2: Уровни организации живого</h2>
+    
+    <div class="question">
+        <p><strong>6. Какой уровень организации живого представляют белки и нуклеиновые кислоты?</strong></p>
+        <div class="options">
+            <label><input type="radio" name="q6" value="a"> Молекулярный</label><br>
+            <label><input type="radio" name="q6" value="b"> Клеточный</label><br>
+            <label><input type="radio" name="q6" value="c"> Тканевый</label><br>
+            <label><input type="radio" name="q6" value="d"> Органный</label>
+        </div>
+        <button onclick="showExplanation('expl6')">Показать объяснение</button>
+        <div id="expl6" class="explanation">
+            <p><strong>Правильный ответ:</strong> Молекулярный</p>
+            <p><strong>Объяснение:</strong> Белки и нуклеиновые кислоты - это биологические макромолекулы, поэтому они относятся к молекулярному уровню организации живого.</p>
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>7. Какой уровень организации живого представляет кооперация копытных млекопитающих и воловых птиц?</strong></p>
+        <div class="options">
+            <label><input type="radio" name="q7" value="a"> Организменный</label><br>
+            <label><input type="radio" name="q7" value="b"> Популяционно-видовой</label><br>
+            <label><input type="radio" name="q7" value="c"> Экосистемный</label><br>
+            <label><input type="radio" name="q7" value="d"> Биосферный</label>
+        </div>
+        <button onclick="showExplanation('expl7')">Показать объяснение</button>
+        <div id="expl7" class="explanation">
+            <p><strong>Правильный ответ:</strong> Экосистемный</p>
+            <p><strong>Объяснение:</strong> Взаимодействие разных видов (копытных и птиц) относится к экосистемному уровню организации, так как представляет собой межвидовые отношения в экосистеме.</p>
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>8. Какой уровень организации живого представляет биогенная миграция атомов?</strong></p>
+        <div class="options">
+            <label><input type="radio" name="q8" value="a"> Популяционно-видовой</label><br>
+            <label><input type="radio" name="q8" value="b"> Экосистемный</label><br>
+            <label><input type="radio" name="q8" value="c"> Биосферный</label><br>
+            <label><input type="radio" name="q8" value="d"> Организменный</label>
+        </div>
+        <button onclick="showExplanation('expl8')">Показать объяснение</button>
+        <div id="expl8" class="explanation">
+            <p><strong>Правильный ответ:</strong> Биосферный</p>
+            <p><strong>Объяснение:</strong> Биогенная миграция атомов - это глобальный процесс, происходящий в масштабах всей биосферы, поэтому он относится к биосферному уровню организации.</p>
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>9. Какой уровень организации живого представляет гладкая мышечная ткань стенки мочевого пузыря?</strong></p>
+        <div class="options">
+            <label><input type="radio" name="q9" value="a"> Клеточный</label><br>
+            <label><input type="radio" name="q9" value="b"> Тканевый</label><br>
+            <label><input type="radio" name="q9" value="c"> Органный</label><br>
+            <label><input type="radio" name="q9" value="d"> Организменный</label>
+        </div>
+        <button onclick="showExplanation('expl9')">Показать объяснение</button>
+        <div id="expl9" class="explanation">
+            <p><strong>Правильный ответ:</strong> Тканевый</p>
+            <p><strong>Объяснение:</strong> Гладкая мышечная ткань - это совокупность клеток, выполняющих общую функцию, что соответствует тканевому уровню организации.</p>
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>10. Какой уровень организации живого представляет стая серых цапель в маминском болоте?</strong></p>
+        <div class="options">
+            <label><input type="radio" name="q10" value="a"> Популяционно-видовой</label><br>
+            <label><input type="radio" name="q10" value="b"> Экосистемный</label><br>
+            <label><input type="radio" name="q10" value="c"> Биосферный</label><br>
+            <label><input type="radio" name="q10" value="d"> Организменный</label>
+        </div>
+        <button onclick="showExplanation('expl10')">Показать объяснение</button>
+        <div id="expl10" class="explanation">
+            <p><strong>Правильный ответ:</strong> Популяционно-видовой</p>
+            <p><strong>Объяснение:</strong> Стая птиц одного вида представляет собой группу особей внутри вида, что соответствует популяционно-видовому уровню организации.</p>
+        </div>
+    </div>
+    
+    <h2>Часть 3: Клеточная теория и типы клеток</h2>
+    
+    <div class="question">
+        <p><strong>11. Какие три положения клеточной теории являются верными? (Выберите три варианта)</strong></p>
+        <div class="options">
+            <label><input type="checkbox" name="q11" value="a"> Клетки различаются основными проявлениями жизнедеятельности</label><br>
+            <label><input type="checkbox" name="q11" value="b"> Клетка является структурно-функциональной единицей всего живого</label><br>
+            <label><input type="checkbox" name="q11" value="c"> Новая клетка образуется путем деления материнской клетки</label><br>
+            <label><input type="checkbox" name="q11" value="d"> Вирусы, прокариоты и эукариоты имеют схожее строение</label><br>
+            <label><input type="checkbox" name="q11" value="e"> Общий клеточный предок отсутствует</label><br>
+            <label><input type="checkbox" name="q11" value="f"> Все живое состоит из клеток</label>
+        </div>
+        <button onclick="showExplanation('expl11')">Показать объяснение</button>
+        <div id="expl11" class="explanation">
+            <p><strong>Правильные ответы:</strong> b, c, f</p>
+            <p><strong>Объяснение:</strong> Основные положения клеточной теории: 1) клетка - структурно-функциональная единица живого; 2) новые клетки образуются делением существующих; 3) все живые организмы состоят из клеток. Вирусы не имеют клеточного строения, а все клетки происходят от общего предка.</p>
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>12. Чем прокариотическая клетка отличается от эукариотической? (Выберите три варианта)</strong></p>
+        <div class="options">
+            <label><input type="checkbox" name="q12" value="a"> Имеет нуклеоид</label><br>
+            <label><input type="checkbox" name="q12" value="b"> Синтез АТФ в цитоплазме</label><br>
+            <label><input type="checkbox" name="q12" value="c"> Содержит рибосомы 70S</label><br>
+            <label><input type="checkbox" name="q12" value="d"> Цитоскелет не развит</label><br>
+            <label><input type="checkbox" name="q12" value="e"> Клеточная стенка из муреина</label><br>
+            <label><input type="checkbox" name="q12" value="f"> Линейные молекулы ДНК</label>
+        </div>
+        <button onclick="showExplanation('expl12')">Показать объяснение</button>
+        <div id="expl12" class="explanation">
+            <p><strong>Правильные ответы:</strong> a, b, d</p>
+            <p><strong>Объяснение:</strong> Прокариоты: 1) имеют нуклеоид (кольцевую ДНК без ядерной оболочки); 2) синтезируют АТФ в цитоплазме (нет митохондрий); 3) имеют слаборазвитый цитоскелет. Рибосомы 70S есть и у прокариот, и в митохондриях/хлоропластах эукариот. Клеточная стенка из муреина есть не у всех прокариот (например, у микоплазм ее нет).</p>
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>13. Что характерно для эукариотической клетки в отличие от прокариотической? (Выберите три варианта)</strong></p>
+        <div class="options">
+            <label><input type="checkbox" name="q13" value="a"> Наличие нуклеосом</label><br>
+            <label><input type="checkbox" name="q13" value="b"> Белки-гистоны для упаковки кольцевой молекулы ДНК</label><br>
+            <label><input type="checkbox" name="q13" value="c"> Жгутик из белка тубулина</label><br>
+            <label><input type="checkbox" name="q13" value="d"> Наличие мембранных органоидов</label><br>
+            <label><input type="checkbox" name="q13" value="e"> Развитый цитоскелет</label><br>
+            <label><input type="checkbox" name="q13" value="f"> Деление путем митоза</label>
+        </div>
+        <button onclick="showExplanation('expl13')">Показать объяснение</button>
+        <div id="expl13" class="explanation">
+            <p><strong>Правильные ответы:</strong> a, d, e</p>
+            <p><strong>Объяснение:</strong> Эукариоты: 1) имеют ДНК, упакованную в нуклеосомы с гистонами; 2) обладают мембранными органоидами (ЭПС, аппарат Гольджи и др.); 3) имеют развитый цитоскелет. Жгутик из тубулина характерен для эукариот, но вопрос про отличия в целом. Прокариоты делятся бинарным делением, а не митозом.</p>
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>14. Что характерно как для прокариотической, так и для эукариотической клетки? (Выберите три варианта)</strong></p>
+        <div class="options">
+            <label><input type="checkbox" name="q14" value="a"> Наличие генетического материала</label><br>
+            <label><input type="checkbox" name="q14" value="b"> Встречаются одноклеточные и многоклеточные представители</label><br>
+            <label><input type="checkbox" name="q14" value="c"> Наличие центриолей клеточного центра</label><br>
+            <label><input type="checkbox" name="q14" value="d"> Возможен процесс фотосинтеза, протекающий в хлоропластах</label><br>
+            <label><input type="checkbox" name="q14" value="e"> Синтез белка на рибосомах</label><br>
+            <label><input type="checkbox" name="q14" value="f"> Наличие запасных веществ в клетке</label>
+        </div>
+        <button onclick="showExplanation('expl14')">Показать объяснение</button>
+        <div id="expl14" class="explanation">
+            <p><strong>Правильные ответы:</strong> a, e, f</p>
+            <p><strong>Объяснение:</strong> Общие черты: 1) наличие ДНК как генетического материала; 2) синтез белка на рибосомах; 3) наличие запасных веществ (гликоген, крахмал, волютин и др.). Центриоли и хлоропласты есть только у эукариот. Многоклеточные прокариоты встречаются крайне редко (цианобактериальные нити).</p>
+        </div>
+    </div>
+    
+    <div class="question">
+        <p><strong>15. Чем растительная клетка отличается от животной? (Выберите три варианта)</strong></p>
+        <div class="options">
+            <label><input type="checkbox" name="q15" value="a"> Имеет клеточную стенку из целлюлозы</label><br>
+            <label><input type="checkbox" name="q15" value="b"> Содержит крупную центральную вакуоль</label><br>
+            <label><input type="checkbox" name="q15" value="c"> Развиты цитоплазматические мостики (плазмодесмы)</label><br>
+            <label><input type="checkbox" name="q15" value="d"> Имеет непостоянную форму</label><br>
+            <label><input type="checkbox" name="q15" value="e"> Развит надмембранный углеводный комплекс (гликокаликс)</label><br>
+            <label><input type="checkbox" name="q15" value="f"> Содержит хлоропласты</label>
+        </div>
+        <button onclick="showExplanation('expl15')">Показать объяснение</button>
+        <div id="expl15" class="explanation">
+            <p><strong>Правильные ответы:</strong> a, b, f</p>
+            <p><strong>Объяснение:</strong> Растительная клетка отличается: 1) клеточной стенкой из целлюлозы; 2) крупной центральной вакуолью; 3) наличием хлоропластов. Плазмодесмы есть не у всех растительных клеток. Гликокаликс характерен для животных клеток. Форма растительных клеток обычно постоянная благодаря клеточной стенке.</p>
+        </div>
+    </div>
+    
+    <button onclick="checkAnswers()" style="background-color: #3498db; padding: 10px 20px; font-size: 16px;">Проверить ответы</button>
+    
+    <script>
+        function showExplanation(id) {
+            var explanation = document.getElementById(id);
+            if (explanation.style.display === "block") {
+                explanation.style.display = "none";
+            } else {
+                explanation.style.display = "block";
+            }
+        }
+        
+        function checkAnswers() {
+            // Правильные ответы
+            const correctAnswers = {
+                q1: "a",
+                q2: "a",
+                q3: "b",
+                q4: "a",
+                q5: "a",
+                q6: "a",
+                q7: "c",
+                q8: "c",
+                q9: "b",
+                q10: "a",
+                q11: ["b", "c", "f"],
+                q12: ["a", "b", "d"],
+                q13: ["a", "d", "e"],
+                q14: ["a", "e", "f"],
+                q15: ["a", "b", "f"]
+            };
+            
+            // Проверка ответов
+            for (let q in correctAnswers) {
+                const inputs = document.querySelectorAll(`input[name="${q}"]:checked`);
+                const userAnswers = Array.from(inputs).map(input => input.value);
+                
+                if (Array.isArray(correctAnswers[q])) {
+                    // Для вопросов с множественным выбором
+                    const questionDiv = inputs[0]?.closest('.question');
+                    if (!questionDiv) continue;
+                    
+                    const isCorrect = 
+                        userAnswers.length === correctAnswers[q].length &&
+                        userAnswers.every(ans => correctAnswers[q].includes(ans));
+                    
+                    if (isCorrect) {
+                        questionDiv.classList.add('correct');
+                        questionDiv.classList.remove('incorrect');
+                    } else {
+                        questionDiv.classList.add('incorrect');
+                        questionDiv.classList.remove('correct');
+                    }
+                } else {
+                    // Для вопросов с одним ответом
+                    const input = document.querySelector(`input[name="${q}"]:checked`);
+                    const questionDiv = input?.closest('.question');
+                    if (!questionDiv) continue;
+                    
+                    if (input && input.value === correctAnswers[q]) {
+                        questionDiv.classList.add('correct');
+                        questionDiv.classList.remove('incorrect');
+                    } else {
+                        questionDiv.classList.add('incorrect');
+                        questionDiv.classList.remove('correct');
+                    }
+                }
+            }
+            
+            alert("Проверка завершена! Зеленым выделены правильные ответы, красным - неправильные.");
+        }
+    </script>
+</body>
+</html>
