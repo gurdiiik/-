@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест: Введение в биологию</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(to right, #2c7744, #5aaf70);
+            color: white;
+            padding: 25px;
+            text-align: center;
+            position: relative;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .instructions {
+            background: #e8f5e9;
+            padding: 20px;
+            border-bottom: 2px dashed #4CAF50;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .instructions ul {
+            padding-left: 25px;
+            margin: 15px 0;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        
+        .test-container {
+            padding: 25px;
+        }
+        
+        .question {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #4CAF50;
+            transition: all 0.3s ease;
+        }
+        
+        .question:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .question-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .question-number {
+            background: #4CAF50;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .options {
+            padding-left: 50px;
+        }
+        
+        .option {
+            margin: 12px 0;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .option input {
+            margin-top: 5px;
+            margin-right: 12px;
+            cursor: pointer;
+        }
+        
+        .option label {
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .option label:hover {
+            color: #2E7D32;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+        }
+        
+        button {
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        #check-btn {
+            background: linear-gradient(to right, #2193b0, #6dd5ed);
+            color: white;
+        }
+        
+        #reset-btn {
+            background: linear-gradient(to right, #f46b45, #eea849);
+            color: white;
+        }
+        
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+        }
+        
+        button:active {
+            transform: translateY(1px);
+        }
+        
+        #results {
+            display: none;
+            padding: 30px;
+            background: #e3f2fd;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .score {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1a237e;
+            margin: 20px 0;
+        }
+        
+        .grade {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 8px;
+        }
+        
+        .excellent {
+            color: #2E7D32;
+            background: rgba(46, 125, 50, 0.1);
+        }
+        
+        .good {
+            color: #0277BD;
+            background: rgba(2, 119, 189, 0.1);
+        }
+        
+        .satisfactory {
+            color: #EF6C00;
+            background: rgba(239, 108, 0, 0.1);
+        }
+        
+        .poor {
+            color: #C62828;
+            background: rgba(198, 40, 40, 0.1);
+        }
+        
+        .feedback {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, rgba(179,229,252,0.5), rgba(179,229,252,0));
+            padding: 3px 6px;
+            border-radius: 4px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #f5f5f5;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .correct {
+            color: #2E7D32;
+            font-weight: bold;
+        }
+        
+        .incorrect {
+            color: #C62828;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .options {
+                padding-left: 20px;
+            }
+            
+            .controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            button {
+                width: 90%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Тест: Введение в биологию</h1>
+            <div class="subtitle">Проверьте свои знания основ биологии</div>
+        </header>
+        
+        <div class="instructions">
+            <p><strong>Инструкция:</strong> Вам предстоит ответить на 15 вопросов по основам биологии. Для каждого вопроса выберите один правильный вариант ответа. После завершения теста нажмите кнопку "Проверить ответы" для получения результатов.</p>
+            <ul>
+                <li>Тест охватывает основные темы: клеточное строение, процессы жизнедеятельности, классификация организмов</li>
+                <li>Каждый вопрос имеет только один правильный ответ</li>
+                <li>После проверки вы увидите оценку и пояснения к ответам</li>
+            </ul>
+        </div>
+        
+        <div class="test-container">
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">1</div>
+                    <div class="question-text">Что изучает биология?</div>
+                </div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q1" value="a">
+                        <label>А) Строение Земли и космоса</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="b">
+                        <label>Б) Химический состав веществ</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="c">
+                        <label>В) Живую природу и закономерности её существования</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q1" value="d">
+                        <label>Г) Законы движения тел</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">2</div>
+                    <div class="question-text">Какая из перечисленных дисциплин НЕ является разделом биологии?</div>
+                </div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q2" value="a">
+                        <label>А) Ботаника</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="b">
+                        <label>Б) Зоология</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="c">
+                        <label>В) Физика</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q2" value="d">
+                        <label>Г) Генетика</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">3</div>
+                    <div class="question-text">Основной структурной и функциональной единицей всего живого является:</div>
+                </div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q3" value="a">
+                        <label>А) Атом</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="b">
+                        <label>Б) Молекула</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="c">
+                        <label>В) Клетка</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q3" value="d">
+                        <label>Г) Ткань</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">4</div>
+                    <div class="question-text">Процесс, при котором растения создают органические вещества из неорганических с помощью света, называется:</div>
+                </div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q4" value="a">
+                        <label>А) Дыхание</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="b">
+                        <label>Б) Фотосинтез</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="c">
+                        <label>В) Пищеварение</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q4" value="d">
+                        <label>Г) Размножение</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">5</div>
+                    <div class="question-text">К какому царству живых организмов относится человек?</div>
+                </div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q5" value="a">
+                        <label>А) Растения (Plantae)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="b">
+                        <label>Б) Грибы (Fungi)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="c">
+                        <label>В) Животные (Animalia)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q5" value="d">
+                        <label>Г) Бактерии (Bacteria)</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">6</div>
+                    <div class="question-text">Что из перечисленного НЕ является обязательным признаком живого организма?</div>
+                </div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q6" value="a">
+                        <label>А) Активное перемещение в пространстве (Движение)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="b">
+                        <label>Б) Обмен веществ (метаболизм)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="c">
+                        <label>В) Рост и развитие</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q6" value="d">
+                        <label>Г) Размножение</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">7</div>
+                    <div class="question-text">Наука о наследственности и изменчивости организмов называется:</div>
+                </div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q7" value="a">
+                        <label>А) Экология</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="b">
+                        <label>Б) Эмбриология</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="c">
+                        <label>В) Генетика</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q7" value="d">
+                        <label>Г) Анатомия</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">8</div>
+                    <div class="question-text">Совокупность всех экосистем Земли называется:</div>
+                </div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q8" value="a">
+                        <label>А) Популяция</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="b">
+                        <label>Б) Сообщество (биоценоз)</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="c">
+                        <label>В) Биосфера</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q8" value="d">
+                        <label>Г) Биогеоценоз</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">9</div>
+                    <div class="question-text">Какая структура клетки содержит наследственную информацию (ДНК)?</div>
+                </div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q9" value="a">
+                        <label>А) Цитоплазма</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="b">
+                        <label>Б) Ядро</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="c">
+                        <label>В) Мембрана</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q9" value="d">
+                        <label>Г) Митохондрия</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">10</div>
+                    <div class="question-text">Наука, изучающая взаимоотношения организмов между собой и с окружающей средой, называется:</div>
+                </div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q10" value="a">
+                        <label>А) Физиология</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="b">
+                        <label>Б) Экология</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="c">
+                        <label>В) Морфология</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q10" value="d">
+                        <label>Г) Систематика</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">11</div>
+                    <div class="question-text">Процесс постепенного изменения видов живых организмов с течением длительного времени называется:</div>
+                </div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q11" value="a">
+                        <label>А) Фотосинтез</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="b">
+                        <label>Б) Дыхание</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="c">
+                        <label>В) Эволюция</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q11" value="d">
+                        <label>Г) Размножение</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">12</div>
+                    <div class="question-text">Где в растительной клетке происходит фотосинтез?</div>
+                </div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q12" value="a">
+                        <label>А) В ядре</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="b">
+                        <label>Б) В митохондриях</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="c">
+                        <label>В) В хлоропластах</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q12" value="d">
+                        <label>Г) В вакуоли</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">13</div>
+                    <div class="question-text">Какие организмы являются основными производителями (продуцентами) органического вещества в большинстве экосистем?</div>
+                </div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q13" value="a">
+                        <label>А) Животные</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="b">
+                        <label>Б) Грибы</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="c">
+                        <label>В) Растения</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q13" value="d">
+                        <label>Г) Бактерии (разлагатели)</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">14</div>
+                    <div class="question-text">Кто ввел в науку термин "биология"?</div>
+                </div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q14" value="a">
+                        <label>А) Чарльз Дарвин</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="b">
+                        <label>Б) Карл Линней</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="c">
+                        <label>В) Жан-Батист Ламарк</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q14" value="d">
+                        <label>Г) Грегор Мендель</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <div class="question-header">
+                    <div class="question-number">15</div>
+                    <div class="question-text">Что из перечисленного является примером приспособления организма к среде обитания?</div>
+                </div>
+                <div class="options">
+                    <div class="option">
+                        <input type="radio" name="q15" value="a">
+                        <label>А) Способность к размножению</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="b">
+                        <label>Б) Потребность в воде</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="c">
+                        <label>В) Защитная окраска у животных</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" name="q15" value="d">
+                        <label>Г) Наличие органов чувств</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button id="check-btn">Проверить ответы</button>
+                <button id="reset-btn">Начать заново</button>
+            </div>
+            
+            <div id="results">
+                <!-- Результаты будут отображаться здесь -->
+            </div>
+        </div>
+        
+        <footer>
+            <p>Тест по биологии для школьников | Основы биологии | Проверка знаний</p>
+        </footer>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkBtn = document.getElementById('check-btn');
+            const resetBtn = document.getElementById('reset-btn');
+            const resultsDiv = document.getElementById('results');
+            
+            // Правильные ответы
+            const correctAnswers = {
+                q1: 'c',
+                q2: 'c',
+                q3: 'c',
+                q4: 'b',
+                q5: 'c',
+                q6: 'a',
+                q7: 'c',
+                q8: 'c',
+                q9: 'b',
+                q10: 'b',
+                q11: 'c',
+                q12: 'c',
+                q13: 'c',
+                q14: 'c',
+                q15: 'c'
+            };
+            
+            // Объяснения для каждого вопроса
+            const explanations = {
+                q1: "Биология - это наука о живой природе и закономерностях её существования. Она изучает все живые организмы, их строение, функционирование, происхождение, развитие и взаимоотношения с окружающей средой.",
+                q2: "Физика - это наука о неживой природе, изучающая фундаментальные законы материи, энергии, пространства и времени. Остальные перечисленные дисциплины являются разделами биологии.",
+                q3: "Клетка - это основная структурная и функциональная единица всех живых организмов. Это положение является центральным в клеточной теории, фундаментальной для биологии.",
+                q4: "Фотосинтез - это процесс, в ходе которого растения, водоросли и некоторые бактерии преобразуют световую энергию в химическую, создавая органические вещества (глюкозу) из неорганических (углекислый газ и вода).",
+                q5: "Человек относится к царству Животные (Animalia), так как обладает всеми характеристиками этого царства: многоклеточность, гетеротрофное питание, способность к активному передвижению и т.д.",
+                q6: "Активное перемещение в пространстве не является обязательным признаком живого. Например, растения и грибы не способны к активному перемещению, но являются живыми организмами. Остальные признаки - обмен веществ, рост и развитие, размножение - обязательны для всех живых существ.",
+                q7: "Генетика - это наука, изучающая закономерности наследственности и изменчивости организмов. Она объясняет, как признаки передаются от родителей к потомкам и как возникают новые признаки.",
+                q8: "Биосфера - это глобальная экосистема Земли, включающая все живые организмы и среды их обитания: нижние слои атмосферы, гидросферу и верхние слои литосферы.",
+                q9: "Ядро клетки содержит хромосомы, состоящие из ДНК, которая хранит наследственную информацию. У прокариотических клеток (бактерий) ДНК находится непосредственно в цитоплазме, но вопрос подразумевает общий принцип для эукариот.",
+                q10: "Экология изучает взаимоотношения организмов между собой и с окружающей их неживой средой. Эта наука исследует, как организмы адаптируются к среде и как они взаимодействуют в экосистемах.",
+                q11: "Эволюция - это процесс постепенного изменения видов живых организмов в течение длительного времени (миллионов лет). Этот процесс приводит к появлению новых видов и адаптации организмов к изменяющимся условиям среды.",
+                q12: "Фотосинтез происходит в хлоропластах - органеллах растительных клеток, содержащих хлорофилл. Этот пигмент улавливает световую энергию, необходимую для фотосинтеза.",
+                q13: "Растения являются основными продуцентами (производителями) органического вещества в большинстве экосистем благодаря процессу фотосинтеза. Они преобразуют солнечную энергию в химическую энергию органических соединений.",
+                q14: "Термин 'биология' был предложен Жаном-Батистом Ламарком в начале XIX века (1802 год) для обозначения науки о живых организмах. До этого изучение живой природы называлось 'естественная история'.",
+                q15: "Защитная окраска у животных - это классический пример морфологической адаптации к среде обитания. Она помогает животным маскироваться от хищников или, наоборот, незаметно подкрадываться к добыче."
+            };
+            
+            // Обработчик для кнопки проверки
+            checkBtn.addEventListener('click', function() {
+                let score = 0;
+                const totalQuestions = Object.keys(correctAnswers).length;
+                let resultsHTML = '<h2>Результаты теста</h2>';
+                
+                // Проверяем каждый вопрос
+                for (let i = 1; i <= totalQuestions; i++) {
+                    const questionName = 'q' + i;
+                    const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+                    const questionElement = document.querySelectorAll('.question')[i-1];
+                    
+                    if (selectedOption) {
+                        if (selectedOption.value === correctAnswers[questionName]) {
+                            score++;
+                            resultsHTML += `<p class="correct">Вопрос ${i}: Правильно! ${explanations[questionName]}</p>`;
+                        } else {
+                            resultsHTML += `<p class="incorrect">Вопрос ${i}: Неправильно. ${explanations[questionName]}</p>`;
+                        }
+                    } else {
+                        resultsHTML += `<p class="incorrect">Вопрос ${i}: Не отвечен. ${explanations[questionName]}</p>`;
+                    }
+                }
+                
+                // Рассчитываем процент правильных ответов
+                const percentage = Math.round((score / totalQuestions) * 100);
+                
+                // Определяем оценку
+                let grade = '';
+                let gradeClass = '';
+                if (percentage >= 90) {
+                    grade = 'Отлично!';
+                    gradeClass = 'excellent';
+                } else if (percentage >= 70) {
+                    grade = 'Хорошо!';
+                    gradeClass = 'good';
+                } else if (percentage >= 50) {
+                    grade = 'Удовлетворительно';
+                    gradeClass = 'satisfactory';
+                } else {
+                    grade = 'Плохо';
+                    gradeClass = 'poor';
+                }
+                
+                // Формируем результаты
+                resultsHTML = `
+                    <h2>Ваши результаты</h2>
+                    <div class="score">Вы ответили правильно на ${score} из ${totalQuestions} вопросов</div>
+                    <div class="grade ${gradeClass}">${grade} (${percentage}%)</div>
+                    <div class="feedback">
+                        <h3>Подробные результаты:</h3>
+                        <div class="details">${resultsHTML}</div>
+                    </div>
+                `;
+                
+                // Показываем результаты
+                resultsDiv.innerHTML = resultsHTML;
+                resultsDiv.style.display = 'block';
+                
+                // Прокручиваем к результатам
+                resultsDiv.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Обработчик для кнопки сброса
+            resetBtn.addEventListener('click', function() {
+                // Сбрасываем все выбранные ответы
+                const allRadios = document.querySelectorAll('input[type="radio"]');
+                allRadios.forEach(radio => {
+                    radio.checked = false;
+                });
+                
+                // Скрываем результаты
+                resultsDiv.style.display = 'none';
+                
+                // Прокручиваем к началу теста
+                document.querySelector('header').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
