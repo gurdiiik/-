@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)file:///C:/Users/FostersPC/Downloads/deepseek_html_20250817_2cbe78.html -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЕГЭ по биологии - Полный тест</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #3498db, #2ecc71, #e74c3c);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            position: relative;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 32px;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .exam-title {
+            color: #e74c3c;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .exam-year {
+            background: #3498db;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            display: inline-block;
+            font-size: 18px;
+        }
+        
+        h2 {
+            color: #3498db;
+            font-size: 24px;
+            margin: 25px 0 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px dashed #3498db;
+        }
+        
+        h3 {
+            color: #2980b9;
+            font-size: 20px;
+            margin: 20px 0 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .instructions {
+            background: linear-gradient(to right, #e3f2fd, #bbdefb);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border-left: 5px solid #2196f3;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .instructions p {
+            margin-bottom: 12px;
+            line-height: 1.8;
+        }
+        
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        
+        .task {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e0e0e0;
+            position: relative;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .task:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .task-number {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #3498db;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+        
+        .question {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f9ff;
+        }
+        
+        .answer-input {
+            padding: 10px 15px;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            font-size: 16px;
+            width: 120px;
+            margin: 10px 0;
+            transition: all 0.3s;
+        }
+        
+        .answer-input:focus {
+            border-color: #e74c3c;
+            box-shadow: 0 0 8px rgba(231, 76, 60, 0.3);
+            outline: none;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, #3498db, #2c3e50);
+            color: white;
+            padding: 14px 35px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s;
+            margin: 20px 0;
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.4);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(52, 152, 219, 0.6);
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
+        }
+        
+        .controls {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .section-title {
+            background: linear-gradient(to right, #2c3e50, #3498db);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin: 30px 0 20px;
+            text-align: center;
+            font-size: 22px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        .result-container {
+            margin-top: 30px;
+            padding: 30px;
+            background: #e8f4f8;
+            border-radius: 15px;
+            display: none;
+            border: 2px solid #3498db;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .result-title {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+        }
+        
+        .score {
+            font-size: 32px;
+            font-weight: bold;
+            color: #27ae60;
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .task-result {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+        }
+        
+        .correct {
+            border-left: 5px solid #27ae60;
+        }
+        
+        .incorrect {
+            border-left: 5px solid #e74c3c;
+        }
+        
+        .user-answer, .correct-answer {
+            font-weight: bold;
+            margin: 8px 0;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        
+        .user-answer {
+            background: #ffeaa7;
+        }
+        
+        .correct-answer {
+            background: #55efc4;
+        }
+        
+        .explanation {
+            margin-top: 10px;
+            padding: 10px;
+            background: #dfe6e9;
+            border-radius: 5px;
+            font-style: italic;
+        }
+        
+        .image-placeholder {
+            width: 200px;
+            height: 150px;
+            background: #3498db;
+            margin: 0 auto;
+            border-radius: 8px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .animal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+        
+        .animal-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            background: #f9f9f9;
+        }
+        
+        .animal-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .animal-name {
+            margin-top: 5px;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 26px;
+            }
+            
+            h2 {
+                font-size: 22px;
+            }
+            
+            .btn {
+                width: 100%;
+                padding: 16px;
+            }
+            
+            .animal-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Единый государственный экзамен по БИОЛОГИИ</h1>
+            <div class="exam-title">Пробник №1 – НОО – ЕГЭ 2026</div>
+            <div class="exam-year">2026 год</div>
+        </header>
+        
+        <div class="instructions">
+            <h2>Инструкция по выполнению работы</h2>
+            <p>Экзаменационная работа состоит из двух частей, включающих в себя 28 заданий. <span class="highlight">Часть 1 содержит 21 задание</span> с кратким ответом. <span class="highlight">Часть 2 содержит 7 заданий</span> с развернутым ответом.</p>
+            <p>На выполнение экзаменационной работы по биологии отводится <span class="highlight">3 часа 55 минут</span> (235 минут).</p>
+            <p>Ответом к заданиям части 1 является последовательность цифр, число или слово (словосочетание). Ответ запишите по приведённым ниже образцам в поле ответа в тексте работы без пробелов, запятых и других дополнительных символов.</p>
+            <p>Для заданий части 2 (22–28) требуется развернутый ответ.</p>
+            <p><strong>Желаем успеха!</strong></p>
+        </div>
+        
+        <div class="section-title">
+            <h2>Часть 1</h2>
+        </div>
+        
+        <!-- Задание 2 -->
+        <div class="task" id="task2">
+            <h3><span class="task-number">2</span> Исследование артерий</h3>
+            <div class="question">
+                <p>Экспериментатор исследовал особенности артерий большого круга кровообращения. Как изменятся просвет артерии и скорость кровотока в ней при отдалении от сердца?</p>
+                <p>Для каждой величины определите соответствующий характер её изменения:</p>
+                <p>1) увеличится<br>2) уменьшится<br>3) не изменится</p>
+                
+                <table>
+                    <tbody><tr>
+                        <th>Просвет артерии</th>
+                        <th>Скорость кровотока в артерии</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select class="answer-input" id="task2-lumen">
+                                <option value="">Выберите</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select class="answer-input" id="task2-speed">
+                                <option value="">Выберите</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+        </div>
+        
+        <!-- Задание 3 -->
+        <div class="task" id="task3">
+            <h3><span class="task-number">3</span> Правило 10%</h3>
+            <div class="question">
+                <p>На основании правила 10% рассчитайте массу травы (в кг), которая может обеспечить существование в лесу одного волка массой 20 кг, при условии, что пищевая цепь состоит из трех звеньев.</p>
+                <p>Ответ: <input type="number" class="answer-input" id="task3-answer"> кг</p>
+            </div>
+        </div>
+        
+        <!-- Задание 4 -->
+        <div class="task" id="task4">
+            <h3><span class="task-number">4</span> Вероятность потомства</h3>
+            <div class="question">
+                <p>Какова вероятность (в %) получения потомства у львиного зева с рецессивным проявлением признака в анализирующем скрещивании растений чистой линии по доминантному аллелю при неполном доминировании признака.</p>
+                <p>Ответ: <input type="number" class="answer-input" id="task4-answer"> %</p>
+            </div>
+        </div>
+        
+        <!-- Задание 5 -->
+        <div class="task" id="task5">
+            <h3><span class="task-number">5</span> Митохондрия</h3>
+            <div class="question">
+                <p>Рассмотрите рисунок и выполните задание:</p>
+                <div style="text-align:center; margin:20px 0; padding:15px; background:#e8f4f8; border-radius:5px;">
+                    <div class="image-placeholder">Изображение митохондрии</div>
+                    <p><em>Рисунок: Строение митохондрии</em></p>
+                </div>
+                <p>Какой цифрой на рисунке обозначена внешняя мембрана митохондрии?</p>
+                <p>Ответ: <input type="number" class="answer-input" id="task5-answer"></p>
+            </div>
+        </div>
+        
+        <!-- Задание 6 -->
+        <div class="task" id="task6">
+            <h3><span class="task-number">6</span> Процессы в митохондрии</h3>
+            <div class="question">
+                <p>Установите соответствие между процессами и структурами, обозначенными цифрами 1 и 2 на рисунке выше:</p>
+                
+                <table>
+                    <tbody><tr>
+                        <th>ПРОЦЕССЫ</th>
+                        <th>Структуры</th>
+                    </tr>
+                    <tr>
+                        <td>A) репликация ДНК</td>
+                        <td>
+                            <select class="answer-input" id="task6-a">
+                                <option value="">Выберите</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Б) создание градиента ионов водорода</td>
+                        <td>
+                            <select class="answer-input" id="task6-b">
+                                <option value="">Выберите</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>В) цикл трикарбоновых кислот</td>
+                        <td>
+                            <select class="answer-input" id="task6-v">
+                                <option value="">Выберите</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Г) транспорт электронов в мембране</td>
+                        <td>
+                            <select class="answer-input" id="task6-g">
+                                <option value="">Выберите</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Д) окисление органического углерода до углекислого газа</td>
+                        <td>
+                            <select class="answer-input" id="task6-d">
+                                <option value="">Выберите</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Е) восстановление переносчиков водорода</td>
+                        <td>
+                            <select class="answer-input" id="task6-e">
+                                <option value="">Выберите</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+        </div>
+        
+        <!-- Задание 7 -->
+        <div class="task" id="task7">
+            <h3><span class="task-number">7</span> Признаки клетки</h3>
+            <div class="question">
+                <p>Выберите три верных ответа из шести:</p>
+                <div style="text-align:center; margin:20px 0; padding:15px; background:#e8f4f8; border-radius:5px;">
+                    <div class="image-placeholder">Изображение клетки</div>
+                    <p><em>Рисунок: Тип клетки</em></p>
+                </div>
+                <p>Какие из приведенных признаков относят к изображенной на рисунке клетке?</p>
+                
+                <form>
+                    <label><input type="checkbox" class="task7-answer" value="1"> 1) замкнутая ДНК</label><br>
+                    <label><input type="checkbox" class="task7-answer" value="2"> 2) деление митозом</label><br>
+                    <label><input type="checkbox" class="task7-answer" value="3"> 3) наличие рибосом</label><br>
+                    <label><input type="checkbox" class="task7-answer" value="4"> 4) гидрообразование</label><br>
+                    <label><input type="checkbox" class="task7-answer" value="5"> 5) оформленное ядро</label><br>
+                    <label><input type="checkbox" class="task7-answer" value="6"> 6) фагоцитоз</label><br>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Задание 8 -->
+        <div class="task" id="task8">
+            <h3><span class="task-number">8</span> Эмбриогенез ланцетника</h3>
+            <div class="question">
+                <p>Установите последовательность процессов при эмбриогенезе ланцетника:</p>
+                
+                <ol>
+                    <li>формирование однослойного зародыша</li>
+                    <li>образование нервной пластинки</li>
+                    <li>дробление бластомеров</li>
+                    <li>формирование систем органов</li>
+                    <li>образование гаструлы</li>
+                </ol>
+                
+                <p>Ответ: <input type="text" class="answer-input" id="task8-answer" placeholder="Пример: 12345"></p>
+            </div>
+        </div>
+        
+        <!-- Задание 9 -->
+        <div class="task" id="task9">
+            <h3><span class="task-number">9</span> Линейные элементы</h3>
+            <div class="question">
+                <p>Рассмотрите рисунки и выполните задание:</p>
+                <div style="text-align:center; margin:20px 0; padding:15px; background:#e8f4f8; border-radius:5px;">
+                    <div class="animal-grid">
+                        <div class="animal-card">
+                            <div class="animal-number">0</div>
+                            <div class="animal-name">Рисунок 1</div>
+                        </div>
+                        <div class="animal-card">
+                            <div class="animal-number">1</div>
+                            <div class="animal-name">Рисунок 2</div>
+                        </div>
+                        <div class="animal-card">
+                            <div class="animal-number">2</div>
+                            <div class="animal-name">Рисунок 3</div>
+                        </div>
+                        <div class="animal-card">
+                            <div class="animal-number">3</div>
+                            <div class="animal-name">Рисунок 4</div>
+                        </div>
+                    </div>
+                    <p><em>Рисунки биологических структур</em></p>
+                </div>
+                <p>Какой цифрой на рисунках обозначено вторичное множество линейных элементов?</p>
+                <p>Ответ: <input type="number" class="answer-input" id="task9-answer"></p>
+            </div>
+        </div>
+        
+        <!-- Задание 10 -->
+        <div class="task" id="task10">
+            <h3><span class="task-number">10</span> Характеристики животных</h3>
+            <div class="question">
+                <p>Установите соответствие между характеристиками и животными:</p>
+                
+                <table>
+                    <tbody><tr>
+                        <th>ХАРАКТЕРИСТИКИ</th>
+                        <th>Животные</th>
+                    </tr>
+                    <tr>
+                        <td>A) наличие боковой линии</td>
+                        <td>
+                            <select class="answer-input" id="task10-a">
+                                <option value="">Выберите</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Б) постоянная задержка дыхания</td>
+                        <td>
+                            <select class="answer-input" id="task10-b">
+                                <option value="">Выберите</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>В) толстая кожа без волос</td>
+                        <td>
+                            <select class="answer-input" id="task10-v">
+                                <option value="">Выберите</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Г) биполярные цветные зрения</td>
+                        <td>
+                            <select class="answer-input" id="task10-g">
+                                <option value="">Выберите</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Д) ведущий отдел - средний мозг</td>
+                        <td>
+                            <select class="answer-input" id="task10-d">
+                                <option value="">Выберите</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Е) наименьшее количество различий с человеком</td>
+                        <td>
+                            <select class="answer-input" id="task10-e">
+                                <option value="">Выберите</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+        </div>
+        
+        <!-- Задание 11 -->
+        <div class="task" id="task11">
+            <h3><span class="task-number">11</span> Признаки Хвойных</h3>
+            <div class="question">
+                <p>Выберите три верных ответа из шести:</p>
+                <p>Какие признаки характерны для Хвойных?</p>
+                
+                <form>
+                    <label><input type="checkbox" class="task11-answer" value="1"> 1) распространение спорами</label><br>
+                    <label><input type="checkbox" class="task11-answer" value="2"> 2) деревья, кустарники и травы</label><br>
+                    <label><input type="checkbox" class="task11-answer" value="3"> 3) семязачатки на чешуйках шишек</label><br>
+                    <label><input type="checkbox" class="task11-answer" value="4"> 4) взрослое растение – спорофит</label><br>
+                    <label><input type="checkbox" class="task11-answer" value="5"> 5) оплодотворение без воды</label><br>
+                    <label><input type="checkbox" class="task11-answer" value="6"> 6) листья преобразованы в иголки</label><br>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Задание 12 -->
+        <div class="task" id="task12">
+            <h3><span class="task-number">12</span> Систематические группы</h3>
+            <div class="question">
+                <p>Установите последовательность систематических групп растений:</p>
+                
+                <ol>
+                    <li>Акация серебристая</li>
+                    <li>Покрытосеменные</li>
+                    <li>Двудольные</li>
+                    <li>Растения</li>
+                    <li>Акация</li>
+                    <li>Бобовые</li>
+                </ol>
+                
+                <p>Ответ: <input type="text" class="answer-input" id="task12-answer" placeholder="Пример: 123456"></p>
+            </div>
+        </div>
+        
+        <!-- Задание 13 -->
+        <div class="task" id="task13">
+            <h3><span class="task-number">13</span> Орган, образующий желчь</h3>
+            <div class="question">
+                <p>Рассмотрите рисунок:</p>
+                <div style="text-align:center; margin:20px 0; padding:15px; background:#e8f4f8; border-radius:5px;">
+                    <div class="image-placeholder">Пищеварительная система</div>
+                    <p><em>Рисунок: Органы пищеварения</em></p>
+                </div>
+                <p>Какой цифрой на рисунке обозначен орган, образующий желчь?</p>
+                <p>Ответ: <input type="number" class="answer-input" id="task13-answer"></p>
+            </div>
+        </div>
+        
+        <!-- Задание 14 -->
+        <div class="task" id="task14">
+            <h3><span class="task-number">14</span> Органы человека</h3>
+            <div class="question">
+                <p>Установите соответствие между характеристиками и органами человека:</p>
+                
+                <table>
+                    <tbody><tr>
+                        <th>ХАРАКТЕРИСТИКИ</th>
+                        <th>ОРГАНЫ</th>
+                    </tr>
+                    <tr>
+                        <td>A) вырабатывает панкреатический сок</td>
+                        <td>
+                            <select class="answer-input" id="task14-a">
+                                <option value="">Выберите</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Б) содержит микроорганизмы</td>
+                        <td>
+                            <select class="answer-input" id="task14-b">
+                                <option value="">Выберите</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>В) вырабатывает секрет, эмульгирующий жиры</td>
+                        <td>
+                            <select class="answer-input" id="task14-v">
+                                <option value="">Выберите</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Г) запасает гликоген</td>
+                        <td>
+                            <select class="answer-input" id="task14-g">
+                                <option value="">Выберите</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Д) железа смешанной секреции</td>
+                        <td>
+                            <select class="answer-input" id="task14-d">
+                                <option value="">Выберите</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Е) обеспечивает всасывание воды</td>
+                        <td>
+                            <select class="answer-input" id="task14-e">
+                                <option value="">Выберите</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+        </div>
+        
+        <!-- Задание 15 -->
+        <div class="task" id="task15">
+            <h3><span class="task-number">15</span> Трехглавая мышца</h3>
+            <div class="question">
+                <p>Выберите три верных ответа из шести:</p>
+                <p>Какие признаки характерны для трёхглавой мышцы плеча человека?</p>
+                
+                <form>
+                    <label><input type="checkbox" class="task15-answer" value="1"> 1) не имеет миофибрилл</label><br>
+                    <label><input type="checkbox" class="task15-answer" value="2"> 2) прикрепляется к грудным позвонкам</label><br>
+                    <label><input type="checkbox" class="task15-answer" value="3"> 3) управляется соматической нервной системой</label><br>
+                    <label><input type="checkbox" class="task15-answer" value="4"> 4) разгибает локтевой сустав</label><br>
+                    <label><input type="checkbox" class="task15-answer" value="5"> 5) расходует ионы кальция</label><br>
+                    <label><input type="checkbox" class="task15-answer" value="6"> 6) поперечнополосатая ткань</label><br>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Задание 16 -->
+        <div class="task" id="task16">
+            <h3><span class="task-number">16</span> Иммунный ответ</h3>
+            <div class="question">
+                <p>Установите последовательность процессов иммунного ответа:</p>
+                
+                <ol>
+                    <li>контакт бактерии с мембраной фагоцита</li>
+                    <li>переваривание бактерии</li>
+                    <li>попадание бактерии в организм</li>
+                    <li>слияние лизосом с фагосомой</li>
+                    <li>представление продуктов расщепления</li>
+                    <li>фагоцитоз</li>
+                </ol>
+                
+                <p>Ответ: <input type="text" class="answer-input" id="task16-answer" placeholder="Пример: 123456"></p>
+            </div>
+        </div>
+        
+        <!-- Задание 17 -->
+        <div class="task" id="task17">
+            <h3><span class="task-number">17</span> Экологическое видообразование</h3>
+            <div class="question">
+                <p>Выберите три предложения, в которых даны описания экологического видообразования:</p>
+                
+                <ol>
+                    <li>Видообразование в пределах стабильного ареала</li>
+                    <li>Обособление популяций из-за строительства автотрасс</li>
+                    <li>Расширение ареала большой синицы</li>
+                    <li>Ареал с различными условиями обитания</li>
+                    <li>Два вида традесканции в одном ареале</li>
+                    <li>Появление двух видов лосей из-за расхождения материков</li>
+                </ol>
+                
+                <form>
+                    <label><input type="checkbox" class="task17-answer" value="1"> 1</label>
+                    <label><input type="checkbox" class="task17-answer" value="2"> 2</label>
+                    <label><input type="checkbox" class="task17-answer" value="3"> 3</label>
+                    <label><input type="checkbox" class="task17-answer" value="4"> 4</label>
+                    <label><input type="checkbox" class="task17-answer" value="5"> 5</label>
+                    <label><input type="checkbox" class="task17-answer" value="6"> 6</label>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Задание 18 -->
+        <div class="task" id="task18">
+            <h3><span class="task-number">18</span> Хемосинтезирующие бактерии</h3>
+            <div class="question">
+                <p>Выберите три верных ответа из шести:</p>
+                <p>В некоторых экосистемах роль продуцентов выполняют хемосинтезирующие бактерии, так как они:</p>
+                
+                <form>
+                    <label><input type="checkbox" class="task18-answer" value="1"> 1) синтезируют органические вещества</label><br>
+                    <label><input type="checkbox" class="task18-answer" value="2"> 2) восстанавливают неорганический углерод</label><br>
+                    <label><input type="checkbox" class="task18-answer" value="3"> 3) создают первичную продукцию</label><br>
+                    <label><input type="checkbox" class="task18-answer" value="4"> 4) относятся к прокариотам</label><br>
+                    <label><input type="checkbox" class="task18-answer" value="5"> 5) разлагают органические вещества</label><br>
+                    <label><input type="checkbox" class="task18-answer" value="6"> 6) участвуют в круговороте веществ</label><br>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Задание 19 -->
+        <div class="task" id="task19">
+            <h3><span class="task-number">19</span> Предки человека</h3>
+            <div class="question">
+                <p>Установите соответствие между признаками и предками современного человека:</p>
+                
+                <table>
+                    <tbody><tr>
+                        <th>ПРИЗНАКИ</th>
+                        <th>ПРЕДКИ</th>
+                    </tr>
+                    <tr>
+                        <td>A) первые каменные орудия</td>
+                        <td>
+                            <select class="answer-input" id="task19-a">
+                                <option value="">Выберите</option>
+                                <option value="1">1) человек умелый</option>
+                                <option value="2">2) кроманьонец</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Б) объем мозга 650-680 см³</td>
+                        <td>
+                            <select class="answer-input" id="task19-b">
+                                <option value="">Выберите</option>
+                                <option value="1">1) человек умелый</option>
+                                <option value="2">2) кроманьонец</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>В) изготовление фигурок из кости</td>
+                        <td>
+                            <select class="answer-input" id="task19-v">
+                                <option value="">Выберите</option>
+                                <option value="1">1) человек умелый</option>
+                                <option value="2">2) кроманьонец</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Г) использование разнообразных орудий</td>
+                        <td>
+                            <select class="answer-input" id="task19-g">
+                                <option value="">Выберите</option>
+                                <option value="1">1) человек умелый</option>
+                                <option value="2">2) кроманьонец</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Д) развитая членораздельная речь</td>
+                        <td>
+                            <select class="answer-input" id="task19-d">
+                                <option value="">Выберите</option>
+                                <option value="1">1) человек умелый</option>
+                                <option value="2">2) кроманьонец</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody></table>
+            </div>
+        </div>
+        
+        <!-- Задание 20 -->
+        <div class="task" id="task20">
+            <h3><span class="task-number">20</span> Эволюционные факторы</h3>
+            <div class="question">
+                <p>Заполните пустые ячейки таблицы:</p>
+                
+                <table>
+                    <tbody><tr>
+                        <th>Эволюционный фактор</th>
+                        <th>Характеристика</th>
+                        <th>Пример</th>
+                    </tr>
+                    <tr>
+                        <td>(A)</td>
+                        <td>(Б)</td>
+                        <td>(В)</td>
+                    </tr>
+                </tbody></table>
+                
+                <p><strong>Список элементов:</strong></p>
+                <ol>
+                    <li>мутационный процесс</li>
+                    <li>случайные колебания частот аллелей</li>
+                    <li>аллель серповидно-клеточной анемии</li>
+                    <li>естественный отбор</li>
+                    <li>вредный аллель гиперплазии</li>
+                    <li>дрейф генов</li>
+                    <li>направленные изменения частот аллелей</li>
+                    <li>транслокации хромосом</li>
+                </ol>
+                
+                <p>Запишите в таблицу выбранные цифры:</p>
+                <p>A: <input type="number" class="answer-input" style="width:60px;" id="task20-a"></p>
+                <p>Б: <input type="number" class="answer-input" style="width:60px;" id="task20-b"></p>
+                <p>В: <input type="number" class="answer-input" style="width:60px;" id="task20-c"></p>
+            </div>
+        </div>
+        
+        <!-- Задание 21 -->
+        <div class="task" id="task21">
+            <h3><span class="task-number">21</span> Разнообразие бактерий и вирусов</h3>
+            <div class="question">
+                <p>Проанализируйте таблицу "Разнообразие бактерий и вирусов при респираторных инфекциях у собак":</p>
+                
+                <table>
+                    <tbody><tr>
+                        <th>Собака</th>
+                        <th>Вирусы</th>
+                        <th>Бактерии</th>
+                        <th>Бактерии</th>
+                    </tr>
+                    <tr>
+                        <td>Жучок, 1 год</td>
+                        <td>-</td>
+                        <td>+</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Байкон, 8 мес.</td>
+                        <td>+</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Гим, 6 мес.</td>
+                        <td>+</td>
+                        <td>+</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Мухтар, 9 мес.</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>Град, 1 год</td>
+                        <td>+</td>
+                        <td>-</td>
+                        <td>+</td>
+                    </tr>
+                </tbody></table>
+                
+                <p>Выберите верные утверждения:</p>
+                
+                <form>
+                    <label><input type="checkbox" class="task21-answer" value="1"> 1) У каждой собаки выявлено более двух патогенов</label><br>
+                    <label><input type="checkbox" class="task21-answer" value="2"> 2) Большинство собак - носители двух видов бактерий</label><br>
+                    <label><input type="checkbox" class="task21-answer" value="3"> 3) Собаки страдают либо вирусной, либо бактериальной инфекцией</label><br>
+                    <label><input type="checkbox" class="task21-answer" value="4"> 4) Зависимость между возрастом и количеством возбудителей</label><br>
+                    <label><input type="checkbox" class="task21-answer" value="5"> 5) Бактериальные заболевания протекают легче</label><br>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Блок результатов -->
+        <div class="result-container" id="results" style="display: block;">
+            <h2 class="result-title">Результаты тестирования</h2>
+            <div class="score">Вы набрали: <span id="score-value">0</span> из <span id="max-score">20</span> баллов</div>
+            
+            <div id="results-container"><div id="task2-result" class="task-result incorrect">
+                        <p>Задание 2: <span class="incorrect">Неправильно (0 баллов)</span></p>
+                        <p>Ваш ответ: <span class="user-answer">, </span></p>
+                        <p>Правильный ответ: <span class="correct-answer">2, 2</span></p>
+                        <p class="explanation">При отдалении от сердца просвет артерий уменьшается, а скорость кровотока также уменьшается из-за увеличения суммарного сечения сосудов.</p>
+                    </div><div id="task3-result" class="task-result incorrect">
+                        <p>Задание 3: <span class="incorrect">Неправильно (0 баллов)</span></p>
+                        <p>Ваш ответ: <span class="user-answer">нет</span></p>
+                        <p>Правильный ответ: <span class="correct-answer">2000</span></p>
+                        <p class="explanation">Пищевая цепь: трава → травоядные → волк. Масса травы = (20 кг × 10) × 10 = 2000 кг.</p>
+                    </div><div id="task4-result" class="task-result incorrect">
+                        <p>Задание 4: <span class="incorrect">Неправильно (0 баллов)</span></p>
+                        <p>Ваш ответ: <span class="user-answer">нет</span></p>
+                        <p>Правильный ответ: <span class="correct-answer">50</span></p>
+                        <p class="explanation">При неполном доминировании в анализирующем скрещивании вероятность рецессивного признака составляет 50%.</p>
+                    </div><div id="task5-result" class="task-result incorrect">
+                        <p>Задание 5: <span class="incorrect">Неправильно (0 баллов)</span></p>
+                        <p>Ваш ответ: <span class="user-answer">нет</span></p>
+                        <p>Правильный ответ: <span class="correct-answer">1</span></p>
+                        <p class="explanation">Цифра 1 обозначает внешнюю мембрану митохондрии.</p>
+                    </div><div id="task6-result" class="task-result incorrect">
+                        <p>Задание 6: <span class="incorrect">Неправильно (0 баллов)</span></p>
+                        <p>Ваш ответ: <span class="user-answer">, , , , , </span></p>
+                        <p>Правильный ответ: <span class="correct-answer">1, 2, 1, 2, 1, 2</span></p>
+                        <p class="explanation">Процессы A, В, Д происходят в матриксе (1), Б, Г, Е - во внутренней мембране (2).</p>
+                    </div><div id="task7-result" class="task-result incorrect">
+                        <p>Задание 7: <span class="incorrect">Неправильно (0 баллов)</span></p>
+                        <p>Ваш ответ: <span class="user-answer">нет</span></p>
+                        <p>Правильный ответ: <span class="correct-answer">3, 5, 6</span></p>
+                        <p class="explanation">Для эукариотической клетки характерны: наличие рибосом, оформленное ядро и фагоцитоз.</p>
+                    </div><div id="task8-result" class="task-result incorrect">
+                        <p>Задание 8: <span class="incorrect">Неправильно (0 баллов)</span></p>
+                        <p>Ваш ответ: <span class="user-answer">нет</span></p>
+                        <p>Правильный ответ: <span class="correct-answer">31524</span></p>
+                        <p class="explanation">Правильная последовательность: дробление → однослойный зародыш → гаструла → нервная пластинка → системы органов.</p>
+                    </div><div id="task9-result" class="task-result incorrect">
+                        <p>Задание 9: <span class="incorrect">Неправильно (0 баллов)</span></p>
+                        <p>Ваш ответ: <span class="user-answer">нет</span></p>
+                        <p>Правильный ответ: <span class="correct-answer">2</span></p>
+                        <p class="explanation">Вторичное множество линейных элементов обозначено цифрой 2.</p>
+                    </div><div id="task10-result" class="task-result incorrect">
+                        <p>Задание 10: <span class="incorrect">Неправильно (0 баллов)</span></p>
+                        <p>Ваш ответ: <span class="user-answer">, , , , , </span></p>
+                        <p>Правильный ответ: <span class="correct-answer">1, 3, 3, 2, 1, 2</span></p>
+                        <p class="explanation">Соответствие: рыба (1), кит (3), примат (2).</p>
+                    </div><div id="task11-result" class="task-result incorrect">
+                        <p>Задание 11: <span class="incorrect">Неправильно (0 баллов)</span></p>
+                        <p>Ваш ответ: <span class="user-answer">нет</span></p>
+                        <p>Правильный ответ: <span class="correct-answer">3, 5, 6</span></p>
+                        <p class="explanation">Для хвойных характерны: семязачатки на чешуйках шишек, оплодотворение без воды, листья-иголки.</p>
+                    </div><div id="task12-result" class="task-result incorrect">
+                        <p>Задание 12: <span class="incorrect">Неправильно (0 баллов)</span></p>
+                        <p>Ваш ответ: <span class="user-answer">нет</span></p>
+                        <p>Правильный ответ: <span class="correct-answer">436251</span></p>
+                        <p class="explanation">Правильная последовательность: Растения (4) → Покрытосеменные (3) → Двудольные (6) → Бобовые (2) → Акация (5) → Акация серебристая (1).</p>
+                    </div><div id="task13-result" class="task-result incorrect">
+                        <p>Задание 13: <span class="incorrect">Неправильно (0 баллов)</span></p>
+                        <p>Ваш ответ: <span class="user-answer">нет</span></p>
+                        <p>Правильный ответ: <span class="correct-answer">3</span></p>
+                        <p class="explanation">Желчь образуется в печени, обозначенной цифрой 3.</p>
+                    </div><div id="task14-result" class="task-result incorrect">
+                        <p>Задание 14: <span class="incorrect">Неправильно (0 баллов)</span></p>
+                        <p>Ваш ответ: <span class="user-answer">, , , , , </span></p>
+                        <p>Правильный ответ: <span class="correct-answer">3, 2, 1, 1, 3, 2</span></p>
+                        <p class="explanation">Соответствие: 1 - печень, 2 - толстая кишка, 3 - поджелудочная железа.</p>
+                    </div><div id="task15-result" class="task-result incorrect">
+                        <p>Задание 15: <span class="incorrect">Неправильно (0 баллов)</span></p>
+                        <p>Ваш ответ: <span class="user-answer">нет</span></p>
+                        <p>Правильный ответ: <span class="correct-answer">3, 4, 6</span></p>
+                        <p class="explanation">Трехглавая мышца плеча: управляется соматической нервной системой, разгибает локоть, состоит из поперечнополосатой ткани.</p>
+                    </div><div id="task16-result" class="task-result incorrect">
+                        <p>Задание 16: <span class="incorrect">Неправильно (0 баллов)</span></p>
+                        <p>Ваш ответ: <span class="user-answer">нет</span></p>
+                        <p>Правильный ответ: <span class="correct-answer">361425</span></p>
+                        <p class="explanation">Правильная последовательность: попадание → контакт → фагоцитоз → слияние → переваривание → представление.</p>
+                    </div><div id="task17-result" class="task-result incorrect">
+                        <p>Задание 17: <span class="incorrect">Неправильно (0 баллов)</span></p>
+                        <p>Ваш ответ: <span class="user-answer">нет</span></p>
+                        <p>Правильный ответ: <span class="correct-answer">2, 4, 5</span></p>
+                        <p class="explanation">Экологическое видообразование: обособление популяций (2), разные условия в ареале (4), разные виды в одном ареале (5).</p>
+                    </div><div id="task18-result" class="task-result incorrect">
+                        <p>Задание 18: <span class="incorrect">Неправильно (0 баллов)</span></p>
+                        <p>Ваш ответ: <span class="user-answer">нет</span></p>
+                        <p>Правильный ответ: <span class="correct-answer">1, 3, 6</span></p>
+                        <p class="explanation">Хемосинтезирующие бактерии: синтезируют органические вещества, создают первичную продукцию, участвуют в круговороте.</p>
+                    </div><div id="task19-result" class="task-result incorrect">
+                        <p>Задание 19: <span class="incorrect">Неправильно (0 баллов)</span></p>
+                        <p>Ваш ответ: <span class="user-answer">, , , , </span></p>
+                        <p>Правильный ответ: <span class="correct-answer">1, 1, 2, 2, 2</span></p>
+                        <p class="explanation">Человек умелый: первые орудия, малый объем мозга. Кроманьонец: искусство, орудия труда, речь.</p>
+                    </div><div id="task20-result" class="task-result incorrect">
+                        <p>Задание 20: <span class="incorrect">Неправильно (0 баллов)</span></p>
+                        <p>Ваш ответ: <span class="user-answer">A: нет, Б: нет, В: нет</span></p>
+                        <p>Правильный ответ: <span class="correct-answer">A: 6, Б: 2, В: 5</span></p>
+                        <p class="explanation">Дрейф генов (6) - случайные колебания (2) - пример вредного аллеля (5).</p>
+                    </div><div id="task21-result" class="task-result incorrect">
+                        <p>Задание 21: <span class="incorrect">Неправильно (0 баллов)</span></p>
+                        <p>Ваш ответ: <span class="user-answer">нет</span></p>
+                        <p>Правильный ответ: <span class="correct-answer">3</span></p>
+                        <p class="explanation">Данные показывают, что собаки обычно страдают либо вирусной, либо бактериальной инфекцией (утверждение 3).</p>
+                    </div></div>
+            
+            <div class="controls" style="margin-top:20px;">
+                <button class="btn" onclick="resetTest()">Пройти тест снова</button>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button class="btn" onclick="checkAnswers()">Завершить тест</button>
+        </div>
+        
+        <div class="footer">
+            <p>© Онлайн-школа «НОО»</p>
+            <p>Составитель: Агаев Асиф</p>
+        </div>
+    </div>
+    
+    <script>
+        // Правильные ответы
+        const correctAnswers = {
+            task2: { lumen: "2", speed: "2" },
+            task3: "2000",
+            task4: "50",
+            task5: "1",
+            task6: { a: "1", b: "2", v: "1", g: "2", d: "1", e: "2" },
+            task7: ["3", "5", "6"],
+            task8: "31524",
+            task9: "2",
+            task10: { a: "1", b: "3", v: "3", g: "2", d: "1", e: "2" },
+            task11: ["3", "5", "6"],
+            task12: "436251",
+            task13: "3",
+            task14: { a: "3", b: "2", v: "1", g: "1", d: "3", e: "2" },
+            task15: ["3", "4", "6"],
+            task16: "361425",
+            task17: ["2", "4", "5"],
+            task18: ["1", "3", "6"],
+            task19: { a: "1", b: "1", v: "2", g: "2", d: "2" },
+            task20: { a: "6", b: "2", c: "5" },
+            task21: ["3"]
+        };
+        
+        // Пояснения к ответам
+        const explanations = {
+            task2: "При отдалении от сердца просвет артерий уменьшается, а скорость кровотока также уменьшается из-за увеличения суммарного сечения сосудов.",
+            task3: "Пищевая цепь: трава → травоядные → волк. Масса травы = (20 кг × 10) × 10 = 2000 кг.",
+            task4: "При неполном доминировании в анализирующем скрещивании вероятность рецессивного признака составляет 50%.",
+            task5: "Цифра 1 обозначает внешнюю мембрану митохондрии.",
+            task6: "Процессы A, В, Д происходят в матриксе (1), Б, Г, Е - во внутренней мембране (2).",
+            task7: "Для эукариотической клетки характерны: наличие рибосом, оформленное ядро и фагоцитоз.",
+            task8: "Правильная последовательность: дробление → однослойный зародыш → гаструла → нервная пластинка → системы органов.",
+            task9: "Вторичное множество линейных элементов обозначено цифрой 2.",
+            task10: "Соответствие: рыба (1), кит (3), примат (2).",
+            task11: "Для хвойных характерны: семязачатки на чешуйках шишек, оплодотворение без воды, листья-иголки.",
+            task12: "Правильная последовательность: Растения (4) → Покрытосеменные (3) → Двудольные (6) → Бобовые (2) → Акация (5) → Акация серебристая (1).",
+            task13: "Желчь образуется в печени, обозначенной цифрой 3.",
+            task14: "Соответствие: 1 - печень, 2 - толстая кишка, 3 - поджелудочная железа.",
+            task15: "Трехглавая мышца плеча: управляется соматической нервной системой, разгибает локоть, состоит из поперечнополосатой ткани.",
+            task16: "Правильная последовательность: попадание → контакт → фагоцитоз → слияние → переваривание → представление.",
+            task17: "Экологическое видообразование: обособление популяций (2), разные условия в ареале (4), разные виды в одном ареале (5).",
+            task18: "Хемосинтезирующие бактерии: синтезируют органические вещества, создают первичную продукцию, участвуют в круговороте.",
+            task19: "Человек умелый: первые орудия, малый объем мозга. Кроманьонец: искусство, орудия труда, речь.",
+            task20: "Дрейф генов (6) - случайные колебания (2) - пример вредного аллеля (5).",
+            task21: "Данные показывают, что собаки обычно страдают либо вирусной, либо бактериальной инфекцией (утверждение 3)."
+        };
+        
+        // Проверка ответов
+        function checkAnswers() {
+            // Счетчик правильных ответов
+            let score = 0;
+            const maxScore = Object.keys(correctAnswers).length;
+            const resultsContainer = document.getElementById('results-container');
+            resultsContainer.innerHTML = '';
+            
+            // Проверка каждого задания
+            for (let i = 2; i <= 21; i++) {
+                const taskId = `task${i}`;
+                const resultDiv = document.createElement('div');
+                resultDiv.id = `${taskId}-result`;
+                resultDiv.className = 'task-result';
+                
+                let isCorrect = false;
+                let userAnswer = '';
+                let correctAnswer = '';
+                
+                // Проверка в зависимости от типа задания
+                if (i === 2 || i === 6 || i === 10 || i === 14 || i === 19) {
+                    // Задания с соответствием
+                    const answers = {};
+                    for (const key in correctAnswers[taskId]) {
+                        const element = document.getElementById(`${taskId}-${key}`);
+                        answers[key] = element.value;
+                    }
+                    
+                    isCorrect = JSON.stringify(answers) === JSON.stringify(correctAnswers[taskId]);
+                    userAnswer = Object.values(answers).join(', ');
+                    correctAnswer = Object.values(correctAnswers[taskId]).join(', ');
+                } 
+                else if (i === 7 || i === 11 || i === 15 || i === 17 || i === 18 || i === 21) {
+                    // Задания с выбором нескольких ответов
+                    const checkboxes = document.querySelectorAll(`.${taskId}-answer:checked`);
+                    const userAnswers = Array.from(checkboxes).map(cb => cb.value);
+                    userAnswer = userAnswers.join(', ');
+                    
+                    if (Array.isArray(correctAnswers[taskId])) {
+                        isCorrect = arraysEqual(userAnswers.sort(), correctAnswers[taskId].sort());
+                        correctAnswer = correctAnswers[taskId].join(', ');
+                    }
+                } 
+                else if (i === 20) {
+                    // Специальный случай для задания 20
+                    const a = document.getElementById('task20-a').value;
+                    const b = document.getElementById('task20-b').value;
+                    const c = document.getElementById('task20-c').value;
+                    
+                    isCorrect = a === correctAnswers.task20.a && 
+                               b === correctAnswers.task20.b && 
+                               c === correctAnswers.task20.c;
+                    
+                    userAnswer = `A: ${a || 'нет'}, Б: ${b || 'нет'}, В: ${c || 'нет'}`;
+                    correctAnswer = `A: ${correctAnswers.task20.a}, Б: ${correctAnswers.task20.b}, В: ${correctAnswers.task20.c}`;
+                } 
+                else {
+                    // Простые задания с вводом
+                    const element = document.getElementById(`${taskId}-answer`);
+                    userAnswer = element.value;
+                    isCorrect = userAnswer === correctAnswers[taskId];
+                    correctAnswer = correctAnswers[taskId];
+                }
+                
+                // Формирование результата
+                if (isCorrect) {
+                    resultDiv.innerHTML = `
+                        <p>Задание ${i}: <span class="correct">Правильно! (1 балл)</span></p>
+                        <p class="explanation">${explanations[taskId]}</p>
+                    `;
+                    resultDiv.className = 'task-result correct';
+                    score++;
+                } else {
+                    resultDiv.innerHTML = `
+                        <p>Задание ${i}: <span class="incorrect">Неправильно (0 баллов)</span></p>
+                        <p>Ваш ответ: <span class="user-answer">${userAnswer || 'нет'}</span></p>
+                        <p>Правильный ответ: <span class="correct-answer">${correctAnswer}</span></p>
+                        <p class="explanation">${explanations[taskId]}</p>
+                    `;
+                    resultDiv.className = 'task-result incorrect';
+                }
+                
+                resultsContainer.appendChild(resultDiv);
+            }
+            
+            // Отображение общего счета
+            document.getElementById('score-value').textContent = score;
+            document.getElementById('max-score').textContent = maxScore;
+            
+            // Показываем блок с результатами
+            document.getElementById('results').style.display = 'block';
+            
+            // Прокручиваем страницу к результатам
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Сброс теста
+        function resetTest() {
+            // Сброс всех ответов
+            document.querySelectorAll('select').forEach(select => {
+                select.selectedIndex = 0;
+            });
+            
+            document.querySelectorAll('input[type=number], input[type=text]').forEach(input => {
+                input.value = '';
+            });
+            
+            document.querySelectorAll('input[type=checkbox]').forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            
+            // Скрываем результаты
+            document.getElementById('results').style.display = 'none';
+            
+            // Прокручиваем страницу в начало
+            window.scrollTo(0, 0);
+        }
+        
+        // Вспомогательная функция для сравнения массивов
+        function arraysEqual(a, b) {
+            if (a === b) return true;
+            if (a == null || b == null) return false;
+            if (a.length !== b.length) return false;
+            
+            for (let i = 0; i < a.length; i++) {
+                if (a[i] !== b[i]) return false;
+            }
+            return true;
+        }
+    </script>
+
+</body></html>
