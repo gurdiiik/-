@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)file:///C:/Users/FostersPC/Downloads/deepseek_html_20250818_5c398c.html -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест по химии - Средний уровень</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(to right, #2c3e50, #4a6491);
+            color: white;
+            padding: 25px 30px;
+            text-align: center;
+            border-bottom: 5px solid #3498db;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .test-info {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f1f8ff;
+            padding: 15px 25px;
+            border-bottom: 1px solid #d1e7ff;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .info-icon {
+            font-size: 1.2rem;
+            color: #2c3e50;
+        }
+        
+        .test-content {
+            padding: 30px;
+        }
+        
+        .part-title {
+            background: linear-gradient(to right, #3498db, #2c3e50);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 30px 0 20px;
+            font-size: 1.4rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .question {
+            background-color: #fff;
+            border: 1px solid #e0e6ed;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .question:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .question-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+        
+        .options {
+            display: grid;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        
+        .option {
+            display: flex;
+            align-items: flex-start;
+            padding: 12px 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid #dee2e6;
+        }
+        
+        .option:hover {
+            background-color: #e9ecef;
+            transform: translateX(5px);
+        }
+        
+        .option.selected {
+            background-color: #d1ecff;
+            border-color: #3498db;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.3);
+        }
+        
+        .option input {
+            margin-right: 12px;
+            margin-top: 3px;
+        }
+        
+        .match-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .match-table th, .match-table td {
+            padding: 12px 15px;
+            text-align: center;
+            border: 1px solid #dee2e6;
+        }
+        
+        .match-table th {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .match-input {
+            width: 50px;
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .number-input {
+            width: 120px;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 1rem;
+            margin: 10px 0;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 30px;
+            background-color: #f1f8ff;
+            border-top: 1px solid #d1e7ff;
+        }
+        
+        .btn {
+            padding: 14px 35px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(to right, #3498db, #2c3e50);
+            color: white;
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.4);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(to right, #2980b9, #1a2530);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(52, 152, 219, 0.5);
+        }
+        
+        .btn-success {
+            background: linear-gradient(to right, #27ae60, #219653);
+            color: white;
+            box-shadow: 0 4px 10px rgba(39, 174, 96, 0.4);
+        }
+        
+        .btn-success:hover {
+            background: linear-gradient(to right, #219653, #1e8449);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(39, 174, 96, 0.5);
+        }
+        
+        .results {
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            margin: 30px 0;
+            display: none;
+            border: 2px solid #3498db;
+        }
+        
+        .results h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .score {
+            font-size: 2.5rem;
+            text-align: center;
+            color: #e74c3c;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        
+        .result-details {
+            margin-top: 20px;
+        }
+        
+        .result-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .correct-icon, .incorrect-icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            width: 30px;
+            text-align: center;
+        }
+        
+        .correct-icon {
+            color: #27ae60;
+        }
+        
+        .incorrect-icon {
+            color: #e74c3c;
+        }
+        
+        .answer-display {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .correct-answer {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        .user-answer {
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        
+        .formula {
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+            font-weight: bold;
+        }
+        
+        .question-number {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background-color: #3498db;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .test-content {
+                padding: 15px;
+            }
+            
+            .question {
+                padding: 20px;
+            }
+            
+            .controls {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Тест по химии</h1>
+            <div class="subtitle">Средний уровень сложности</div>
+        </header>
+        
+        <div class="test-info">
+            <div class="info-item">
+                <span class="info-icon">⏱️</span>
+                <span>Рекомендуемое время: 60 минут</span>
+            </div>
+            <div class="info-item">
+                <span class="info-icon">❓</span>
+                <span>34 вопроса</span>
+            </div>
+            <div class="info-item">
+                <span class="info-icon">📊</span>
+                <span>2 части</span>
+            </div>
+        </div>
+        
+        <div class="test-content">
+            <div class="part-title">Часть 1</div>
+            
+            <!-- Вопрос 1 -->
+            <div class="question">
+                <div class="question-number">1</div>
+                <div class="question-title">Определите элементы, атомы которых имеют одинаковую электронную конфигурацию внешнего энергетического уровня.</div>
+                <div class="options">
+                    <label class="option">
+                        <input type="checkbox" name="q1" value="1">
+                        1) Са
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q1" value="2">
+                        2) Mg
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q1" value="3">
+                        3) Mn
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q1" value="4">
+                        4) P
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q1" value="5">
+                        5) Cl
+                    </label>
+                </div>
+                <div class="answer-display" id="answer1" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer1">1, 2</span></p>
+                    <p>Правильный ответ: <span class="correct-answer">1, 2 (Ca и Mg)</span></p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 2 -->
+            <div class="question">
+                <div class="question-number">2</div>
+                <div class="question-title">Из указанных в ряду химических элементов выберите три элемента, которые находятся в одном периоде. Расположите выбранные элементы в порядке возрастания основных свойств их высших оксидов.</div>
+                <div class="options">
+                    <label class="option">
+                        <input type="checkbox" name="q2" value="1">
+                        1) Са
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q2" value="2">
+                        2) Mg
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q2" value="3">
+                        3) Mn
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q2" value="4">
+                        4) P
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q2" value="5">
+                        5) Cl
+                    </label>
+                </div>
+                <p>Порядок: <input type="text" class="match-input" id="q2-order" placeholder="1,2,3"></p>
+                <div class="answer-display" id="answer2" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer2">Выбрано: —, Порядок: </span></p>
+                    <p>Правильный ответ: <span class="correct-answer">4, 5, 1 (P, Cl, Ca) в порядке 5,4,1</span></p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 3 -->
+            <div class="question">
+                <div class="question-number">3</div>
+                <div class="question-title">Из числа указанных в ряду элементов выберите два элемента, которые в соединениях проявляют постоянную степень окисления.</div>
+                <div class="options">
+                    <label class="option">
+                        <input type="checkbox" name="q3" value="1">
+                        1) Са
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q3" value="2">
+                        2) Mg
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q3" value="3">
+                        3) Mn
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q3" value="4">
+                        4) P
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q3" value="5">
+                        5) Cl
+                    </label>
+                </div>
+                <div class="answer-display" id="answer3" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer3">—</span></p>
+                    <p>Правильный ответ: <span class="correct-answer">1, 2 (Ca и Mg)</span></p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 4 -->
+            <div class="question">
+                <div class="question-number">4</div>
+                <div class="question-title">Из предложенного перечня выберите два вещества с молекулярной кристаллической решеткой.</div>
+                <div class="options">
+                    <label class="option">
+                        <input type="checkbox" name="q4" value="1">
+                        1) сахароза
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q4" value="2">
+                        2) гидроксид натрия
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q4" value="3">
+                        3) хлорид аммония
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q4" value="4">
+                        4) оксид кремния
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q4" value="5">
+                        5) белый фосфор
+                    </label>
+                </div>
+                <div class="answer-display" id="answer4" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer4">—</span></p>
+                    <p>Правильный ответ: <span class="correct-answer">1, 5 (сахароза и белый фосфор)</span></p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 5 -->
+            <div class="question">
+                <div class="question-number">5</div>
+                <div class="question-title">Среди предложенных формул веществ выберите формулу, соответствующую:</div>
+                <table class="match-table">
+                    <tbody><tr>
+                        <th>Ячейка</th>
+                        <th>Вещество</th>
+                        <th>Ячейка</th>
+                        <th>Вещество</th>
+                        <th>Ячейка</th>
+                        <th>Вещество</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>NH₄NO₃</td>
+                        <td>4</td>
+                        <td>(NH₄)₂HPO₄</td>
+                        <td>7</td>
+                        <td>NO</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>KOH</td>
+                        <td>5</td>
+                        <td>Zn(OH)₂</td>
+                        <td>8</td>
+                        <td>CaO₂</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>(NH₄)₂S</td>
+                        <td>6</td>
+                        <td>Mg(OH)₂</td>
+                        <td>9</td>
+                        <td>NO₂</td>
+                    </tr>
+                </tbody></table>
+                <p>A) нерастворимому основанию: <input type="text" class="match-input" id="q5A"></p>
+                <p>Б) кислой соли: <input type="text" class="match-input" id="q5B"></p>
+                <p>В) несолеобразующему оксиду: <input type="text" class="match-input" id="q5C"></p>
+                <div class="answer-display" id="answer5" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer5">A:, Б:, В:</span></p>
+                    <p>Правильный ответ: <span class="correct-answer">A)5, Б)4, В)7</span></p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 6 -->
+            <div class="question">
+                <div class="question-number">6</div>
+                <div class="question-title">Даны две пробирки с раствором вещества X. В одну добавили NaOH → выпал осадок. В другую добавили вещество Y → выделился газ. Выберите вещества X и Y.</div>
+                <div class="options">
+                    <label class="option">
+                        <input type="checkbox" name="q6" value="1">
+                        1) BaCO₃
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q6" value="2">
+                        2) FeSO₄
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q6" value="3">
+                        3) Са(НСО₃)₂
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q6" value="4">
+                        4) NH₄NO₃
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q6" value="5">
+                        5) HNO₃
+                    </label>
+                </div>
+                <p>X: <input type="text" class="match-input" id="q6X"></p>
+                <p>Y: <input type="text" class="match-input" id="q6Y"></p>
+                <div class="answer-display" id="answer6" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer6">X:, Y:</span></p>
+                    <p>Правильный ответ: <span class="correct-answer">X:3, Y:5</span></p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 7 -->
+            <div class="question">
+                <div class="question-number">7</div>
+                <div class="question-title">Установите соответствие между формулой вещества и реагентами, с которыми оно может взаимодействовать.</div>
+                <table class="match-table">
+                    <tbody><tr>
+                        <th>Формула вещества</th>
+                        <th>Реагенты</th>
+                    </tr>
+                    <tr>
+                        <td>A) ZnCl₂</td>
+                        <td>1) HCl, CO₂, MgCl₂</td>
+                    </tr>
+                    <tr>
+                        <td>Б) Zn</td>
+                        <td>2) O₂, Cl₂, Ca</td>
+                    </tr>
+                    <tr>
+                        <td>В) Zn(OH)₂</td>
+                        <td>3) NaOH, (NH₄)₂S, AgNO₃</td>
+                    </tr>
+                    <tr>
+                        <td>Г) KOH</td>
+                        <td>4) HNO₃, Cu, H₃PO₄</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>5) HCl, H₂SO₄, KOH</td>
+                    </tr>
+                </tbody></table>
+                <p>A) <input type="text" class="match-input" id="q7A"></p>
+                <p>Б) <input type="text" class="match-input" id="q7B"></p>
+                <p>В) <input type="text" class="match-input" id="q7C"></p>
+                <p>Г) <input type="text" class="match-input" id="q7D"></p>
+                <div class="answer-display" id="answer7" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer7">, , , </span></p>
+                    <p>Правильный ответ: <span class="correct-answer">A)3, Б)4, В)1, Г)1</span></p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 8 -->
+            <div class="question">
+                <div class="question-number">8</div>
+                <div class="question-title">Установите соответствие между исходными веществами и продуктами реакции.</div>
+                <table class="match-table">
+                    <tbody><tr>
+                        <th>Исходные вещества</th>
+                        <th>Продукты реакции</th>
+                    </tr>
+                    <tr>
+                        <td>A) NaHCO₃ и Ca(OH)₂</td>
+                        <td>1) Na₂CO₃ и Ca(OH)₂</td>
+                    </tr>
+                    <tr>
+                        <td>Б) Ca и H₂O</td>
+                        <td>2) CaO и H₂</td>
+                    </tr>
+                    <tr>
+                        <td>В) Ca(HCO₃)₂ и NaOH (изб.)</td>
+                        <td>3) CaCO₃, Na₂CO₃ и H₂O</td>
+                    </tr>
+                    <tr>
+                        <td>Г) CaO и H₂O</td>
+                        <td>4) Ca(OH)₂ и H₂</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>5) Ca(OH)₂</td>
+                    </tr>
+                </tbody></table>
+                <p>A) <input type="text" class="match-input" id="q8A"></p>
+                <p>Б) <input type="text" class="match-input" id="q8B"></p>
+                <p>В) <input type="text" class="match-input" id="q8C"></p>
+                <p>Г) <input type="text" class="match-input" id="q8D"></p>
+                <div class="answer-display" id="answer8" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer8">, , , </span></p>
+                    <p>Правильный ответ: <span class="correct-answer">A)1, Б)4, В)3, Г)5</span></p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 9 -->
+            <div class="question">
+                <div class="question-number">9</div>
+                <div class="question-title">Задана схема превращений: X → (t°, HNO₃) → NH₄NO₃ → Y</div>
+                <div class="options">
+                    <label class="option">
+                        <input type="checkbox" name="q9" value="1">
+                        1) Cu
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q9" value="2">
+                        2) Mg
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q9" value="3">
+                        3) NH₄Cl
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q9" value="4">
+                        4) NO₂
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q9" value="5">
+                        5) N₂O
+                    </label>
+                </div>
+                <p>X: <input type="text" class="match-input" id="q9X"></p>
+                <p>Y: <input type="text" class="match-input" id="q9Y"></p>
+                <div class="answer-display" id="answer9" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer9">X:, Y:</span></p>
+                    <p>Правильный ответ: <span class="correct-answer">X:4, Y:3</span></p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 10 -->
+            <div class="question">
+                <div class="question-number">10</div>
+                <div class="question-title">Установите соответствие между формулой вещества и классом органических соединений.</div>
+                <table class="match-table">
+                    <tbody><tr>
+                        <th>Формула вещества</th>
+                        <th>Класс соединений</th>
+                    </tr>
+                    <tr>
+                        <td>A) CH₃CHO</td>
+                        <td>1) альдегиды</td>
+                    </tr>
+                    <tr>
+                        <td>Б) CH₃COCH₃</td>
+                        <td>2) кетоны</td>
+                    </tr>
+                    <tr>
+                        <td>В) CH₃OCH₃</td>
+                        <td>3) простые эфиры</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>4) сложные эфиры</td>
+                    </tr>
+                </tbody></table>
+                <p>A) <input type="text" class="match-input" id="q10A"></p>
+                <p>Б) <input type="text" class="match-input" id="q10B"></p>
+                <p>В) <input type="text" class="match-input" id="q10C"></p>
+                <div class="answer-display" id="answer10" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer10">, , </span></p>
+                    <p>Правильный ответ: <span class="correct-answer">A)1, Б)2, В)3</span></p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 11 -->
+            <div class="question">
+                <div class="question-number">11</div>
+                <div class="question-title">Выберите два вещества, которые являются изомерами этилацетата.</div>
+                <div class="options">
+                    <label class="option">
+                        <input type="checkbox" name="q11" value="1">
+                        1) бутанол
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q11" value="2">
+                        2) бутаналь
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q11" value="3">
+                        3) бутановая кислота
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q11" value="4">
+                        4) изопропилформиат
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q11" value="5">
+                        5) пропионовая кислота
+                    </label>
+                </div>
+                <div class="answer-display" id="answer11" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer11">—</span></p>
+                    <p>Правильный ответ: <span class="correct-answer">1, 4 (бутанол и изопропилформиат)</span></p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 12 -->
+            <div class="question">
+                <div class="question-number">12</div>
+                <div class="question-title">Выберите все реакции, в результате которых образуется ацетон.</div>
+                <div class="options">
+                    <label class="option">
+                        <input type="checkbox" name="q12" value="1">
+                        1) щелочной гидролиз изопропилацетата
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q12" value="2">
+                        2) щелочной гидролиз 1,2-дибромпропана
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q12" value="3">
+                        3) щелочной гидролиз 2,2-дибромпропана
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q12" value="4">
+                        4) дегидрирование изопропилового спирта
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q12" value="5">
+                        5) дегидратация пропанола-2
+                    </label>
+                </div>
+                <div class="answer-display" id="answer12" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer12">—</span></p>
+                    <p>Правильный ответ: <span class="correct-answer">1, 3, 4</span></p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 13 -->
+            <div class="question">
+                <div class="question-number">13</div>
+                <div class="question-title">Выберите два вещества, с которыми реагирует и анилин, и аланин.</div>
+                <div class="options">
+                    <label class="option">
+                        <input type="checkbox" name="q13" value="1">
+                        1) NaOH
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q13" value="2">
+                        2) H₂SO₄
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q13" value="3">
+                        3) HBr
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q13" value="4">
+                        4) Br₂ (водн.)
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q13" value="5">
+                        5) NaHCO₃
+                    </label>
+                </div>
+                <div class="answer-display" id="answer13" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer13">—</span></p>
+                    <p>Правильный ответ: <span class="correct-answer">2, 3 (H₂SO₄ и HBr)</span></p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 14 -->
+            <div class="question">
+                <div class="question-number">14</div>
+                <div class="question-title">Установите соответствие между реакцией и продуктом.</div>
+                <table class="match-table">
+                    <tbody><tr>
+                        <th>Реакция</th>
+                        <th>Продукт реакции</th>
+                    </tr>
+                    <tr>
+                        <td>A) гидратация бутина-1</td>
+                        <td>1) уксусная кислота</td>
+                    </tr>
+                    <tr>
+                        <td>Б) окисление бутина-1 KMnO₄ (Н⁺)</td>
+                        <td>2) пропионовая кислота</td>
+                    </tr>
+                    <tr>
+                        <td>В) гидратация бутена-1</td>
+                        <td>3) бутанон</td>
+                    </tr>
+                    <tr>
+                        <td>Г) гидрирование бутина-1</td>
+                        <td>4) бутанол-1</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>5) бутанол-2</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>6) бутан</td>
+                    </tr>
+                </tbody></table>
+                <p>A) <input type="text" class="match-input" id="q14A"></p>
+                <p>Б) <input type="text" class="match-input" id="q14B"></p>
+                <p>В) <input type="text" class="match-input" id="q14C"></p>
+                <p>Г) <input type="text" class="match-input" id="q14D"></p>
+                <div class="answer-display" id="answer14" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer14">, , , </span></p>
+                    <p>Правильный ответ: <span class="correct-answer">A)2, Б)1, В)5, Г)6</span></p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 15 -->
+            <div class="question">
+                <div class="question-number">15</div>
+                <div class="question-title">Установите соответствие между веществом и способом его получения.</div>
+                <table class="match-table">
+                    <tbody><tr>
+                        <th>Вещество</th>
+                        <th>Способ получения</th>
+                    </tr>
+                    <tr>
+                        <td>A) пропанол-2</td>
+                        <td>1) щелочной гидролиз 2,2-дихлорпропана</td>
+                    </tr>
+                    <tr>
+                        <td>Б) ацетон</td>
+                        <td>2) брожение глюкозы</td>
+                    </tr>
+                    <tr>
+                        <td>В) этанол</td>
+                        <td>3) термическое разложение пропионата бария</td>
+                    </tr>
+                    <tr>
+                        <td>Г) пентанон-3</td>
+                        <td>4) окисление пропаналя</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>5) сплавление пропионата натрия с гидроксидом натрия</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>6) щелочной гидролиз изопропилформиата</td>
+                    </tr>
+                </tbody></table>
+                <p>A) <input type="text" class="match-input" id="q15A"></p>
+                <p>Б) <input type="text" class="match-input" id="q15B"></p>
+                <p>В) <input type="text" class="match-input" id="q15C"></p>
+                <p>Г) <input type="text" class="match-input" id="q15D"></p>
+                <div class="answer-display" id="answer15" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer15">, , , </span></p>
+                    <p>Правильный ответ: <span class="correct-answer">A)5, Б)4, В)2, Г)3</span></p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 16 -->
+            <div class="question">
+                <div class="question-number">16</div>
+                <div class="question-title">Задана схема превращений: X → Y → бензол</div>
+                <div class="options">
+                    <label class="option">
+                        <input type="checkbox" name="q16" value="1">
+                        1) ацетилен
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q16" value="2">
+                        2) гексан
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q16" value="3">
+                        3) бензоат калия
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q16" value="4">
+                        4) ацетальдегид
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q16" value="5">
+                        5) толуол
+                    </label>
+                </div>
+                <p>X: <input type="text" class="match-input" id="q16X"></p>
+                <p>Y: <input type="text" class="match-input" id="q16Y"></p>
+                <div class="answer-display" id="answer16" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer16">X:, Y:</span></p>
+                    <p>Правильный ответ: <span class="correct-answer">X:2, Y:5</span></p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 17 -->
+            <div class="question">
+                <div class="question-number">17</div>
+                <div class="question-title">Установите соответствие между взаимодействующими веществами и типами реакции.</div>
+                <table class="match-table">
+                    <tbody><tr>
+                        <th>Вещества</th>
+                        <th>Типы реакции</th>
+                    </tr>
+                    <tr>
+                        <td>A) этанол и натрий</td>
+                        <td>1) гетерогенная, окислительно-восстановительная</td>
+                    </tr>
+                    <tr>
+                        <td>Б) азот и кислород</td>
+                        <td>2) каталитическая, обмена</td>
+                    </tr>
+                    <tr>
+                        <td>В) фосфор и кислород</td>
+                        <td>3) гомогенная, замещения</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>4) гомогенная, эндогермическая</td>
+                    </tr>
+                </tbody></table>
+                <p>A) <input type="text" class="match-input" id="q17A"></p>
+                <p>Б) <input type="text" class="match-input" id="q17B"></p>
+                <p>В) <input type="text" class="match-input" id="q17C"></p>
+                <div class="answer-display" id="answer17" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer17">, , </span></p>
+                    <p>Правильный ответ: <span class="correct-answer">A)3, Б)4, В)1</span></p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 18 -->
+            <div class="question">
+                <div class="question-number">18</div>
+                <div class="question-title">Выберите все внешние воздействия, которые влияют на скорость реакции этерификации.</div>
+                <div class="options">
+                    <label class="option">
+                        <input type="checkbox" name="q18" value="1">
+                        1) уменьшение концентрации продукта реакции
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q18" value="2">
+                        2) добавление катализатора
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q18" value="3">
+                        3) увеличение концентрации исходных веществ
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q18" value="4">
+                        4) понижение давления в системе
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q18" value="5">
+                        5) понижение температуры
+                    </label>
+                </div>
+                <div class="answer-display" id="answer18" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer18">—</span></p>
+                    <p>Правильный ответ: <span class="correct-answer">2, 3, 5</span></p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 19 -->
+            <div class="question">
+                <div class="question-number">19</div>
+                <div class="question-title">Установите соответствие между схемой реакции и изменением степени окисления восстановителя.</div>
+                <table class="match-table">
+                    <tbody><tr>
+                        <th>Схема реакции</th>
+                        <th>Изменение степени окисления восстановителя</th>
+                    </tr>
+                    <tr>
+                        <td>A) H₂S + K → K₂S + H₂</td>
+                        <td>1) -3 → 0</td>
+                    </tr>
+                    <tr>
+                        <td>Б) NH₃ + K → KNH₂ + H₂</td>
+                        <td>2) +1 → 0</td>
+                    </tr>
+                    <tr>
+                        <td>В) NH₃ + CuO → N₂ + Cu + H₂O</td>
+                        <td>3) 0 → +1</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>4) +2 → 0</td>
+                    </tr>
+                </tbody></table>
+                <p>A) <input type="text" class="match-input" id="q19A"></p>
+                <p>Б) <input type="text" class="match-input" id="q19B"></p>
+                <p>В) <input type="text" class="match-input" id="q19C"></p>
+                <div class="answer-display" id="answer19" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer19">, , </span></p>
+                    <p>Правильный ответ: <span class="correct-answer">A)2, Б)3, В)1</span></p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 20 -->
+            <div class="question">
+                <div class="question-number">20</div>
+                <div class="question-title">Установите соответствие между названием вещества и способом его электролитического получения.</div>
+                <table class="match-table">
+                    <tbody><tr>
+                        <th>Название вещества</th>
+                        <th>Получение электролизом</th>
+                    </tr>
+                    <tr>
+                        <td>A) фтор</td>
+                        <td>1) водного раствора AgF</td>
+                    </tr>
+                    <tr>
+                        <td>Б) кислород</td>
+                        <td>2) расплава KF</td>
+                    </tr>
+                    <tr>
+                        <td>В) гидроксид калия</td>
+                        <td>3) водного раствора CuBr₂</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>4) водного раствора KBr</td>
+                    </tr>
+                </tbody></table>
+                <p>A) <input type="text" class="match-input" id="q20A"></p>
+                <p>Б) <input type="text" class="match-input" id="q20B"></p>
+                <p>В) <input type="text" class="match-input" id="q20C"></p>
+                <div class="answer-display" id="answer20" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer20">, , </span></p>
+                    <p>Правильный ответ: <span class="correct-answer">A)2, Б)4, В)4</span></p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 21 -->
+            <div class="question">
+                <div class="question-number">21</div>
+                <div class="question-title">Расположите вещества в порядке увеличения значения pH их водных растворов (одинаковая концентрация).</div>
+                <div class="options">
+                    <label class="option">
+                        <input type="checkbox" name="q21" value="1">
+                        1) K₃PO₄
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q21" value="2">
+                        2) CaBr₂
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q21" value="3">
+                        3) FeCl₃
+                    </label>
+                    <label class="option">
+                        <input type="checkbox" name="q21" value="4">
+                        4) LiOH
+                    </label>
+                </div>
+                <p>Порядок: <input type="text" class="match-input" id="q21-order" placeholder="1,2,3,4"></p>
+                <div class="answer-display" id="answer21" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer21"></span></p>
+                    <p>Правильный ответ: <span class="correct-answer">3, 2, 1, 4</span></p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 22 -->
+            <div class="question">
+                <div class="question-number">22</div>
+                <div class="question-title">Установите соответствие для системы: 2SO₂(г) + O₂(г) ⇄ 2SO₃(г) + Q</div>
+                <table class="match-table">
+                    <tbody><tr>
+                        <th>Воздействие на систему</th>
+                        <th>Химическое равновесие</th>
+                    </tr>
+                    <tr>
+                        <td>A) увеличение концентрации кислорода</td>
+                        <td>1) смещается в сторону прямой реакции</td>
+                    </tr>
+                    <tr>
+                        <td>Б) добавление катализатора</td>
+                        <td>2) смещается в сторону обратной реакции</td>
+                    </tr>
+                    <tr>
+                        <td>В) повышение температуры</td>
+                        <td>3) практически не смещается</td>
+                    </tr>
+                    <tr>
+                        <td>Г) понижение давления</td>
+                        <td></td>
+                    </tr>
+                </tbody></table>
+                <p>A) <input type="text" class="match-input" id="q22A"></p>
+                <p>Б) <input type="text" class="match-input" id="q22B"></p>
+                <p>В) <input type="text" class="match-input" id="q22C"></p>
+                <p>Г) <input type="text" class="match-input" id="q22D"></p>
+                <div class="answer-display" id="answer22" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer22">, , , </span></p>
+                    <p>Правильный ответ: <span class="correct-answer">A)1, Б)3, В)2, Г)2</span></p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 23 -->
+            <div class="question">
+                <div class="question-number">23</div>
+                <div class="question-title">Для реакции: C₆H₆ + 3H₂ ⇄ C₆H₁₂. Исходная [H₂] = 0.8 моль/л. Равновесная [H₂] = 0.2 моль/л, [C₆H₆] = 0.1 моль/л. Найдите исходную [C₆H₆] (X) и равновесную [C₆H₁₂] (Y).</div>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q23X" value="1">
+                        1) 0.1 моль/л
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q23X" value="2">
+                        2) 0.2 моль/л
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q23X" value="3">
+                        3) 0.3 моль/л
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q23X" value="4">
+                        4) 0.4 моль/л
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q23X" value="5">
+                        5) 0.5 моль/л
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q23X" value="6">
+                        6) 0.6 моль/л
+                    </label>
+                </div>
+                <p>Y:</p>
+                <div class="options">
+                    <label class="option">
+                        <input type="radio" name="q23Y" value="1">
+                        1) 0.1 моль/л
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q23Y" value="2">
+                        2) 0.2 моль/л
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q23Y" value="3">
+                        3) 0.3 моль/л
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q23Y" value="4">
+                        4) 0.4 моль/л
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q23Y" value="5">
+                        5) 0.5 моль/л
+                    </label>
+                    <label class="option">
+                        <input type="radio" name="q23Y" value="6">
+                        6) 0.6 моль/л
+                    </label>
+                </div>
+                <div class="answer-display" id="answer23" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer23">X:—, Y:—</span></p>
+                    <p>Правильный ответ: <span class="correct-answer">X:3 (0.3 моль/л), Y:2 (0.2 моль/л)</span></p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 24 -->
+            <div class="question">
+                <div class="question-number">24</div>
+                <div class="question-title">Установите соответствие между реагирующими веществами и признаком протекающей реакции.</div>
+                <table class="match-table">
+                    <tbody><tr>
+                        <th>Реагирующие вещества</th>
+                        <th>Признак реакции</th>
+                    </tr>
+                    <tr>
+                        <td>A) NaOH и Al</td>
+                        <td>1) образование белого осадка</td>
+                    </tr>
+                    <tr>
+                        <td>Б) Cu и HNO₃ (конц.)</td>
+                        <td>2) образование бурого осадка</td>
+                    </tr>
+                    <tr>
+                        <td>В) Ba(OH)₂ и Mg(NO₃)₂</td>
+                        <td>3) выделение бесцветного газа</td>
+                    </tr>
+                    <tr>
+                        <td>Г) Na₂CrO₄ и H₂SO₄</td>
+                        <td>4) выделение бурого газа</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>5) изменение цвета раствора</td>
+                    </tr>
+                </tbody></table>
+                <p>A) <input type="text" class="match-input" id="q24A"></p>
+                <p>Б) <input type="text" class="match-input" id="q24B"></p>
+                <p>В) <input type="text" class="match-input" id="q24C"></p>
+                <p>Г) <input type="text" class="match-input" id="q24D"></p>
+                <div class="answer-display" id="answer24" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer24">, , , </span></p>
+                    <p>Правильный ответ: <span class="correct-answer">A)3, Б)4, В)1, Г)5</span></p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 25 -->
+            <div class="question">
+                <div class="question-number">25</div>
+                <div class="question-title">Установите соответствие между веществом и аппаратом для его получения.</div>
+                <table class="match-table">
+                    <tbody><tr>
+                        <th>Вещество</th>
+                        <th>Аппарат</th>
+                    </tr>
+                    <tr>
+                        <td>A) хлор</td>
+                        <td>1) ректификационная колонна</td>
+                    </tr>
+                    <tr>
+                        <td>Б) гексан</td>
+                        <td>2) колонна синтеза</td>
+                    </tr>
+                    <tr>
+                        <td>В) натрий</td>
+                        <td>3) электролизёр</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>4) поглотительная башня</td>
+                    </tr>
+                </tbody></table>
+                <p>A) <input type="text" class="match-input" id="q25A"></p>
+                <p>Б) <input type="text" class="match-input" id="q25B"></p>
+                <p>В) <input type="text" class="match-input" id="q25C"></p>
+                <div class="answer-display" id="answer25" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer25">, , </span></p>
+                    <p>Правильный ответ: <span class="correct-answer">A)3, Б)1, В)3</span></p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 26 -->
+            <div class="question">
+                <div class="question-number">26</div>
+                <div class="question-title">В 200 г раствора с массовой долей соли 12% добавили 16 г той же соли и 104 г воды. Вычислите массовую долю соли (%) в полученном растворе.</div>
+                <p>Ответ: <input type="number" step="0.1" class="number-input" id="q26"> %</p>
+                <div class="answer-display" id="answer26" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer26">NaN</span></p>
+                    <p>Правильный ответ: <span class="correct-answer">10.0</span></p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 27 -->
+            <div class="question">
+                <div class="question-number">27</div>
+                <div class="question-title">По уравнению: 2Cl₂O₇ → 2Cl₂ + 7O₂ + 574 кДж. Выделилось 11.48 кДж тепла. Вычислите объём (л) получившегося кислорода (н. у.).</div>
+                <p>Ответ: <input type="number" class="number-input" id="q27"> л</p>
+                <div class="answer-display" id="answer27" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer27">NaN</span></p>
+                    <p>Правильный ответ: <span class="correct-answer">3</span></p>
+                </div>
+            </div>
+            
+            <!-- Вопрос 28 -->
+            <div class="question">
+                <div class="question-number">28</div>
+                <div class="question-title">Вычислите массу (кг) магнетита Fe₃O₄, содержащего 20% примесей, необходимую для получения железа массой 16,8 кг.</div>
+                <p>Ответ: <input type="number" class="number-input" id="q28"> кг</p>
+                <div class="answer-display" id="answer28" style="display: block;">
+                    <p>Ваш ответ: <span class="user-answer" id="userAnswer28">NaN</span></p>
+                    <p>Правильный ответ: <span class="correct-answer">29</span></p>
+                </div>
+            </div>
+            
+            <div class="part-title">Часть 2</div>
+            
+            <!-- Вопросы 29-34 -->
+            <div class="question">
+                <div class="question-title">Часть 2 требует развернутых ответов и будет проверяться преподавателем.</div>
+                <div class="answer-display">
+                    <p>Правильные ответы на часть 2:</p>
+                    <p><strong>29.</strong> Пример: 2KMnO₄ + 3H₂SO₄ + 5H₂S → K₂SO₄ + 2MnSO₄ + 8H₂O + 5S↓</p>
+                    <p><strong>30.</strong> Пример: Mg(CH₃COO)₂ + 2HCl → MgCl₂ + 2CH₃COOH</p>
+                    <p><strong>31.</strong> 
+                        1) 2NH₄Cl + Ca(OH)₂ → CaCl₂ + 2NH₃↑ + 2H₂O<br>
+                        2) 2FeCl₃ + 3H₂O + 3NH₃ → Fe(OH)₃↓ + 3NH₄Cl<br>
+                        3) 2Fe(OH)₃ + 3H₂SO₄ → Fe₂(SO₄)₃ + 6H₂O<br>
+                        4) Fe₂(SO₄)₃ + SO₂ + 2H₂O → 2FeSO₄ + 2H₂SO₄
+                    </p>
+                    <p><strong>32-34.</strong> Решения требуют индивидуальных расчётов.</p>
+                </div>
+            </div>
+            
+            <div class="results" id="results" style="display: block;">
+                <h2>Результаты тестирования</h2>
+                <div class="score" id="score">1/28</div>
+                <div class="result-details" id="resultDetails">
+                    <!-- Сюда будут добавляться результаты -->
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button class="btn btn-primary" onclick="checkAnswers()">
+                    <span>✅</span> Проверить ответы
+                </button>
+                <button class="btn btn-success" onclick="resetTest()">
+                    <span>🔄</span> Начать заново
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Правильные ответы
+        const correctAnswers = {
+            q1: [1, 2],
+            q2: [4, 5, 1],
+            q2Order: "5,4,1",
+            q3: [1, 2],
+            q4: [1, 5],
+            q5A: "5",
+            q5B: "4",
+            q5C: "7",
+            q6X: "3",
+            q6Y: "5",
+            q7A: "3",
+            q7B: "4",
+            q7C: "1",
+            q7D: "1",
+            q8A: "1",
+            q8B: "4",
+            q8C: "3",
+            q8D: "5",
+            q9X: "4",
+            q9Y: "3",
+            q10A: "1",
+            q10B: "2",
+            q10C: "3",
+            q11: [1, 4],
+            q12: [1, 3, 4],
+            q13: [2, 3],
+            q14A: "2",
+            q14B: "1",
+            q14C: "5",
+            q14D: "6",
+            q15A: "5",
+            q15B: "4",
+            q15C: "2",
+            q15D: "3",
+            q16X: "2",
+            q16Y: "5",
+            q17A: "3",
+            q17B: "4",
+            q17C: "1",
+            q18: [2, 3, 5],
+            q19A: "2",
+            q19B: "3",
+            q19C: "1",
+            q20A: "2",
+            q20B: "4",
+            q20C: "4",
+            q21Order: "3,2,1,4",
+            q22A: "1",
+            q22B: "3",
+            q22C: "2",
+            q22D: "2",
+            q23X: "3",
+            q23Y: "2",
+            q24A: "3",
+            q24B: "4",
+            q24C: "1",
+            q24D: "5",
+            q25A: "3",
+            q25B: "1",
+            q25C: "3",
+            q26: 10.0,
+            q27: 3,
+            q28: 29
+        };
+
+        // Функция для проверки ответов
+        function checkAnswers() {
+            let score = 0;
+            const totalQuestions = 28;
+            
+            // Проверка каждого вопроса
+            for (let i = 1; i <= totalQuestions; i++) {
+                const answerDisplay = document.getElementById(`answer${i}`);
+                const userAnswerSpan = document.getElementById(`userAnswer${i}`);
+                
+                // Показываем блок с ответом
+                if (answerDisplay) {
+                    answerDisplay.style.display = 'block';
+                }
+                
+                // Собираем ответ пользователя и сравниваем с правильным
+                let isCorrect = false;
+                
+                switch(i) {
+                    case 1: case 3: case 4: case 11: case 12: case 13: case 18:
+                        // Вопросы с выбором нескольких вариантов
+                        const selected = [];
+                        document.querySelectorAll(`input[name="q${i}"]:checked`).forEach(cb => {
+                            selected.push(parseInt(cb.value));
+                        });
+                        selected.sort((a, b) => a - b);
+                        isCorrect = arraysEqual(selected, correctAnswers[`q${i}`]);
+                        userAnswerSpan.textContent = selected.join(', ') || '—';
+                        break;
+                        
+                    case 2:
+                        // Вопрос 2 - выбор и порядок
+                        const selectedQ2 = [];
+                        document.querySelectorAll(`input[name="q2"]:checked`).forEach(cb => {
+                            selectedQ2.push(parseInt(cb.value));
+                        });
+                        selectedQ2.sort((a, b) => a - b);
+                        const order = document.getElementById('q2-order').value;
+                        isCorrect = arraysEqual(selectedQ2, correctAnswers.q2) && 
+                                    order === correctAnswers.q2Order;
+                        userAnswerSpan.textContent = `Выбрано: ${selectedQ2.join(', ') || '—'}, Порядок: ${order}`;
+                        break;
+                        
+                    case 5:
+                        // Вопрос 5 - три поля ввода
+                        const a5 = document.getElementById('q5A').value;
+                        const b5 = document.getElementById('q5B').value;
+                        const c5 = document.getElementById('q5C').value;
+                        isCorrect = a5 === correctAnswers.q5A && 
+                                    b5 === correctAnswers.q5B && 
+                                    c5 === correctAnswers.q5C;
+                        userAnswerSpan.textContent = `A:${a5}, Б:${b5}, В:${c5}`;
+                        break;
+                        
+                    case 6:
+                        // Вопрос 6 - выбор X и Y
+                        const x6 = document.getElementById('q6X').value;
+                        const y6 = document.getElementById('q6Y').value;
+                        isCorrect = x6 === correctAnswers.q6X && y6 === correctAnswers.q6Y;
+                        userAnswerSpan.textContent = `X:${x6}, Y:${y6}`;
+                        break;
+                        
+                    case 7: case 8: case 10: case 14: case 15: case 17: case 19: 
+                    case 20: case 22: case 24: case 25:
+                        // Вопросы с соответствием (несколько полей)
+                        const answers = [];
+                        for (let j = 0; j < 4; j++) {
+                            const letter = String.fromCharCode(65 + j);
+                            const input = document.getElementById(`q${i}${letter}`);
+                            if (input) {
+                                answers.push(input.value);
+                            }
+                        }
+                        const correct = [
+                            correctAnswers[`q${i}A`],
+                            correctAnswers[`q${i}B`],
+                            correctAnswers[`q${i}C`],
+                            correctAnswers[`q${i}D`]
+                        ];
+                        isCorrect = arraysEqual(answers, correct);
+                        userAnswerSpan.textContent = answers.join(', ');
+                        break;
+                        
+                    case 9: case 16:
+                        // Вопросы 9 и 16 - выбор X и Y
+                        const x = document.getElementById(`q${i}X`).value;
+                        const y = document.getElementById(`q${i}Y`).value;
+                        isCorrect = x === correctAnswers[`q${i}X`] && 
+                                    y === correctAnswers[`q${i}Y`];
+                        userAnswerSpan.textContent = `X:${x}, Y:${y}`;
+                        break;
+                        
+                    case 21:
+                        // Вопрос 21 - порядок
+                        const order21 = document.getElementById('q21-order').value;
+                        isCorrect = order21 === correctAnswers.q21Order;
+                        userAnswerSpan.textContent = order21;
+                        break;
+                        
+                    case 23:
+                        // Вопрос 23 - два радио
+                        const x23 = document.querySelector('input[name="q23X"]:checked')?.value;
+                        const y23 = document.querySelector('input[name="q23Y"]:checked')?.value;
+                        isCorrect = x23 === correctAnswers.q23X && 
+                                    y23 === correctAnswers.q23Y;
+                        userAnswerSpan.textContent = `X:${x23 || '—'}, Y:${y23 || '—'}`;
+                        break;
+                        
+                    case 26: case 27: case 28:
+                        // Числовые ответы
+                        const answer = parseFloat(document.getElementById(`q${i}`).value);
+                        isCorrect = answer === correctAnswers[`q${i}`];
+                        userAnswerSpan.textContent = answer;
+                        break;
+                }
+                
+                // Обновление счета
+                if (isCorrect) {
+                    score++;
+                }
+            }
+            
+            // Показываем результаты
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('score').textContent = `${score}/${totalQuestions}`;
+            
+            // Прокручиваем к результатам
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Вспомогательные функции
+        function arraysEqual(a, b) {
+            if (a === b) return true;
+            if (a == null || b == null) return false;
+            if (a.length !== b.length) return false;
+            
+            for (let i = 0; i < a.length; i++) {
+                if (a[i] !== b[i]) return false;
+            }
+            return true;
+        }
+        
+        // Функция для сброса теста
+        function resetTest() {
+            // Сбрасываем все чекбоксы
+            const checkboxes = document.querySelectorAll('input[type="checkbox"], input[type="radio"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+            });
+            
+            // Очищаем текстовые поля
+            const textInputs = document.querySelectorAll('input[type="text"], input[type="number"], textarea');
+            textInputs.forEach(input => {
+                input.value = '';
+            });
+            
+            // Сбрасываем классы выбранных опций
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Скрываем ответы
+            for (let i = 1; i <= 28; i++) {
+                const answerDisplay = document.getElementById(`answer${i}`);
+                if (answerDisplay) {
+                    answerDisplay.style.display = 'none';
+                }
+            }
+            
+            // Скрываем результаты
+            document.getElementById('results').style.display = 'none';
+            
+            // Прокручиваем в начало
+            window.scrollTo(0, 0);
+        }
+        
+        // Добавляем обработчики для выбора опций
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Для чекбоксов добавляем/убираем класс selected
+                const checkbox = this.querySelector('input[type="checkbox"]');
+                if (checkbox) {
+                    this.classList.toggle('selected');
+                }
+                
+                // Для радиокнопок добавляем класс selected ко всем в группе
+                const radio = this.querySelector('input[type="radio"]');
+                if (radio) {
+                    const groupName = radio.name;
+                    document.querySelectorAll(`input[name="${groupName}"]`).forEach(r => {
+                        r.closest('.option').classList.remove('selected');
+                    });
+                    this.classList.add('selected');
+                }
+            });
+        });
+    </script>
+
+</body></html>
