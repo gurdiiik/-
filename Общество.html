@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Полное расписание курса обществознания ЕГЭ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #E65100 0%, #FF9800 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        header {
+            background: #BF360C;
+            color: white;
+            padding: 25px;
+            text-align: center;
+            border-bottom: 5px solid #FF9800;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .tab:hover {
+            background: #e9ecef;
+        }
+        
+        .tab.active {
+            border-bottom: 3px solid #FF5722;
+            color: #FF5722;
+            background: white;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .social-schedule {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .schedule-header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px dashed #FF5722;
+        }
+        
+        .schedule-header h3 {
+            color: #BF360C;
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+        
+        .schedule-header p {
+            color: #7f8c8d;
+            margin: 3px 0;
+        }
+        
+        .schedule-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            gap: 15px;
+        }
+        
+        .schedule-item {
+            display: flex;
+            padding: 15px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .schedule-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .date {
+            flex: 0 0 80px;
+            font-weight: bold;
+            color: #e53935;
+            font-size: 1.1rem;
+        }
+        
+        .topic {
+            flex: 1;
+            color: #2c3e50;
+            line-height: 1.5;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #FF9800;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #FF5722, #FF9800);
+            width: 100%;
+            border-radius: 4px;
+        }
+        
+        .progress-text {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: white;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        .signup-button {
+            display: block;
+            width: 250px;
+            margin: 30px auto;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #E65100 0%, #FF9800 100%);
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .signup-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #FF9800 0%, #E65100 100%);
+        }
+        
+        .signup-button:active {
+            transform: translateY(1px);
+        }
+        
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 950px) {
+            .schedule-items {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                border-radius: 10px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .tab {
+                padding: 12px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .schedule-item {
+                flex-direction: column;
+            }
+            
+            .date {
+                margin-bottom: 5px;
+            }
+            
+            .signup-button {
+                width: 90%;
+                font-size: 1rem;
+                padding: 12px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Полное расписание курса обществознания ЕГЭ</h1>
+            <p class="subtitle">Валентиныч</p>
+        </header>
+        
+        <div class="tabs">
+            <div class="tab active" data-tab="september">Сентябрь</div>
+            <div class="tab" data-tab="october">Октябрь</div>
+            <div class="tab" data-tab="november">Ноябрь</div>
+            <div class="tab" data-tab="december">Декабрь</div>
+            <div class="tab" data-tab="january">Январь</div>
+            <div class="tab" data-tab="february">Февраль</div>
+            <div class="tab" data-tab="march">Март</div>
+            <div class="tab" data-tab="april">Апрель</div>
+            <div class="tab" data-tab="may">Май</div>
+        </div>
+        
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <div class="progress-text">Программа курса выполнена на 100%</div>
+        
+        <div class="tab-content active" id="september">
+            <div class="social-schedule">
+                <div class="schedule-header">
+                    <h3>Сентябрь - Человек и общество</h3>
+                    <p>Основные понятия и социальные институты</p>
+                </div>
+                
+                <div class="schedule-items">
+                    <div class="schedule-item">
+                        <div class="date">15.09</div>
+                        <div class="topic">Человек, потребности, общество<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">17.09</div>
+                        <div class="topic">Как правильно решать и оформлять ответ в заданиях 17, 18 и 24?<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">19.09</div>
+                        <div class="topic">Деятельность<br><span class="badge">пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">22.09</div>
+                        <div class="topic">Как правильно решать и оформлять ответ в заданиях 19, 20, 25<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">24.09</div>
+                        <div class="topic">Социальные институты, социальные группы<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">26.09</div>
+                        <div class="topic">Пробник. Как правильно распределить время на экзамене?<br><span class="badge">пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">29.09</div>
+                        <div class="topic">Разбор пробника<br><span class="badge">пн</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://kursegeoge.com/" class="signup-button" target="_blank">Записаться на курс</a>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="october">
+            <div class="social-schedule">
+                <div class="schedule-header">
+                    <h3>Октябрь - Социальные отношения</h3>
+                    <p>Социальный контроль, нормы и социализация</p>
+                </div>
+                
+                <div class="schedule-items">
+                    <div class="schedule-item">
+                        <div class="date">01.10</div>
+                        <div class="topic">Социальный контроль, социальные нормы, мораль<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">03.10</div>
+                        <div class="topic">Социализация<br><span class="badge">пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">06.10</div>
+                        <div class="topic">Мировоззрение, сознание<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">08.10</div>
+                        <div class="topic">Отклоняющееся поведение<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">10.10</div>
+                        <div class="topic">Практика: решаем задания второй части по пройденным темам/ задания из ДЗ<br><span class="badge">пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">13.10</div>
+                        <div class="topic">Повторение<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">15.10</div>
+                        <div class="topic">Социальные статусы, социальная стратификация, социальная мобильность<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">17.10</div>
+                        <div class="topic">Социальный конфликт<br><span class="badge">пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">20.10</div>
+                        <div class="topic">Практика: решаем реальный вариант ЕГЭ 2025 г.<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">22.10</div>
+                        <div class="topic">Этносы<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">24.10</div>
+                        <div class="topic">Пробник: Молодежь, социальная политика<br><span class="badge">пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">27.10</div>
+                        <div class="topic">Разбор пробника<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">29.10</div>
+                        <div class="topic">Семья<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">31.10</div>
+                        <div class="topic">Практика: решаем задания № 18 блоков 1–2<br><span class="badge">пт</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://kursegeoge.com/" class="signup-button" target="_blank">Записаться на курс</a>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="november">
+            <div class="social-schedule">
+                <div class="schedule-header">
+                    <h3>Ноябрь - Экономика</h3>
+                    <p>Основы экономики и факторы производства</p>
+                </div>
+                
+                <div class="schedule-items">
+                    <div class="schedule-item">
+                        <div class="date">03.11</div>
+                        <div class="topic">Семейное право<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">05.11</div>
+                        <div class="topic">Практика: решаем задания № 24 блоков 1–2<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">07.11</div>
+                        <div class="topic">Практика: все задания первой части по блоку № 1–2<br><span class="badge">пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">10.11</div>
+                        <div class="topic">Повторение<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">12.11</div>
+                        <div class="topic">Экономика, факторы производства<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">14.11</div>
+                        <div class="topic">Собственность, экономическая деятельность, рациональное экономическое поведение<br><span class="badge">пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">17.11</div>
+                        <div class="topic">Типы экономических систем, экономический цикл<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">19.11</div>
+                        <div class="topic">Практика<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">21.11</div>
+                        <div class="topic">Рыночный механизм<br><span class="badge">пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">24.11</div>
+                        <div class="topic">Конкуренция, антимонопольное регулирование<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">25.11</div>
+                        <div class="topic">Практика: задание №21<br><span class="badge">вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">26.11</div>
+                        <div class="topic">Пробник. Как оформлять ответ в заданиях второй части?<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">28.11</div>
+                        <div class="topic">Разбор пробника<br><span class="badge">пт</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://kursegeoge.com/" class="signup-button" target="_blank">Записаться на курс</a>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="december">
+            <div class="social-schedule">
+                <div class="schedule-header">
+                    <h3>Декабрь - Экономика и финансы</h3>
+                    <p>Рынок труда, фирмы и финансовая система</p>
+                </div>
+                
+                <div class="schedule-items">
+                    <div class="schedule-item">
+                        <div class="date">01.12</div>
+                        <div class="topic">Рынок труда, безработица<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">03.12</div>
+                        <div class="topic">Трудовое право<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">05.12</div>
+                        <div class="topic">Практика<br><span class="badge">пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">08.12</div>
+                        <div class="topic">Повторение: вся теория блока № 1–2<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">10.12</div>
+                        <div class="topic">Фирма, предпринимательская деятельность<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">11.12</div>
+                        <div class="topic">ОПФП (Организационно-правовые формы предпринимательства)<br><span class="badge">чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">15.12</div>
+                        <div class="topic">Пробник. Практика: решаем реальный вариант ЕГЭ 2025 г.<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">16.12</div>
+                        <div class="topic">Разбор пробника<br><span class="badge">вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">17.12</div>
+                        <div class="topic">Источники финансирования бизнеса, издержки, экономический рост<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">19.12</div>
+                        <div class="topic">Ценные бумаги<br><span class="badge">пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">22.12</div>
+                        <div class="topic">Практика: решаем задания второй части блока 1–2<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">24.12</div>
+                        <div class="topic">Государство в экономике, общественные блага, государственный бюджет<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">26.12</div>
+                        <div class="topic">Налоги<br><span class="badge">пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">29.12</div>
+                        <div class="topic">Банки, финансовая система<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">30.12</div>
+                        <div class="topic">Практика<br><span class="badge">вт</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://kursegeoge.com/" class="signup-button" target="_blank">Записаться на курс</a>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="january">
+            <div class="social-schedule">
+                <div class="schedule-header">
+                    <h3>Январь - Экономика и политика</h3>
+                    <p>Повторение экономики и основы политики</p>
+                </div>
+                
+                <div class="schedule-items">
+                    <div class="schedule-item">
+                        <div class="date">05.01</div>
+                        <div class="topic">Повторение: вся теория блока № 3–4<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">07.01</div>
+                        <div class="topic">Инфляция<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">09.01</div>
+                        <div class="topic">Практика<br><span class="badge">пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">12.01</div>
+                        <div class="topic">Мировая экономика<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">13.01</div>
+                        <div class="topic">Пробник. Практика: все задания первой части по экономике<br><span class="badge">вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">14.01</div>
+                        <div class="topic">Разбор пробника<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">16.01</div>
+                        <div class="topic">Все задания № 18 по экономике<br><span class="badge">пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">19.01</div>
+                        <div class="topic">Все задания №24 блока экономика<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">21.01</div>
+                        <div class="topic">Политическая власть, политическая система<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">23.01</div>
+                        <div class="topic">Государство<br><span class="badge">пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">26.01</div>
+                        <div class="topic">Форма государства, политические режимы<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">28.01</div>
+                        <div class="topic">Демократия, гражданское общество, правовое государство<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">30.01</div>
+                        <div class="topic">Политическая культура, СМИ в политике<br><span class="badge">пт</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://kursegeoge.com/" class="signup-button" target="_blank">Записаться на курс</a>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="february">
+            <div class="social-schedule">
+                <div class="schedule-header">
+                    <h3>Февраль - Политика</h3>
+                    <p>Политическая идеология, партии и выборы</p>
+                </div>
+                
+                <div class="schedule-items">
+                    <div class="schedule-item">
+                        <div class="date">01.02</div>
+                        <div class="topic">Политическая идеология<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">04.02</div>
+                        <div class="topic">Практика: решаем полный вариант формата ЕГЭ<br><span class="badge">чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">06.02</div>
+                        <div class="topic">Политическое участие, политический процесс<br><span class="badge">сб</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">09.02</div>
+                        <div class="topic">Политическая элита, политическое лидерство<br><span class="badge">вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">11.02</div>
+                        <div class="topic">Политические партии<br><span class="badge">чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">13.02</div>
+                        <div class="topic">Выборы<br><span class="badge">сб</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">16.02</div>
+                        <div class="topic">Пробник. Практика: все задания первой части по политике<br><span class="badge">вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">18.02</div>
+                        <div class="topic">Разбор пробника<br><span class="badge">чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">20.02</div>
+                        <div class="topic">Практика: решаем задания № 24 блока политика<br><span class="badge">сб</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">23.02</div>
+                        <div class="topic">Повторение: экономика<br><span class="badge">вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">25.02</div>
+                        <div class="topic">Право как социальный институт, правоотношения<br><span class="badge">чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">27.02</div>
+                        <div class="topic">Система права<br><span class="badge">сб</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://kursegeoge.com/" class="signup-button" target="_blank">Записаться на курс</a>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="march">
+            <div class="social-schedule">
+                <div class="schedule-header">
+                    <h3>Март - Право</h3>
+                    <p>Конституция, органы власти и юридическая ответственность</p>
+                </div>
+                
+                <div class="schedule-items">
+                    <div class="schedule-item">
+                        <div class="date">02.03</div>
+                        <div class="topic">Конституция РФ, конституционные права<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">04.03</div>
+                        <div class="topic">Практика: задание №23<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">06.03</div>
+                        <div class="topic">Органы власти РФ<br><span class="badge">пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">09.03</div>
+                        <div class="topic">Федеративное устройство РФ<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">10.03</div>
+                        <div class="topic">Практика: задания № 12–13<br><span class="badge">вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">11.03</div>
+                        <div class="topic">Гражданство РФ<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">13.03</div>
+                        <div class="topic">Воинская обязанность, АГС<br><span class="badge">пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">16.03</div>
+                        <div class="topic">Законодательный процесс, Конституционное судопроизводство<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">18.03</div>
+                        <div class="topic">Юридическая ответственность, правомерное поведение<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">20.03</div>
+                        <div class="topic">Правоохранительные органы, государственная служба, антикоррупционная политика, антитеррористическая деятельность<br><span class="badge">пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">23.03</div>
+                        <div class="topic">Повторение: политика<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">25.03</div>
+                        <div class="topic">Административное право<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">27.03</div>
+                        <div class="topic">Экологическое право<br><span class="badge">пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">30.03</div>
+                        <div class="topic">Административный процесс<br><span class="badge">пн</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://kursegeoge.com/" class="signup-button" target="_blank">Записаться на курс</a>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="april">
+            <div class="social-schedule">
+                <div class="schedule-header">
+                    <h3>Апрель - Право и философия</h3>
+                    <p>Уголовное, гражданское право и основы познания</p>
+                </div>
+                
+                <div class="schedule-items">
+                    <div class="schedule-item">
+                        <div class="date">01.04</div>
+                        <div class="topic">Повторение: социология<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">03.04</div>
+                        <div class="topic">Уголовное право<br><span class="badge">пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">06.04</div>
+                        <div class="topic">Уголовное процессуальное право<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">08.04</div>
+                        <div class="topic">Повторение: экономика<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">10.04</div>
+                        <div class="topic">Гражданское право<br><span class="badge">пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">13.04</div>
+                        <div class="topic">Гражданское процессуальное право, арбитражный процесс<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">15.04</div>
+                        <div class="topic">Повторение: всё право<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">17.04</div>
+                        <div class="topic">Практика: все задания первой части по праву<br><span class="badge">пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">20.04</div>
+                        <div class="topic">Самые провальные задания дз<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">22.04</div>
+                        <div class="topic">Мышление, познание, истина<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">24.04</div>
+                        <div class="topic">Религия, свобода и необходимость<br><span class="badge">пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">27.04</div>
+                        <div class="topic">Пробник. Практика<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">29.04</div>
+                        <div class="topic">Разбор пробника<br><span class="badge">ср</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://kursegeoge.com/" class="signup-button" target="_blank">Записаться на курс</a>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="may">
+            <div class="social-schedule">
+                <div class="schedule-header">
+                    <h3>Май - Завершение курса</h3>
+                    <p>Культура, образование и итоговое повторение</p>
+                </div>
+                
+                <div class="schedule-items">
+                    <div class="schedule-item">
+                        <div class="date">01.05</div>
+                        <div class="topic">Культура, искусство<br><span class="badge">пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">04.05</div>
+                        <div class="topic">Образование, образовательное право<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">06.05</div>
+                        <div class="topic">Наука<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">08.05</div>
+                        <div class="topic">Практика<br><span class="badge">пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">11.05</div>
+                        <div class="topic">Общественный прогресс, типы обществ<br><span class="badge">пн</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">13.05</div>
+                        <div class="topic">Глобализация и глобальные проблемы<br><span class="badge">ср</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">15.05</div>
+                        <div class="topic">Итоговый зачет<br><span class="badge">пт</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://kursegeoge.com/" class="signup-button" target="_blank">Записаться на курс</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2025 Подготовка к ЕГЭ. Валентиныч</p>
+    </footer>
+
+    <script>
+        // Табы
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Убираем активный класс у всех табов
+                document.querySelectorAll('.tab').forEach(t => {
+                    t.classList.remove('active');
+                });
+                
+                // Добавляем активный класс к текущему табу
+                tab.classList.add('active');
+                
+                // Скрываем все содержимое табов
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Показываем соответствующее содержимое
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
