@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)file:///C:/Users/FostersPC/Downloads/deepseek_html_20250820_2fd200.html -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Полное расписание курса химии ЕГЭ</title>
+    <link rel="stylesheet" href="./Полное расписание курса химии ЕГЭ_files/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #7B1FA2 0%, #BA68C8 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        header {
+            background: #4A148C;
+            color: white;
+            padding: 25px;
+            text-align: center;
+            border-bottom: 5px solid #AB47BC;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+            flex-wrap: wrap;
+        }
+        
+        .tab {
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .tab:hover {
+            background: #e9ecef;
+        }
+        
+        .tab.active {
+            border-bottom: 3px solid #9C27B0;
+            color: #9C27B0;
+            background: white;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .chemistry-schedule {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .schedule-header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px dashed #9C27B0;
+        }
+        
+        .schedule-header h3 {
+            color: #4A148C;
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+        
+        .schedule-header p {
+            color: #7f8c8d;
+            margin: 3px 0;
+        }
+        
+        .schedule-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            gap: 15px;
+        }
+        
+        .schedule-item {
+            display: flex;
+            padding: 15px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .schedule-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .date {
+            flex: 0 0 80px;
+            font-weight: bold;
+            color: #e53935;
+            font-size: 1.1rem;
+        }
+        
+        .topic {
+            flex: 1;
+            color: #2c3e50;
+            line-height: 1.5;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #AB47BC;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #9C27B0, #BA68C8);
+            width: 100%;
+            border-radius: 4px;
+        }
+        
+        .progress-text {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: white;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        .signup-button {
+            display: block;
+            width: 250px;
+            margin: 30px auto;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #7B1FA2 0%, #BA68C8 100%);
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .signup-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #BA68C8 0%, #7B1FA2 100%);
+        }
+        
+        .signup-button:active {
+            transform: translateY(1px);
+        }
+        
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 950px) {
+            .schedule-items {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                border-radius: 10px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .tab {
+                padding: 12px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .schedule-item {
+                flex-direction: column;
+            }
+            
+            .date {
+                margin-bottom: 5px;
+            }
+            
+            .signup-button {
+                width: 90%;
+                font-size: 1rem;
+                padding: 12px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Полное расписание курса химии ЕГЭ</h1>
+            <p class="subtitle">Катя Строганова</p>
+        </header>
+        
+        <div class="tabs">
+            <div class="tab" data-tab="september">Сентябрь</div>
+            <div class="tab" data-tab="october">Октябрь</div>
+            <div class="tab" data-tab="november">Ноябрь</div>
+            <div class="tab" data-tab="december">Декабрь</div>
+            <div class="tab" data-tab="january">Январь</div>
+            <div class="tab" data-tab="february">Февраль</div>
+            <div class="tab" data-tab="march">Март</div>
+            <div class="tab" data-tab="april">Апрель</div>
+            <div class="tab active" data-tab="may">Май</div>
+        </div>
+        
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <div class="progress-text">Программа курса выполнена на 100%</div>
+        
+        <div class="tab-content" id="september">
+            <div class="chemistry-schedule">
+                <div class="schedule-header">
+                    <h3>Сентябрь - Основы химии</h3>
+                    <p>Строение атома и химическая связь</p>
+                </div>
+                
+                <div class="schedule-items">
+                    <div class="schedule-item">
+                        <div class="date">08.09</div>
+                        <div class="topic">Пробник №1</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">15.09</div>
+                        <div class="topic">Основные понятия химии, строение атома, Изотопия</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">16.09</div>
+                        <div class="topic">Электронные и электронно-графические формулы атомов и ионов<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">23.09</div>
+                        <div class="topic">Ковалентная химическая связь. Степень окисления и валентность химических элементов<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">25.09</div>
+                        <div class="topic">Дополнительный видео-урок. Степень окисления, формирование структурных формул<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">30.09</div>
+                        <div class="topic">Ионная связь. Металлическая связь. Водородная связь. Кристаллические решетки. Типы кристаллических решеток<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://kursegeoge.com/" class="signup-button" target="_blank">Записаться на курс</a>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="october">
+            <div class="chemistry-schedule">
+                <div class="schedule-header">
+                    <h3>Октябрь - Общая химия</h3>
+                    <p>Скорость реакции, равновесие и электролиз</p>
+                </div>
+                
+                <div class="schedule-items">
+                    <div class="schedule-item">
+                        <div class="date">02.10</div>
+                        <div class="topic">Дополнительный видео-урок. Ковалентная связь и комплексные неорганические соединения, составление формул неорганических веществ<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">04.10</div>
+                        <div class="topic">Классификация неорганических соединений (оксиды, кислоты, основания, соли)</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">07.10</div>
+                        <div class="topic">Классификация химических реакций в неорганической химии<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">09.10</div>
+                        <div class="topic">Зачет №1 по общей химии<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">14.10</div>
+                        <div class="topic">Скорость химической реакции, зависимость от различных факторов<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">16.10</div>
+                        <div class="topic">Химическое равновесие. Смещение химического равновесия. Принцип Ле Шателье. Равновесие и концентрация<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">19.10</div>
+                        <div class="topic">Расчеты по уравнениям. Задания №2-3. Задачи на примеси. Выход продукта: №2<br><span class="badge">10:00 вс</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">21.10</div>
+                        <div class="topic">Практическое занятие. Задание №5, 17, 18, 22, 23<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">23.10</div>
+                        <div class="topic">Электролитическая диссоциация. Сильные и слабые электролиты. Реакции ионного обмена. Среда водных растворов<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">26.10</div>
+                        <div class="topic">Расчётные задачи на массу конечного раствора, избыток и недостаток. Повторение заданий №1-2-3<br><span class="badge">10:00 вс</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">28.10</div>
+                        <div class="topic">Окислительно-восстановительные реакции. Продукты окисления, восстановитель, понятие окислителя и восстановителя. Метод электронного баланса<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">30.10</div>
+                        <div class="topic">Электролиз расплавов и растворов (солей, щелочей, кислот)<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://kursegeoge.com/" class="signup-button" target="_blank">Записаться на курс</a>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="november">
+            <div class="chemistry-schedule">
+                <div class="schedule-header">
+                    <h3>Ноябрь - Неорганическая химия</h3>
+                    <p>Металлы, неметаллы и их соединения</p>
+                </div>
+                
+                <div class="schedule-items">
+                    <div class="schedule-item">
+                        <div class="date">02.11</div>
+                        <div class="topic">Задачи №34 на расчёт массы конечного раствора<br><span class="badge">10:00 вс</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">04.11</div>
+                        <div class="topic">Зачет №2 по общей химии<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">06.11</div>
+                        <div class="topic">Повторение блока «Общая химии»<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">09.11</div>
+                        <div class="topic">Задачи №34 на расчёт массы конечного раствора<br><span class="badge">10:00 вс</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">10.11</div>
+                        <div class="topic">Пробник №3</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">11.11</div>
+                        <div class="topic">Введение в неорганическую химию. Основные типы взаимодействий<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">12.11</div>
+                        <div class="topic">Общие свойства металлов и их способы получения</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">13.11</div>
+                        <div class="topic">Общие свойства металлов и их способы получения<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">14.11</div>
+                        <div class="topic">Общие свойства металлов и их способы получения</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">15.11</div>
+                        <div class="topic">Зачет №3 по расчётным задачам тестовой части</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">16.11</div>
+                        <div class="topic">Общие свойства неметаллов и их способы получения<br><span class="badge">10:00 вс</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">17.11</div>
+                        <div class="topic">Общие свойства немetаллов и их способы получения</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">18.11</div>
+                        <div class="topic">Общие свойства немetаллов и их способы получения<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">19.11</div>
+                        <div class="topic">Практическое занятие. Задания №7-9, 29 на свойства простых веществ</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">20.11</div>
+                        <div class="topic">Практическое занятие. Задания №7-9, 29 на свойства простых веществ<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">21.11</div>
+                        <div class="topic">Практическое занятие. Задания №7-9, 30 на свойства оксидов и гидроксидов</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">22.11</div>
+                        <div class="topic">Базовые задачи №34 на электрохимию (коррозия, электролиз) (ЕГЭ 2025)</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">23.11</div>
+                        <div class="topic">Базовые задачи №34 на растворимость<br><span class="badge">10:00 вс</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">24.11</div>
+                        <div class="topic">Общие свойства немetаллов и их способы получения</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">25.11</div>
+                        <div class="topic">Характерные химические свойства оксидов: основных, амфотерных, кислотных; основные способы получения<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">26.11</div>
+                        <div class="topic">Характерные химические свойства гидроксидов: основных, амфотерных, кислотных</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">27.11</div>
+                        <div class="topic">Характерные химические свойства гидроксидов: основных, амфотерных, кислотных<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">28.11</div>
+                        <div class="topic">Практическое занятие. Задания №6-9, 30 на свойства оксидов и гидроксидов<br><span class="badge">18:00 пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">29.11</div>
+                        <div class="topic">Базовые задачи №34 на растворимость</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">30.11</div>
+                        <div class="topic">Базовые задачи №34 на растворимость<br><span class="badge">10:00 вс</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://kursegeoge.com/" class="signup-button" target="_blank">Записаться на курс</a>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="december">
+            <div class="chemistry-schedule">
+                <div class="schedule-header">
+                    <h3>Декабрь - Соли и гидролиз</h3>
+                    <p>Свойства солей и окислительно-восстановительные реакции</p>
+                </div>
+                
+                <div class="schedule-items">
+                    <div class="schedule-item">
+                        <div class="date">01.12</div>
+                        <div class="topic">Общие свойства неметаллов и их способы получения</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">02.12</div>
+                        <div class="topic">Характерные химические свойства средних солей и их способы получения<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">03.12</div>
+                        <div class="topic">Характерные химические свойства кислых, основных, комплексных солей и их основные способы получения</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">04.12</div>
+                        <div class="topic">Характерные химические свойства кислых, основных, комплексных солей и их основные способы получения<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">05.12</div>
+                        <div class="topic">Общие свойства неметаллов и их способы получения</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">06.12</div>
+                        <div class="topic">Базовые задачи №34 на растворимость</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">08.12</div>
+                        <div class="topic">Гидролиз бинарных соединений и солей, окислительно-восстановительные реакции</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">09.12</div>
+                        <div class="topic">Гидролиз бинарных соединений и солей, окислительно-восстановительные реакции<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">10.12</div>
+                        <div class="topic">Практическое занятие: Задание №6-9, 24, 29-31 на свойства солей и гидролиз</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">11.12</div>
+                        <div class="topic">Практическое занятие: Задание №6-9, 24, 29-31 на свойства солей и гидролиз<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">12.12</div>
+                        <div class="topic">Базовые задачи №24 на кристаллогидраты</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">13.12</div>
+                        <div class="topic">Базовые задачи №24 на кристаллогидраты</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">14.12</div>
+                        <div class="topic">Базовые задачи №24 на кристаллогидраты<br><span class="badge">10:00 вс</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">15.12</div>
+                        <div class="topic">Окислительно-восстановительные реакции с участием соединений марганца</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">16.12</div>
+                        <div class="topic">Окислительно-восстановительные реакции с участием соединений марганца<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">17.12</div>
+                        <div class="topic">Окислительно-восстановительные реакции с участием соединений хрома</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">18.12</div>
+                        <div class="topic">Окислительно-восстановительные реакции с участием соединений хрома<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">19.12</div>
+                        <div class="topic">Практическое занятие: Задание №9-10, 20<br><span class="badge">18:00 пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">20.12</div>
+                        <div class="topic">Базовые задачи №24 на пластинку</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">21.12</div>
+                        <div class="topic">Базовые задачи №24 на пластинку<br><span class="badge">10:00 вс</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">22.12</div>
+                        <div class="topic">Практическое занятие: Задание №8-10</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">23.12</div>
+                        <div class="topic">Praktische занятие: Задание №8-10<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">24.12</div>
+                        <div class="topic">Зачет №4 по базовой неорганической химии</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">25.12</div>
+                        <div class="topic">Зачет №4 по базовой неорганической химии<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">26.12</div>
+                        <div class="topic">Базовые задачи №24 на частицы (атомы, протоны, электроны)</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">27.12</div>
+                        <div class="topic">Базовые задачи №24 на частицы (атомы, протоны, электроны)</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">28.12</div>
+                        <div class="topic">Базовые задачи №24 на частицы (атомы, протоны, электроны)<br><span class="badge">10:00 вс</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">29.12</div>
+                        <div class="topic">Разбор пробника №4</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">30.12</div>
+                        <div class="topic">Разбор пробника №4<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://kursegeoge.com/" class="signup-button" target="_blank">Записаться на курс</a>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="january">
+            <div class="chemistry-schedule">
+                <div class="schedule-header">
+                    <h3>Январь - Органическая химия</h3>
+                    <p>Углеводороды и их свойства</p>
+                </div>
+                
+                <div class="schedule-items">
+                    <div class="schedule-item">
+                        <div class="date">05.01</div>
+                        <div class="topic">Введение в органическую химию</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">06.01</div>
+                        <div class="topic">Алканы<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">07.01</div>
+                        <div class="topic">Дополнительный видео-урок. Классификация органических веществ</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">08.01</div>
+                        <div class="topic">Алканы<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">09.01</div>
+                        <div class="topic">Задание №23</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">10.01</div>
+                        <div class="topic">Вывод молекулярной формулы. Задания №22</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">11.01</div>
+                        <div class="topic">Задание №22 и 33<br><span class="badge">10:00 вс</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">12.01</div>
+                        <div class="topic">Алкены</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">13.01</div>
+                        <div class"="">Алкены<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">14.01</div>
+                        <div class="topic">Алкадиены. Каучуки</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">15.01</div>
+                        <div class="topic">Алкины<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">16.01</div>
+                        <div class="topic">Видео-урок. Алкадиены и алкины</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">17.01</div>
+                        <div class="topic">Задание №22 и 33</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">18.01</div>
+                        <div class="topic">Задание №22 и 33<br><span class="badge">10:00 вс</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">19.01</div>
+                        <div class="topic">Арены</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">20.01</div>
+                        <div class="topic">Арены<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">21.01</div>
+                        <div class="topic">Стирол</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">22.01</div>
+                        <div class="topic">Арены и стирол<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">23.01</div>
+                        <div class="topic">Видео-урок. Сложные процессы, анализ и номенклатура соединений</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">24.01</div>
+                        <div class="topic">Задание №22 и 33</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">25.01</div>
+                        <div class="topic">Задание №22 и 33<br><span class="badge">10:00 вс</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">26.01</div>
+                        <div class="topic">Окислительно-восстановительные реакции с участием углеводородов</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">27.01</div>
+                        <div class="topic">Окислительно-восстановительные реакции с участием углеводородов<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">28.01</div>
+                        <div class="topic">Зачёт №5 по углеводородам</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">29.01</div>
+                        <div class="topic">Зачёт №5 по углеводородам<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">30.01</div>
+                        <div class="topic">Трансформации и цепочки на свойства углеводородов</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">31.01</div>
+                        <div class="topic">Трансформации и цепочки на свойства углеводородов</div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://kursegeoge.com/" class="signup-button" target="_blank">Записаться на курс</a>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="february">
+            <div class="chemistry-schedule">
+                <div class="schedule-header">
+                    <h3>Февраль - Кислородсодержащие соединения</h3>
+                    <p>Спирты, альдегиды, кислоты и сложные эфиры</p>
+                </div>
+                
+                <div class="schedule-items">
+                    <div class="schedule-item">
+                        <div class="date">01.02</div>
+                        <div class="topic">Урок "Клуба 110" (решение комплексных 34 задач)<br><span class="badge">14:30 вс</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">02.02</div>
+                        <div class="topic">Одноатомные спирты</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">03.02</div>
+                        <div class="topic">Одноатомные спирты<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">04.02</div>
+                        <div class="topic">Многоатомные спирты</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">05.02</div>
+                        <div class="topic">Фенол<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">06.02</div>
+                        <div class="topic">Задания №32 и 33</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">07.02</div>
+                        <div class="topic">Задания №32 и 33</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">08.02</div>
+                        <div class="topic">Урок "Клуба 110" (решение комплексных задач)<br><span class="badge">14:30 вс</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">09.02</div>
+                        <div class="topic">Альдегиды и кетоны</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">10.02</div>
+                        <div class="topic">Альдегиды и кетоны<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">11.02</div>
+                        <div class="topic">Карбоновые кислоты</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">12.02</div>
+                        <div class="topic">Углеводы<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">13.02</div>
+                        <div class="topic">Задания №32 и 33</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">14.02</div>
+                        <div class="topic">Задания №32 и 33</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">15.02</div>
+                        <div class="topic">Урок "Клуба 110" (решение комплексных задач)<br><span class="badge">14:30 вс</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">16.02</div>
+                        <div class="topic">Сложные эфиры и жиры</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">17.02</div>
+                        <div class="topic">Сложные эфиры и жиры<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">18.02</div>
+                        <div class="topic">Зачёт №6 по кислородсодержащим соединениям</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">19.02</div>
+                        <div class="topic">Зачёт №6 по кислородсодержащим соединениям<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">20.02</div>
+                        <div class="topic">Окислительно-восстановительные реакции с участием кислородсодержащих органических соединений</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">21.02</div>
+                        <div class="topic">Окислительно-восстановительные реакции с участием кислородсодержащих органических соединений</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">22.02</div>
+                        <div class="topic">Урок "Клуба 110" (решение комплексных задач)<br><span class="badge">14:30 вс</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">23.02</div>
+                        <div class="topic">Трансформации и цепочки на свойства кислородсодержащих органических соединений</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">24.02</div>
+                        <div class="topic">Трансформации и цепочки на свойства кислородсодержащих органических соединений<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">25.02</div>
+                        <div class="topic">Амины</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">26.02</div>
+                        <div class="topic">Амины<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">27.02</div>
+                        <div class="topic">Амины. Сложные реакции с участием аминов<br><span class="badge">18:00 пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">28.02</div>
+                        <div class="topic">Амины. Сложные реакции с участием аминов</div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://kursegeoge.com/" class="signup-button" target="_blank">Записаться на курс</a>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="march">
+            <div class="chemistry-schedule">
+                <div class="schedule-header">
+                    <h3>Март - Азотсодержащие соединения и металлы</h3>
+                    <p>Аминокислоты, белки и d-элементы</p>
+                </div>
+                
+                <div class="schedule-items">
+                    <div class="schedule-item">
+                        <div class="date">01.03</div>
+                        <div class="topic">Урок "Клуба 110" (решение комплексных задач)<br><span class="badge">14:30 вс</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">02.03</div>
+                        <div class="topic">Аминокислоты и белки</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">03.03</div>
+                        <div class="topic">Аминокислоты и белки<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">04.03</div>
+                        <div class="topic">Практическое занятие. Задание первой и второй части на свойства аминокислот и пептидов</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">05.03</div>
+                        <div class="topic">Практическое занятие. Задание первой и второй части на свойства аминокислот и пептидов<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">06.03</div>
+                        <div class="topic">Зачет №7 по азотсодержащим соединениям</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">07.03</div>
+                        <div class="topic">Зачет №7 по азотсодержащим соединениям</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">08.03</div>
+                        <div class="topic">Урок "Клуба 110" (решение комплексных задач)<br><span class="badge">14:30 вс</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">09.03</div>
+                        <div class="topic">Щелочные и щелочноземельные металлы, магний и их соединения</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">10.03</div>
+                        <div class="topic">Щелочные и щелочноземельные металлы, магний и их соединения<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">11.03</div>
+                        <div class="topic">Алюминий, бериллий, цинк и их соединения</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">12.03</div>
+                        <div class="topic">Алюминий, бериллий, цинк и их соединения<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">13.03</div>
+                        <div class="topic">Практическое занятие. Задание №6-9, 29-31 на щелочные, щелочноземельные, магний, алюминий, бериллий, цинк</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">14.03</div>
+                        <div class="topic">Практическое занятие. Задание №6-9, 29-31 на щелочные, щелочноземельные, магний, алюминий, бериллий, цинк</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">15.03</div>
+                        <div class="topic">Урок "Клуба 110" (решение комплексных задач)<br><span class="badge">14:30 вс</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">16.03</div>
+                        <div class="topic">Марганец. Соединения марганца</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">17.03</div>
+                        <div class="topic">Марганец. Соединения марганца<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">18.03</div>
+                        <div class="topic">Хром. Соединения хрома</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">19.03</div>
+                        <div class="topic">Хром. Соединения хрома<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">20.03</div>
+                        <div class="topic">Практическое занятие. Задание №8-9, 29-31 на марганец и хром</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">21.03</div>
+                        <div class="topic">Практическое занятие. Задание №8-9, 29-31 на марганец и хром</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">22.03</div>
+                        <div class="topic">Урок "Клуба 110" (решение комплексных задач)<br><span class="badge">14:30 вс</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">23.03</div>
+                        <div class="topic">Железо. Соединения железа</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">24.03</div>
+                        <div class="topic">Железо. Соединения железа<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">25.03</div>
+                        <div class="topic">Медь. Цинк. Соединения меди, цинка, олова, свинца</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">26.03</div>
+                        <div class="topic">Медь. Цинк. Соединения меди, цинка, олова, свинца<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">27.03</div>
+                        <div class="topic">Практическое занятие. Задание первой и второй части на свойства металлов</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">28.03</div>
+                        <div class="topic">Практическое занятие. Задание первой и второй части на свойства металлов</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">29.03</div>
+                        <div class="topic">Урок "Клуба 110" (решение комплексных задач)<br><span class="badge">14:30 вс</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">30.03</div>
+                        <div class="topic">Водород. Кислород. Пероксид водорода<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">31.03</div>
+                        <div class="topic">Водород. Кислород. Пероксид водорода<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://kursegeoge.com/" class="signup-button" target="_blank">Записаться на курс</a>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="april">
+            <div class="chemistry-schedule">
+                <div class="schedule-header">
+                    <h3>Апрель - Элементы главных подгрупп</h3>
+                    <p>Галогены, сера, азот, фосфор, углерод и кремний</p>
+                </div>
+                
+                <div class="schedule-items">
+                    <div class="schedule-item">
+                        <div class="date">02.04</div>
+                        <div class="topic">Галогены. Соединения галогенов<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">05.04</div>
+                        <div class="topic">Практическое занятие. Задания №6-9, 30-31 на водород, кислород и галогены<br><span class="badge">10:00 вс</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">07.04</div>
+                        <div class="topic">Сера. Соединения серы<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">09.04</div>
+                        <div class="topic">Азот. Соединения азота<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">12.04</div>
+                        <div class="topic">Практическое занятие. Задания №6-9, 30-31 на серу и азот<br><span class="badge">10:00 вс</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">14.04</div>
+                        <div class="topic">Фосфор. Соединения фосфора<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">16.04</div>
+                        <div class="topic">Углерод. Кремний. Соединения углерода и кремния<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">17.04</div>
+                        <div class="topic">Практическое занятие. Задания №6-9, 30-31 на фосфор, углерод и кремний<br><span class="badge">18:00 пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">19.04</div>
+                        <div class="topic">Онлайн-пробник №2<br><span class="badge">10:00 вс</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">20.04</div>
+                        <div class="topic">Идентификация неорганических веществ, теория веществ и проекты моделей №24</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">21.04</div>
+                        <div class="topic">Идентификация неорганических веществ, теория веществ и проекты моделей №24<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">22.04</div>
+                        <div class="topic">Идентификация органических веществ №29 и практика задания №26</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">23.04</div>
+                        <div class="topic">Идентификация органических веществ №29 и практика задания №26<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">24.04</div>
+                        <div class="topic">Полимеры. Химическое производство. Пестициды и лекарственные вещества. Задание №25<br><span class="badge">16:00 пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">25.04</div>
+                        <div class="topic">Повторение общей химии и анализ неорганических веществ</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">26.04</div>
+                        <div class="topic">Повortение общей химии и анализ неорганических веществ<br><span class="badge">10:00 вс</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">27.04</div>
+                        <div class="topic">Окислительно-восстановительные реакции с участием неорганических веществ. Горячие задания №29</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">28.04</div>
+                        <div class="topic">Окислительно-восстановительные реакции с участием неорганических веществ. Горячие задания №29<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">29.04</div>
+                        <div class="topic">Окислительно-восстановительные реакции с участием органических веществ. Горячие задания №29</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">30.04</div>
+                        <div class="topic">Окислительно-восстановительные реакции с участием органических веществ. Горячие задания №29<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://kursegeoge.com/" class="signup-button" target="_blank">Записаться на курс</a>
+            </div>
+        </div>
+        
+        <div class="tab-content active" id="may">
+            <div class="chemistry-schedule">
+                <div class="schedule-header">
+                    <h3>Май - Завершение курса</h3>
+                    <p>Повторение и решение сложных задач</p>
+                </div>
+                
+                <div class="schedule-items">
+                    <div class="schedule-item">
+                        <div class="date">01.05</div>
+                        <div class="topic">Онлайн-пробник №3<br><span class="badge">10:00 пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">02.05</div>
+                        <div class="topic">Сложные реакции между неорганическими веществами. Теория и практика задания №29</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">03.05</div>
+                        <div class="topic">Сложные реакции между неорганиными веществами. Теория и практика задания №29<br><span class="badge">10:00 вс</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">04.05</div>
+                        <div class="topic">Повторение органической химии (углеводороды, кислородсодержащие соединения)</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">05.05</div>
+                        <div class="topic">Повторение органической химии (углеводороды, кислородсодержащие соединения)<br><span class="badge">16:00 вт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">06.05</div>
+                        <div class="topic">Повторение органической химии (азотсодержащие и природные соединения)</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">07.05</div>
+                        <div class="topic">Повторение органической химии (азотсодержащие и природные соединения)<br><span class="badge">16:00 чт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">08.05</div>
+                        <div class="topic">Повторение неорганической химии<br><span class="badge">16:00 пт</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">09.05</div>
+                        <div class="topic">Онлайн-пробник №4</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">10.05</div>
+                        <div class="topic">Онлайн-пробник №4<br><span class="badge">10:00 вс</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://kursegeoge.com/" class="signup-button" target="_blank">Записаться на курс</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2025 Подготовка к ЕГЭ. Катя Строганова</p>
+    </footer>
+
+    <script>
+        // Табы
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Убираем активный класс у всех табов
+                document.querySelectorAll('.tab').forEach(t => {
+                    t.classList.remove('active');
+                });
+                
+                // Добавляем активный класс к текущему табу
+                tab.classList.add('active');
+                
+                // Скрываем все содержимое табов
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Показываем соответствующее содержимое
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
+
+</body></html>
