@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)file:///C:/Users/FostersPC/Downloads/deepseek_html_20250819_e64125.html -->
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расписание курса русского языка ЕГЭ</title>
+    <link rel="stylesheet" href="./Расписание курса русского языка ЕГЭ_files/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+        
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 25px;
+            text-align: center;
+            border-bottom: 5px solid #1abc9c;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .tab {
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            flex-grow: 1;
+            min-width: 110px;
+        }
+        
+        .tab:hover {
+            background: #e9ecef;
+        }
+        
+        .tab.active {
+            border-bottom: 3px solid #3498db;
+            color: #3498db;
+            background: white;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .schedule {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .schedule-header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px dashed #3498db;
+        }
+        
+        .schedule-header h3 {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+        
+        .schedule-header p {
+            color: #7f8c8d;
+            margin: 3px 0;
+        }
+        
+        .schedule-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 15px;
+        }
+        
+        .schedule-item {
+            display: flex;
+            padding: 15px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .schedule-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .date {
+            flex: 0 0 90px;
+            font-weight: bold;
+            color: #e74c3c;
+            font-size: 1.1rem;
+            text-align: center;
+            padding-right: 10px;
+            border-right: 1px solid #ddd;
+        }
+        
+        .topic {
+            flex: 1;
+            color: #2c3e50;
+            line-height: 1.5;
+            padding-left: 15px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #1abc9c;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #1abc9c);
+            width: 75%;
+            border-radius: 4px;
+        }
+        
+        .progress-text {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: white;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        .signup-button {
+            display: block;
+            width: 250px;
+            margin: 30px auto;
+            padding: 15px 25px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .signup-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
+        }
+        
+        .button-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 1100px) {
+            .schedule-items {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                border-radius: 10px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .tab {
+                padding: 12px 15px;
+                font-size: 0.9rem;
+                min-width: 90px;
+            }
+            
+            .schedule-item {
+                flex-direction: column;
+            }
+            
+            .date {
+                margin-bottom: 5px;
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+                padding-right: 0;
+                padding-bottom: 5px;
+                text-align: left;
+            }
+            
+            .signup-button {
+                width: 90%;
+                font-size: 1rem;
+                padding: 12px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Расписание курса русского языка ЕГЭ</h1>
+            <p class="subtitle">НОВЫЙ РУССКИЙ - Годовой курс | Маша Птипца</p>
+        </header>
+        
+        <div class="tabs">
+            <div class="tab" data-tab="september">Сентябрь</div>
+            <div class="tab" data-tab="october">Октябрь</div>
+            <div class="tab active" data-tab="november">Ноябрь</div>
+            <div class="tab" data-tab="december">Декабрь</div>
+            <div class="tab" data-tab="january">Январь</div>
+            <div class="tab" data-tab="february">Февраль</div>
+            <div class="tab" data-tab="march">Март</div>
+            <div class="tab" data-tab="april">Апрель</div>
+            <div class="tab" data-tab="may">Май</div>
+        </div>
+        
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <div class="progress-text">Программа курса выполнена на 75%</div>
+        
+        <div class="tab-content" id="september">
+            <div class="schedule">
+                <div class="schedule-header">
+                    <h3>Сентябрь - Начало курса</h3>
+                    <p>Основы русского языка и подготовка к ЕГЭ</p>
+                </div>
+                
+                <div class="schedule-items">
+                    <div class="schedule-item">
+                        <div class="date">17.09<br>ср 16:00</div>
+                        <div class="topic">Установочный стрим. Задание 4<br><span class="badge">Пробное тестирование</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">20.09<br>сб 16:00</div>
+                        <div class="topic">Задание 5. Паронимы</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">21.09<br>вс 17:00</div>
+                        <div class="topic">Что такое ИС? Структура экзамена, критерии, примеры</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">24.09<br>ср 16:00</div>
+                        <div class="topic">Задание 6. Плеоназмы, тавтология</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">26.09<br>пт 18:00</div>
+                        <div class="topic">Задание 7. Грамматические нормы. Часть 1</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">27.09<br>сб 16:00</div>
+                        <div class="topic">Задание 7. Грамматические нормы. Часть 2</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">28.09<br>вс 17:00</div>
+                        <div class="topic">ИС2: Разбираем универсальное произведение, пишем сочинение</div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://t.me/Kursegeoge991_bot?start=c_2449407" class="signup-button" target="_blank">Записаться на курс</a>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="october">
+            <div class="schedule">
+                <div class="schedule-header">
+                    <h3>Октябрь - Продолжение основ</h3>
+                    <p>Орфография и сочинение</p>
+                </div>
+                
+                <div class="schedule-items">
+                    <div class="schedule-item">
+                        <div class="date">01.10<br>ср 16:00</div>
+                        <div class="topic">Задание 8. Часть 1</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">04.10<br>сб 16:00</div>
+                        <div class="topic">Задание 8. Часть 2</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">05.10<br>вс 17:00</div>
+                        <div class="topic">ИС3: Разбираем направление №1. Необходимая литература</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">08.10<br>ср 16:00</div>
+                        <div class="topic">Практика. Задания 4-8</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">11.10<br>сб 16:00</div>
+                        <div class="topic">Сочинение ЕГЭ. Структура, критерии, композиция</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">12.10<br>вс 17:00</div>
+                        <div class="topic">ИС4: разбираем литру к 1 направлению, пишем сочинение</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">15.10<br>ср 16:00</div>
+                        <div class="topic">Сочинение ЕГЭ. Авторская позиция — как её найти?<br><span class="badge">Пробное тестирование</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">18.10<br>сб 16:00</div>
+                        <div class="topic">Открытие блока «Орфография». Дополнительная теория</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">19.10<br>вс 17:00</div>
+                        <div class="topic">ИС5: Разбираем направление №2</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">22.10<br>ср 16:00</div>
+                        <div class="topic">Задание 9. Правописание гласной в корне. О/Ё после шипящих и Ц</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">25.10<br>сб 16:00</div>
+                        <div class="topic">Задание 10. Часть 1</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">26.10<br>вс 17:00</div>
+                        <div class="topic">ИС6: Разбираем литературу к направлению № 2. Пишем сочинение</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">29.10<br>ср 16:00</div>
+                        <div class="topic">Задание 10. Часть 2</div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://t.me/Kursegeoge991_bot?start=c_2449407" class="signup-button" target="_blank">Записаться на курс</a>
+            </div>
+        </div>
+        
+        <div class="tab-content active" id="november">
+            <div class="schedule">
+                <div class="schedule-header">
+                    <h3>Ноябрь - Углубленное изучение</h3>
+                    <p>Орфография и подготовка к сочинению</p>
+                </div>
+                
+                <div class="schedule-items">
+                    <div class="schedule-item">
+                        <div class="date">01.11<br>сб 16:00</div>
+                        <div class="topic">Практикум. Задания 9, 10.</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">02.11<br>вс 17:00</div>
+                        <div class="topic">ИС7: Разбираем направление № 3</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">05.11<br>ср 16:00</div>
+                        <div class="topic">Сочинение ЕГЭ: комментарий, связь и анализ. Цитирование</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">08.11<br>сб 16:00</div>
+                        <div class="topic">Задание 11. Субфиксы разных частей речи. Часть 1</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">09.11<br>вс 17:00</div>
+                        <div class="topic">ИС8: Разбираем литру к 3 направлению</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">12.11<br>ср 16:00</div>
+                        <div class="topic">Задание 11. Субфиксы разных частей речи. Часть 2<br><span class="badge">Пробное тестирование</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">15.11<br>сб 16:00</div>
+                        <div class="topic">Задание 12. Спряжения. Субфиксы причастий. Часть 1</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">16.11<br>вс 17:00</div>
+                        <div class="topic">ИС9: Разбираем универсальные произведения</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">19.11<br>ср 16:00</div>
+                        <div class="topic">Задание 12. Спряжения. Субфиксы причастий. Часть 2</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">21.11<br>пт 18:00</div>
+                        <div class="topic">Пишем сочинение ИС вместе</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">22.11<br>сб 16:00</div>
+                        <div class="topic">Практикум. Задания 11, 12</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">23.11<br>вс 17:00</div>
+                        <div class="topic">ИС10: Разбираем типичные ошибки</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">26.11<br>ср 16:00</div>
+                        <div class="topic">Сочинение ЕГЭ. Критерии грамотности (к7-к10)</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">29.11<br>сб 16:00</div>
+                        <div class="topic">Задание 13. НЕ/НИ: слитное и раздельное написание</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">30.11<br>вс 17:00</div>
+                        <div class="topic">ИС11: Повторяем структуру, пишем сочинение</div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://t.me/Kursegeoge991_bot?start=c_2449407" class="signup-button" target="_blank">Записаться на курс</a>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="december">
+            <div class="schedule">
+                <div class="schedule-header">
+                    <h3>Декабрь - Подготовка к экзамену</h3>
+                    <p>Практикумы и пробные тестирования</p>
+                </div>
+                
+                <div class="schedule-items">
+                    <div class="schedule-item">
+                        <div class="date">03.12<br>ср 16:00</div>
+                        <div class="topic">Задание 14. Слитное, раздельное, дефисное написание слов. Часть 1</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">06.12<br>сб 16:00</div>
+                        <div class="topic">Задание 14. Слитное, раздельное, дефисное написание слов. Часть 2</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">07.12<br>вс 17:00</div>
+                        <div class="topic">Пишем сочинение ЕГЭ</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">10.12<br>ср 16:00</div>
+                        <div class="topic">Практикум. Задания 13, 14<br><span class="badge">Пробное тестирование</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">13.12<br>сб 16:00</div>
+                        <div class="topic">Задание 15. Правописание Н/НН в разных частей речи</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">14.12<br>вс 17:00</div>
+                        <div class="topic">Пишем сочинение ЕГЭ</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">17.12<br>ср 16:00</div>
+                        <div class="topic">Практикум. Блок «Орфография» (задания 9–15)</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">19.12<br>пт 18:00</div>
+                        <div class="topic">Решаем сложные задания из ДЗ</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">20.12<br>сб 16:00</div>
+                        <div class="topic">Задание 22. Средства выразительности. Часть 1</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">21.12<br>вс 17:00</div>
+                        <div class="topic">Разбираем текст пробника + разбираем сочинения курса</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">24.12<br>ср 16:00</div>
+                        <div class="topic">Задание 22. Средства выразительности. Часть 2</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">27.12<br>сб 16:00</div>
+                        <div class="topic">Решаем КИМ</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">28.12<br>вс 17:00</div>
+                        <div class="topic">Пишем сочинение ЕГЭ</div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://t.me/Kursegeoge991_bot?start=c_2449407" class="signup-button" target="_blank">Записаться на курс</a>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="january">
+            <div class="schedule">
+                <div class="schedule-header">
+                    <h3>Январь - Пунктуация</h3>
+                    <p>Изучение правил пунктуации и подготовка к сочинению</p>
+                </div>
+                
+                <div class="schedule-items">
+                    <div class="schedule-item">
+                        <div class="date">07.01<br>ср 16:00</div>
+                        <div class="topic">Открытие блока «Пунктуация»<br><span class="badge">Пробное тестирование</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">10.01<br>сб 16:00</div>
+                        <div class="topic">Задание 17. Пунктуация при ПО и ДО</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">11.01<br>вс 17:00</div>
+                        <div class="topic">Сочинение ЕГЭ. Структура, композиция, примеры сочинений</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">14.01<br>ср 16:00</div>
+                        <div class="topic">Задание 16. Пунктуация при ОЧП и ССП</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">17.01<br>сб 16:00</div>
+                        <div class="topic">Практикум. Задание 16</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">18.01<br>вс 17:00</div>
+                        <div class="topic">Сочинение ЕГЭ. Определение авторской позиции в тексте</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">21.01<br>ср 16:00</div>
+                        <div class="topic">Задание 18. Вводные слова, вставные конструкции, обращения</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">24.01<br>сб 16:00</div>
+                        <div class="topic">Практикум. Задания 17, 18</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">25.01<br>вс 17:00</div>
+                        <div class="topic">Сочинение ЕГЭ. Комментарий: примеры-иллюстрации и анализ связи</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">28.01<br>ср 16:00</div>
+                        <div class="topic">Задания 19, 20. Пунктуация в сложном предложении и на стыке союзов</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">31.01<br>сб 16:00</div>
+                        <div class="topic">Задание 21. Пунктуационный анализ. Часть 1</div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://t.me/Kursegeoge991_bot?start=c_2449407" class="signup-button" target="_blank">Записаться на курс</a>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="february">
+            <div class="schedule">
+                <div class="schedule-header">
+                    <h3>Февраль - Работа с текстами</h3>
+                    <p>Анализ текста и совершенствование навыков</p>
+                </div>
+                
+                <div class="schedule-items">
+                    <div class="schedule-item">
+                        <div class="date">01.02<br>вс 17:00</div>
+                        <div class="topic">Сочинение ЕГЭ: обоснование собственной позиции. Цитирование</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">04.02<br>ср 16:00</div>
+                        <div class="topic">Задание 21. Пунктуационный анализ. Часть 2<br><span class="badge">Пробное тестирование</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">07.02<br>сб 16:00</div>
+                        <div class="topic">Pрактикум. Задание 21</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">08.02<br>вс 17:00</div>
+                        <div class="topic">Частые ошибки в сочинении ЕГЭ</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">11.02<br>ср 16:00</div>
+                        <div class="topic">Практикум. Решаем весь блок «Пунктуация»</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">13.02<br>пт 16:00</div>
+                        <div class="topic">Решаем сложные задания из дз (блок «Пунктуация»)</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">14.02<br>сб 16:00</div>
+                        <div class="topic">Открытие блока «Работа с текстом». Стилистика. Задание 3</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">15.02<br>вс 17:00</div>
+                        <div class="topic">Пишем сочинение ЕГЭ</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">18.02<br>ср 16:00</div>
+                        <div class="topic">Задание 1</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">21.02<br>сб 16:00</div>
+                        <div class="topic">Практикум. Задания 1–3</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">22.02<br>вс 17:00</div>
+                        <div class="topic">Разбираем сложные задания из дз + сочинения курса</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">25.02<br>ср 16:00</div>
+                        <div class="topic">Задания 23–24</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">28.02<br>сб 16:00</div>
+                        <div class="topic">Задания 25–26</div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://t.me/Kursegeoge991_bot?start=c_2449407" class="signup-button" target="_blank">Записаться на курс</a>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="march">
+            <div class="schedule">
+                <div class="schedule-header">
+                    <h3>Март - Повторение орфографии</h3>
+                    <p>Закрепление знаний и подготовка к экзамену</p>
+                </div>
+                
+                <div class="schedule-items">
+                    <div class="schedule-item">
+                        <div class="date">01.03<br>вс 17:00</div>
+                        <div class="topic">Пишем сочинение ЕГЭ</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">04.03<br>ср 16:00</div>
+                        <div class">Задание 8. Часть 1<br><span class="badge">Пробное тестирование</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">07.03<br>сб 16:00</div>
+                        <div class="topic">Задание 8. Часть 2</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">08.03<br>вс 17:00</div>
+                        <div class="topic">Пишем сочинение ЕГЭ</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">11.03<br>ср 16:00</div>
+                        <div class="topic">Блок «Орфография». Задание 9. Теория + практика</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">14.03<br>сб 16:00</div>
+                        <div class="topic">Задание 10. Теория + практика</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">15.03<br>вс 17:00</div>
+                        <div class="topic">Разбираем текст пробника + разбираем сочинения курса</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">18.03<br>ср 16:00</div>
+                        <div class="topic">Задание 11. Теория + практика</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">21.03<br>сб 16:00</div>
+                        <div class="topic">Задание 12. Теория + практика</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">22.03<br>вс 17:00</div>
+                        <div class="topic">Пишем сочинение ЕГЭ</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">25.03<br>ср 16:00</div>
+                        <div class="topic">Практикум. Задания 11, 12</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">28.03<br>сб 16:00</div>
+                        <div class="topic">Задание 13. Теория + практика</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">29.03<br>вс 17:00</div>
+                        <div class="topic">Пишем сочинение ЕГЭ</div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://t.me/Kursegeoge991_bot?start=c_2449407" class="signup-button" target="_blank">Записаться на курс</a>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="april">
+            <div class="schedule">
+                <div class="schedule-header">
+                    <h3>Апрель - Финальная подготовка</h3>
+                    <p>Комплексное повторение и решение заданий</p>
+                </div>
+                
+                <div class="schedule-items">
+                    <div class="schedule-item">
+                        <div class="date">01.04<br>ср 16:00</div>
+                        <div class="topic">Задание 14. Теория + практика<br><span class="badge">Пробное тестирование</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">04.04<br>сб 16:00</div>
+                        <div class="topic">Практикум. Задания 13, 14</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">05.04<br>вс 17:00</div>
+                        <div class="topic">Пишем сочинение ЕГЭ</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">08.04<br>ср 16:00</div>
+                        <div class="topic">Задание 15. Теория + практика</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">11.04<br>сб 16:00</div>
+                        <div class="topic">Решаем сложные задания из ДЗ. Блок «Орфография»</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">12.04<br>вс 17:00</div>
+                        <div class="topic">Цитирование в сочинении</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">15.04<br>ср 16:00</div>
+                        <div class="topic">Задание 22. Часть 1</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">18.04<br>сб 16:00</div>
+                        <div class="topic">Задание 22. Часть 2</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">19.04<br>вс 17:00</div>
+                        <div class="topic">Разбираем текст пробника + разбираем сочинения курса</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">22.04<br>ср 16:00</div>
+                        <div class="topic">Задание 4–5</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">25.04<br>сб 16:00</div>
+                        <div class="topic">Задания 6–7</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">26.04<br>вс 17:00</div>
+                        <div class="topic">Задание 16</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">28.04<br>вт 16:00</div>
+                        <div class="topic">Задания 17, 18<br><span class="badge">Пробное тестирование</span></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">29.04<br>ср 16:00</div>
+                        <div class="topic">Задания 19, 20</div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://t.me/Kursegeoge991_bot?start=c_2449407" class="signup-button" target="_blank">Записаться на курс</a>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="may">
+            <div class="schedule">
+                <div class="schedule-header">
+                    <h3>Май - Завершение курса</h3>
+                    <p>Последние приготовления к экзамену</p>
+                </div>
+                
+                <div class="schedule-items">
+                    <div class="schedule-item">
+                        <div class="date">02.05<br>сб 16:00</div>
+                        <div class="topic">Пишем сочинение ЕГЭ</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">03.05<br>вс 17:00</div>
+                        <div class="topic">Задание 21</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">06.05<br>ср 16:00</div>
+                        <div class="topic">Задания 1–3</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">09.05<br>сб 16:00</div>
+                        <div class="topic">Решаем 1, 26</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">10.05<br>вс 17:00</div>
+                        <div class="topic">Вспомнить все: сочинение ЕГЭ</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">13.05<br>ср 16:00</div>
+                        <div class="topic">Задания 22–26</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">16.05<br>сб 16:00</div>
+                        <div class="topic">Решение всего КИМа</div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="date">17.05<br>вс 17:00</div>
+                        <div class="topic">Ответы на вопросы. Всё с экспертом ЕГЭ + мясорубка</div>
+                    </div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://t.me/Kursegeoge991_bot?start=c_2449407" class="signup-button" target="_blank">Записаться на курс</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2025 Подготовка к ЕГЭ. НОВЫЙ РУССКИЙ - Годовой курс по Русскому языку ЕГЭ | Маша Птипца</p>
+    </footer>
+
+    <script>
+        // Табы
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Убираем активный класс у всех табов
+                document.querySelectorAll('.tab').forEach(t => {
+                    t.classList.remove('active');
+                });
+                
+                // Добавляем активный класс к текущему табу
+                tab.classList.add('active');
+                
+                // Скрываем все содержимое табов
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Показываем соответствующее содержимое
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
+
+</body></html>
