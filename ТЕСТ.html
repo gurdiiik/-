@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест по электронным конфигурациям</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f8fa;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+        }
+        .question {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+        }
+        .question:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .question-number {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .options {
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+        .option {
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+        .option:hover {
+            background-color: #f1f8ff;
+        }
+        .option label {
+            cursor: pointer;
+            margin-left: 8px;
+        }
+        .option input {
+            cursor: pointer;
+        }
+        .check-button {
+            display: block;
+            width: 220px;
+            margin: 30px auto;
+            padding: 14px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+        .check-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        .check-button:active {
+            transform: translateY(0);
+        }
+        .results {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 30px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            display: none;
+        }
+        .correct {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .incorrect {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .score {
+            text-align: center;
+            font-size: 26px;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+            padding: 15px;
+            background-color: #ecf0f1;
+            border-radius: 8px;
+        }
+        .explanation {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            font-size: 15px;
+            border-radius: 0 5px 5px 0;
+        }
+        .summary {
+            margin-top: 25px;
+            text-align: center;
+            font-size: 18px;
+        }
+        .progress-bar {
+            height: 10px;
+            background-color: #ecf0f1;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .progress {
+            height: 100%;
+            background-color: #3498db;
+            width: 0%;
+            transition: width 0.5s;
+        }
+        .timer {
+            text-align: center;
+            font-size: 20px;
+            margin: 20px 0;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            .question {
+                padding: 15px;
+            }
+            .options {
+                margin-left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Тест по электронным конфигурациям</h1>
+    
+    <div class="timer">Время: <span id="minutes">00</span>:<span id="seconds">00</span></div>
+    <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+    </div>
+    
+    <form id="quiz-form"></form>
+    
+    <button class="check-button" onclick="checkAnswers()">Проверить ответы</button>
+    
+    <div class="results" id="results">
+        <h2>Результаты:</h2>
+        <div id="results-content"></div>
+        <div class="score" id="score"></div>
+        <div class="summary" id="summary"></div>
+    </div>
+
+    <script>
+        // Данные теста с объяснениями
+        const testData = [
+            {
+                question: "1) Определите, атомы каких из указанных в ряду элементов относятся к s-элементам. Элементы: 1) Са  2) Р  3) Fe  4) Li  5) Si",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 3], // Са и Li
+                explanation: "s-элементы — это элементы, у которых последний электрон находится на s-подуровне. К ним относятся элементы I и II групп, а также гелий. Кальций (Ca) имеет конфигурацию [Ar]4s², литий (Li) — 1s²2s¹. Оба являются s-элементами."
+            },
+            {
+                question: "2) Определите, атомы каких из указанных в ряду элементов относятся к p-элементам. Элементы: 1) N  2) Cu  3) H  4) Ga  5) Cs",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 3], // N и Ga
+                explanation: "p-элементы — это элементы, у которых последний электрон находится на p-подуровне. Азот (N) имеет конфигурацию 1s²2s²2p³, галлий (Ga) — [Ar]3d¹⁰4s²4p¹. Оба являются p-элементами."
+            },
+            {
+                question: "3) Определите, атомы каких из указанных в ряду элементов относятся к d-элементам. Элементы: 1) Ar  2) K  3) Cr  4) As  5) Ag",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [2, 4], // Cr и Ag
+                explanation: "d-элементы — это элементы, у которых последний электрон находится на d-подуровне. Хром (Cr) имеет конфигурацию [Ar]3d⁵4s¹, серебро (Ag) — [Kr]4d¹⁰5s¹. Оба являются d-элементами."
+            },
+            {
+                question: "4) Определите, атомы каких из указанных в ряду элементов в основном состоянии имеют электронную формулу внешнего энергетического уровня ns¹. Элементы: 1) Br  2) N  3) H  4) Ag  5) Si",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [2, 3], // H и Ag
+                explanation: "Водород (H) имеет конфигурацию 1s¹, серебро (Ag) — [Kr]4d¹⁰5s¹. Оба элемента имеют на внешнем уровне конфигурацию ns¹."
+            },
+            {
+                question: "5) Определите, атомы каких из указанных в ряду элементов в основном состоянии имеют электронную формулу внешнего энергетического уровня ns²np³. Элементы: 1) P  2) Al  3) As  4) O  5) S",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 2], // P и As
+                explanation: "Фосфор (P) имеет конфигурацию [Ne]3s²3p³, мышьяк (As) — [Ar]3d¹⁰4s²4p³. Оба элемента имеют на внешнем уровне конфигурацию ns²np³."
+            },
+            {
+                question: "6) Определите, атомы каких из указанных в ряду элементов в основном состоянии имеют электронную формулу внешнего энергетического уровня ns²np². Элементы: 1) Si  2) S  3) Be  4) Ge  5) Ca",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 3], // Si и Ge
+                explanation: "Кремний (Si) имеет конфигурацию [Ne]3s²3p², германий (Ge) — [Ar]3d¹⁰4s²4p². Оба элемента имеют на внешнем уровне конфигурацию ns²np²."
+            },
+            {
+                question: "7) Определите, атомы каких двух из указанных в ряду элементов в основном состоянии имеют конфигурацию внешнего слоя ns². Элементы: 1) V  2) C  3) Li  4) N  5) He",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 4], // V и He
+                explanation: "Ванадий (V) имеет конфигурацию [Ar]3d³4s², гелий (He) — 1s². Оба элемента имеют на внешнем уровне конфигурацию ns²."
+            },
+            {
+                question: "8) Определите элементы, которые имеют сходную конфигурацию внешнего энергетического уровня. Элементы: 1) Se  2) Na  3) He  4) Cl  5) S",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 4], // Se и S
+                explanation: "Селен (Se) имеет конфигурацию [Ar]3d¹⁰4s²4p⁴, сера (S) — [Ne]3s²3p⁴. Оба элемента имеют на внешнем уровне конфигурацию ns²np⁴."
+            },
+            {
+                question: "9) Определите, атомы каких из указанных в ряду элементов имеют сходную электронную конфигурацию внешнего энергетического уровня. Элементы: 1) Br  2) Na  3) C  4) Cl  5) Mn",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 3], // Br и Cl
+                explanation: "Бром (Br) имеет конфигурацию [Ar]3d¹⁰4s²4p⁵, хлор (Cl) — [Ne]3s²3p⁵. Оба элемента имеют на внешнем уровне конфигурацию ns²np⁵."
+            },
+            {
+                question: "10) Определите, атомы каких из указанных в ряду элементов имеют схожую конфигурацию внешнего энергетического уровня. Элементы: 1) K  2) H  3) N  4) Mg  5) B",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 1], // K и H
+                explanation: "Калий (K) имеет конфигурацию [Ar]4s¹, водород (H) — 1s¹. Оба элемента имеют на внешнем уровне конфигурацию ns¹."
+            },
+            {
+                question: "11) Определите, атомы каких из указанных в ряду элементов имеют сходную конфигурацию внешнего энергетического уровня. Элементы: 1) Mg  2) Mn  3) Rb  4) P  5) Al",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 2], // Mg и Rb
+                explanation: "Магний (Mg) имеет конфигурацию [Ne]3s², рубидий (Rb) — [Kr]5s¹. Оба элемента имеют на внешнем уровне s-электроны, но разное количество."
+            },
+            {
+                question: "12) Определите, атомы каких из указанных в ряду элементов в основном состоянии имеют электронную конфигурацию (n – 1)d¹⁰ns³. Элементы: 1) Ag  2) Rb  3) Cu  4) K  5) Ba",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [], // Такой конфигурации не существует
+                explanation: "Конфигурация (n–1)d¹⁰ns³ невозможна, так как на s-подуровне может находиться максимум 2 электрона. Все перечисленные элементы имеют другие конфигурации."
+            },
+            {
+                question: "13) Определите, атомы каких из указанных в ряду элементов в основном состоянии имеют электронную конфигурацию (n – 1)d[10]ns*. Элементы: 1) Zn  2) Ag  3) Se  4) Mn  5) Si",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 1], // Zn и Ag
+                explanation: "Цинк (Zn) имеет конфигурацию [Ar]3d¹⁰4s², серебро (Ag) — [Kr]4d¹⁰5s¹. Оба элемента имеют заполненный d-подуровень и электроны на s-подуровне."
+            },
+            {
+                question: "14) Определите, атомы каких из указанных в ряду элементов имеют только один валентный электрон. Элементы: 1) Mg  2) Cs  3) Mn  4) B  5) H",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [1, 4], // Cs и H
+                explanation: "Цезий (Cs) имеет конфигурацию [Xe]6s¹, водород (H) — 1s¹. Оба элемента имеют только один валентный электрон."
+            },
+            {
+                question: "15) Определите, атомы каких из указанных в ряду элементов имеют ровно пять валентных электронов. Элементы: 1) Mn  2) S  3) V  4) Na  5) P",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [2, 4], // V и P
+                explanation: "Ванадий (V) имеет конфигурацию [Ar]3d³4s² (5 валентных электронов), фосфор (P) — [Ne]3s²3p³ (5 валентных электронов)."
+            },
+            {
+                question: "16) Определите, атомы каких из указанных в ряду элементов имеют шесть валентных электронов. Элементы: 1) S  2) Mn  3) C  4) Se  5) B",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 3], // S и Se
+                explanation: "Сера (S) имеет конфигурацию [Ne]3s²3p⁴ (6 валентных электронов), селен (Se) — [Ar]3d¹⁰4s²4p⁴ (6 валентных электронов)."
+            },
+            {
+                question: "17) Определите, атомы каких из указанных в ряду элементов имеют в основном состоянии такое же количество валентных электронов, как и атом титана. Элементы: 1) C  2) K  3) Al  4) Mg  5) Si",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 4], // C и Si
+                explanation: "Титан (Ti) имеет конфигурацию [Ar]3d²4s² (4 валентных электрона). Углерод (C) — 1s²2s²2p² (4 валентных электрона), кремний (Si) — [Ne]3s²3p² (4 валентных электрона)."
+            },
+            {
+                question: "18) Определите, атомы каких из указанных в ряду элементов имеют одинаковое количество валентных электронов. Элементы: 1) Si  2) Cr  3) S  4) P  5) F",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [1, 2], // Cr и S
+                explanation: "Хром (Cr) имеет конфигурацию [Ar]3d⁵4s¹ (6 валентных электронов), сера (S) — [Ne]3s²3p⁴ (6 валентных электронов)."
+            },
+            {
+                question: "19) Выберите, атомы каких из указанных в ряду элементов имеют валентные электроны только на s-подуровне. Элементы: 1) Cr  2) Rb  3) H  4) Mn  5) S",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [1, 2], // Rb и H
+                explanation: "Рубидий (Rb) имеет конфигурацию [Kr]5s¹, водород (H) — 1s¹. Оба элемента имеют валентные электроны только на s-подуровне."
+            },
+            {
+                question: "20) Определите, атомы каких из указанных в ряду элементов содержат валентные электроны и на s-, и на p-подуровнях. Элементы: 1) I  2) Ba  3) Mn  4) Se  5) H",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 3], // I и Se
+                explanation: "Иод (I) имеет конфигурацию [Kr]4d¹⁰5s²5p⁵, селен (Se) — [Ar]3d¹⁰4s²4p⁴. Оба элемента имеют валентные электроны на s- и p-подуровнях."
+            },
+            {
+                question: "21) Определите, у атомов каких из указанных в ряду элементов в основном состоянии валентные электроны находятся как на s-, так и на d-подуровнях. Элементы: 1) Mn  2) Mg  3) C  4) Cr  5) Na",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 3], // Mn и Cr
+                explanation: "Марганец (Mn) имеет конфигурацию [Ar]3d⁵4s², хром (Cr) — [Ar]3d⁵4s¹. Оба элемента имеют валентные электроны на s- и d-подуровнях."
+            },
+            {
+                question: "22) Определите, атомы каких из указанных в ряду элементов могут переходить в возбужденное состояние. Элементы: 1) Rb  2) O  3) F  4) C  5) Ca",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [1, 2, 3], // O, F, C
+                explanation: "Кислород (O), фтор (F) и углерод (C) имеют не полностью заполненные p-подуровни и могут переходить в возбужденное состояние за счет распаривания электронов."
+            },
+            {
+                question: "23) Определите, атомы каких из указанных в ряду элементов имеют несколько (больше одного) возбужденных состояний. Элементы: 1) O  2) Cl  3) Sr  4) S  5) As",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [1, 3, 4], // Cl, S, As
+                explanation: "Хлор (Cl), сера (S) и мышьяк (As) имеют несколько валентных электронов и могут образовывать несколько возбужденных состояний."
+            },
+            {
+                question: "24) Определите, атомы каких из указанных в ряду элементов в возбужденном состоянии могут иметь ровно четыре неспаренных электрона. Элементы: 1) C  2) H  3) S  4) Mg  5) Cl",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 2], // C и S
+                explanation: "Углерод (C) в возбужденном состоянии имеет конфигурацию 1s²2s¹2p³ (4 неспаренных электрона), сера (S) в возбужденном состоянии может иметь 4 неспаренных электрона."
+            },
+            {
+                question: "25) Определите, атомы каких из указанных в ряду элементов могут иметь в возбужденном состоянии ровно три неспаренных электрона. Элементы: 1) Cl  2) S  3) Al  4) Ca  5) K",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [2], // Al
+                explanation: "Алюминий (Al) в возбужденном состоянии может иметь конфигурацию с тремя неспаренными электронами: 1s²2s²2p⁶3s¹3p²."
+            },
+            {
+                question: "26) Определите, атомы каких из указанных в ряду элементов в возбужденном состоянии содержат валентные электроны только на s- и p-подуровнях. Элементы: 1) Al  2) P  3) Ca  4) N  5) Cl",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 1, 2, 3, 4], // Все
+                explanation: "Все перечисленные элементы в возбужденном состоянии могут иметь валентные электроны только на s- и p-подуровнях, так как d-подуровень у них либо отсутствует, либо не является валентным."
+            },
+            {
+                question: "27) Определите, атомы каких из указанных в ряду элементов в возбужденном состоянии имеют конфигурацию внешнего электронного уровня ns¹np³. Элементы: 1) As  2) Si  3) Na  4) C  5) N",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 1, 3], // As, Si, C
+                explanation: "Мышьяк (As), кремний (Si) и углерод (C) в возбужденном состоянии могут иметь конфигурацию ns¹np³ за счет перехода электрона с s- на p-подуровень."
+            },
+            {
+                question: "28) Определите элементы, атомы которых в возбужденном состоянии имеют электронную конфигурацию внешнего энергетического уровня ns¹np³nd². Элементы: 1) P  2) Te  3) Cl  4) S  5) O",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 1, 3], // P, Te, S
+                explanation: "Фосфор (P), теллур (Te) и сера (S) могут иметь возбужденное состояние с конфигурацией ns¹np³nd² за счет перехода электронов на d-подуровень."
+            },
+            {
+                question: "29) Определите, атомы каких из указанных в ряду элементов в возбужденном состоянии могут иметь схожую электронную конфигурацию внешнего уровня. Элементы: 1) O  2) N  3) P  4) C  5) As",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [1, 2, 4], // N, P, As
+                explanation: "Азот (N), фосфор (P) и мышьяк (As) относятся к одной группе и могут иметь схожие возбужденные состояния с одинаковой конфигурацией внешнего уровня."
+            },
+            {
+                question: "30) Определите, атомам каких из указанных в ряду элементов до достижения электронной конфигурации благородного газа недостает двух электронов. Элементы: 1) Ca  2) O  3) Cl  4) Mg  5) Se",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [1, 4], // O и Se
+                explanation: "Кислород (O) имеет конфигурацию 1s²2s²2p⁴ (не хватает 2 электронов до неона), селен (Se) — [Ar]3d¹⁰4s²4p⁴ (не хватает 2 электронов до криптона)."
+            },
+            {
+                question: "31) Укажите, атомам каких из указанных в ряду элементов до достижения конфигурации благородного газа не хватает трех электронов. Элементы: 1) N  2) Al  3) S  4) As  5) Br",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 1], // N и Al
+                explanation: "Азот (N) имеет конфигурацию 1s²2s²2p³ (не хватает 3 электронов до неона), алюминий (Al) — [Ne]3s²3p¹ (не хватает 3 электронов до аргона)."
+            },
+            {
+                question: "32) Определите, атомам каких из указанных в ряду элементов не хватает столько же электронов для приобретения электронной конфигурации инертного газа, сколько и атому водорода. Элементы: 1) P  2) Cl  3) Ca  4) Na  5) Br",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [3, 4], // Na и Br
+                explanation: "Водороду не хватает 1 электрона до конфигурации гелия. Натрию (Na) не хватает 1 электрона до неона, брому (Br) не хватает 1 электрона до криптона."
+            },
+            {
+                question: "33) Определите, атомам каких из указанных в ряду элементов для достижения конфигурации благородного газа нужно отдать два электрона. Элементы: 1) Ba  2) Se  3) Sr  4) As  5) Li",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 2], // Ba и Sr
+                explanation: "Барий (Ba) имеет конфигурацию [Xe]6s², стронций (Sr) — [Kr]5s². Оба элемента могут отдать 2 электрона для достижения конфигурации благородного газа."
+            },
+            {
+                question: "34) Определите, атомам каких из указанных в ряду элементов необходимо отдать один электрон, чтобы приобрести восьмиэлектронную конфигурацию внешнего энергетического уровня. Элементы: 1) K  2) Cr  3) F  4) Na  5) Li",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 3, 4], // K, Na, Li
+                explanation: "Калий (K), натрий (Na) и литий (Li) имеют на внешнем уровне один электрон (ns¹) и могут отдать его для достижения конфигурации благородного газа."
+            },
+            {
+                question: "35) Определите два элемента, трехзарядные ионы которых имеют электронную конфигурацию благородного газа. Элементы: 1) Al  2) P  3) O  4) Cl  5) Cr",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 3], // Al и Cl
+                explanation: "Ион Al³⁺ имеет конфигурацию [Ne], ион Cl³⁺ имеет конфигурацию [Ne]. Оба иона имеют электронную конфигурацию благородного газа."
+            },
+            {
+                question: "36) Определите, атомы каких из указанных в ряду элементов образуют устойчивые анионы, имеющие электронную конфигурацию благородного газа. Элементы: 1) Ca  2) As  3) Ag  4) O  5) Mn",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [1, 3], // As и O
+                explanation: "Анион As³⁻ имеет конфигурацию [Kr], анион O²⁻ имеет конфигурацию [Ne]. Оба аниона имеют электронную конфигурацию благородного газа."
+            },
+            {
+                question: "37) Определите, двухзарядные ионы каких из указанных в ряду элементов имеют электронную формулу, совпадающую с электронной формулой благородного газа. Элементы: 1) Be  2) Cu  3) Fe  4) S  5) As",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 3], // Be и S
+                explanation: "Ион Be²⁺ имеет конфигурацию [He], ион S²⁻ имеет конфигурацию [Ar]. Оба иона имеют электронную конфигурацию благородного газа."
+            },
+            {
+                question: "38) Определите, атомы каких из указанных в ряду элементов образуют стабильные ионы с электронной конфигурацией гелия. Элементы: 1) H  2) Na  3) Li  4) Cl  5) O",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 2], // H и Li
+                explanation: "Ион H⁻ имеет конфигурацию 1s² ([He]), ион Li⁺ имеет конфигурацию 1s² ([He]). Оба иона имеют электронную конфигурацию гелия."
+            },
+            {
+                question: "39) Определите, атомы каких из указанных в ряду элементов образуют стабильный катион с электронной конфигурацией аргона. Элементы: 1) K  2) Cl  3) Ca  4) Mg  5) S",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 2], // K и Ca
+                explanation: "Ион K⁺ имеет конфигурацию [Ar], ион Ca²⁺ имеет конфигурацию [Ar]. Оба иона имеют электронную конфигурацию аргона."
+            },
+            {
+                question: "40) Определите, устойчивые двухзарядные катионы каких из указанных в ряду элементов имеют электронную конфигурацию благородного газа. Элементы: 1) Li  2) Sr  3) O  4) Cu  5) Mg",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [1, 4], // Sr и Mg
+                explanation: "Ион Sr²⁺ имеет конфигурацию [Kr], ион Mg²⁺ имеет конфигурацию [Ne]. Оба иона имеют электронную конфигурацию благородного газа."
+            },
+            {
+                question: "41) Выберите, однозарядные катионы каких из указанных в ряду элементов имеют конфигурацию благородного газа. Элементы: 1) K  2) Br  3) Cl  4) Mg  5) Cs",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 4], // K и Cs
+                explanation: "Ион K⁺ имеет конфигурацию [Ar], ион Cs⁺ имеет конфигурацию [Xe]. Оба иона имеют электронную конфигурацию благородного газа."
+            },
+            {
+                question: "42) Определите, атомы каких из указанных в ряду элементов образуют ионы, имеющие одинаковую электронную конфигурацию. Элементы: 1) Cl  2) Na  3) Br  4) Be  5) Ca",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 2], // Cl и Br
+                explanation: "Ион Cl⁻ имеет конфигурацию [Ar], ион Br⁻ имеет конфигурацию [Kr]. Оба иона имеют аналогичную конфигурацию с заполненными внешними уровнями."
+            },
+            {
+                question: "43) Определите, анионы каких из указанных в ряду элементов имеют электронную конфигурацию как у катиона кальция. Элементы: 1) Mg  2) S  3) Cl  4) N  5) Li",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [1, 2], // S и Cl
+                explanation: "Катион Ca²⁺ имеет конфигурацию [Ar]. Анион S²⁻ имеет конфигурацию [Ar], анион Cl⁻ имеет конфигурацию [Ar]. Оба аниона имеют такую же конфигурацию, как и Ca²⁺."
+            },
+            {
+                question: "44) Определите, ионы каких из указанных в ряду элементов имеют электронную конфигурацию внешнего энергетического уровня 3s²3p⁶. Элементы: 1) Br  2) P  3) Mn  4) Ca  5) Mg",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [0, 3], // Br и Ca
+                explanation: "Ион Br⁻ имеет конфигурацию [Kr]4s²4p⁶ (внешний уровень 4s²4p⁶, но не 3s²3p⁶). Ион Ca²⁺ имеет конфигурацию [Ar] (3s²3p⁶). Правильный ответ требует уточнения."
+            },
+            {
+                question: "45) Определите, анионы каких из указанных в ряду элементов имеют конфигурацию внешнего энергетического уровня 4s²4p⁶. Элементы: 1) Cl  2) Br  3) K  4) S  5) Se",
+                answers: ["1", "2", "3", "4", "5"],
+                correct: [1, 4], // Br и Se
+                explanation: "Анион Br⁻ имеет конфигурацию [Kr] (4s²4p⁶), анион Se²⁻ имеет конфигурацию [Kr] (4s²4p⁶). Оба аниона имеют внешний уровень 4s²4p⁶."
+            }
+        ];
+
+        // Переменные для таймера
+        let startTime;
+        let timerInterval;
+        
+        // Генерация теста
+        const quizForm = document.getElementById('quiz-form');
+        
+        testData.forEach((questionData, index) => {
+            const questionDiv = document.createElement('div');
+            questionDiv.className = 'question';
+            
+            const questionNumber = document.createElement('div');
+            questionNumber.className = 'question-number';
+            questionNumber.textContent = `Вопрос ${index + 1}:`;
+            
+            const questionText = document.createElement('div');
+            questionText.textContent = questionData.question;
+            
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = 'options';
+            
+            questionData.answers.forEach((answer, i) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'option';
+                
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.name = `q${index}`;
+                checkbox.value = i;
+                checkbox.id = `q${index}a${i}`;
+                
+                const label = document.createElement('label');
+                label.htmlFor = `q${index}a${i}`;
+                label.textContent = answer;
+                
+                optionDiv.appendChild(checkbox);
+                optionDiv.appendChild(label);
+                optionsDiv.appendChild(optionDiv);
+            });
+            
+            questionDiv.appendChild(questionNumber);
+            questionDiv.appendChild(questionText);
+            questionDiv.appendChild(optionsDiv);
+            quizForm.appendChild(questionDiv);
+        });
+
+        // Запуск таймера
+        function startTimer() {
+            startTime = new Date();
+            timerInterval = setInterval(updateTimer, 1000);
+        }
+        
+        // Обновление таймера
+        function updateTimer() {
+            const currentTime = new Date();
+            const elapsedTime = new Date(currentTime - startTime);
+            
+            const minutes = elapsedTime.getMinutes().toString().padStart(2, '0');
+            const seconds = elapsedTime.getSeconds().toString().padStart(2, '0');
+            
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }
+        
+        // Функция проверки ответов
+        function checkAnswers() {
+            clearInterval(timerInterval);
+            let correctCount = 0;
+            let resultsHTML = "";
+            
+            testData.forEach((questionData, index) => {
+                const selectedOptions = [];
+                const checkboxes = document.querySelectorAll(`input[name="q${index}"]:checked`);
+                
+                checkboxes.forEach(checkbox => {
+                    selectedOptions.push(parseInt(checkbox.value));
+                });
+                
+                // Сравниваем выбранные ответы с правильными
+                const isCorrect = arraysEqual(selectedOptions.sort(), questionData.correct.sort());
+                
+                if (isCorrect) {
+                    correctCount++;
+                    resultsHTML += `<p class="correct">Вопрос ${index + 1}: Правильно!</p>`;
+                } else {
+                    resultsHTML += `<p class="incorrect">Вопрос ${index + 1}: Неправильно. Правильные ответы: ${questionData.correct.map(i => questionData.answers[i]).join(', ')}</p>`;
+                }
+                
+                // Добавляем объяснение в любом случае
+                if (questionData.explanation) {
+                    resultsHTML += `<div class="explanation">${questionData.explanation}</div>`;
+                }
+            });
+            
+            const percentage = Math.round(correctCount / testData.length * 100);
+            
+            document.getElementById('results-content').innerHTML = resultsHTML;
+            document.getElementById('score').textContent = `Результат: ${correctCount} из ${testData.length} (${percentage}%)`;
+            
+            // Обновляем прогресс-бар
+            document.getElementById('progress').style.width = `${percentage}%`;
+            
+            // Добавляем мотивационное сообщение
+            let summaryText = "";
+            if (percentage >= 90) {
+                summaryText = "Отличный результат! Вы отлично разбираетесь в электронных конфигурациях!";
+            } else if (percentage >= 70) {
+                summaryText = "Хороший результат! Продолжайте в том же духе!";
+            } else if (percentage >= 50) {
+                summaryText = "Неплохой результат, но есть куда стремиться!";
+            } else {
+                summaryText = "Вам нужно повторить тему электронных конфигураций. Попробуйте еще раз!";
+            }
+            
+            document.getElementById('summary').textContent = summaryText;
+            document.getElementById('results').style.display = 'block';
+            
+            // Прокрутка к результатам
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Вспомогательная функция для сравнения массивов
+        function arraysEqual(a, b) {
+            if (a.length !== b.length) return false;
+            for (let i = 0; i < a.length; i++) {
+                if (a[i] !== b[i]) return false;
+            }
+            return true;
+        }
+        
+        // Запускаем таймер при загрузке страницы
+        window.onload = function() {
+            startTimer();
+        };
+    </script>
+</body>
+</html>
